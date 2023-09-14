@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<img src="{{ url_for('static',filename='img/image1.jpg')}}" alt="">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+
+<body>
+    <div style="width:600px;height:30px">
+    <div class="rr">
+        {% if data != ''  %} #Todo: check login status
+        <a href="#">{{data}}</a>
+        <a href="#">Logout</a>
+    {% else %}
+        <a href="/login">Login</a>
+        <a href="#">Regist</a>
+    {% endif %}
+
+    </div>
+    <div style="clear:both;"></div>
+</div>
+
+    <hr>
+    <p>by render template from flask</p>
+    <p style="color:red">{{data}}</p>
+    <p><a href="/page1">About 7th Group</a>></p>
+    <p><a href="/page2">Data Analysis</a>></p>
+</body>
+</head>
+</html>
