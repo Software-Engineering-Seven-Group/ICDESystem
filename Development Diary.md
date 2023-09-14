@@ -1,3 +1,25 @@
+## Team Details
+
+### Team member's details
+
+| name        | sid      | email                         |
+| :---------- | :------- | :---------------------------- |
+| Yuhangchen  | 40253925 | yuhang.chen@mail.concordia.ca |
+| Jiaxi Yang  |          |                               |
+| Yulin Zhang |          |                               |
+| Boyang Wang |          |                               |
+
+### Tools Details
+
+| Tool                         |                  |
+| :--------------------------- | :--------------- |
+| Code Repository              | GitHub           |
+| IDE                          | Pycharm 2023.2.1 |
+| Programming Language         | Python 3.10.13   |
+| Group Communication Software | WeChat           |
+| Progress Tracking Tools      |                  |
+
+
 ##  Development diary
 
 
