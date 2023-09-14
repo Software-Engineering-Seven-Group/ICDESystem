@@ -6,7 +6,7 @@
 | :---------- | :------- | :---------------------------- |
 | Yuhangchen  | 40253925 | yuhang.chen@mail.concordia.ca |
 | Jiaxi Yang  |          |                               |
-| Yulin Zhang |          |                               |
+| Yulin Zhang | 40264421 | yulin.zhang@mail.concordia.ca |
 | Boyang Wang |          |                               |
 
 ### Tools Details
