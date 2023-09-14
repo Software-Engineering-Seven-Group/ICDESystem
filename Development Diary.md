@@ -17,7 +17,7 @@
 | IDE                          | Pycharm 2023.2.1 |
 | Programming Language         | Python 3.10.13   |
 | Group Communication Software | WeChat           |
-| Progress Tracking Tools      |                  |
+| Progress Tracking Tools      | Monday       |
 
 ------------------------------------------
 
