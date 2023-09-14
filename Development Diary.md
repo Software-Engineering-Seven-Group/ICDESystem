@@ -4,7 +4,7 @@
 
 | name        | sid      | email                         |
 | :---------- | :------- | :---------------------------- |
-| Yuhangchen  | 40253925 | yuhang.chen@mail.concordia.ca |
+| Yuhang Chen  | 40253925 | yuhang.chen@mail.concordia.ca |
 | Jiaxi Yang  |          |                               |
 | Yulin Zhang | 40264421 | yulin.zhang@mail.concordia.ca |
 | Boyang Wang |          |                               |
