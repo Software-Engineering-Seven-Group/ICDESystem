@@ -19,6 +19,7 @@
 | Group Communication Software | WeChat           |
 | Progress Tracking Tools      |                  |
 
+------------------------------------------
 
 ##  Development diary
 
