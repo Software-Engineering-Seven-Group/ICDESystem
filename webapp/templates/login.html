@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
 </head>
-
 <body>
-    <center>
-        <div>
-        <form action="/login_function" method="post">
-        User Name: <input type="text" name="name"><br>
-        Password: <input type="password" name="pwd"> <br>
-        <input type="submit" name="submit" value="Submit">
-        </form>
-            <a href="#">{{data}}</a>
-    </div>
-    </center>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="error">
+            {{ messages[0] }}
+        </div>
+    {% endif %}
+{% endwith %}
+
+<form method="post" action="/login">
+    Username: <input type="text" name="username" required><br>
+    Password: <input type="password" name="password" required><br>
+    <input type="submit" value="Login">
+</form>
+
 </body>
-</head>
 </html>
+
+
+
+
+
+
+
+
