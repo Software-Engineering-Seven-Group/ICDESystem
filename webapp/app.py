@@ -19,7 +19,7 @@ def register():
         existing_user = users.find_one({'username': request.form['username']})
 
         if existing_user is None:
-            users.insert({
+            users.insert_one({
                 'username': request.form['username'],
                 'name': request.form['name'],
                 'password': request.form['password'],
