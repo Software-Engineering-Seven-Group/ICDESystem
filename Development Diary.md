@@ -4,7 +4,7 @@
 
 | name        | sid      | email                         |
 | :---------- | :------- | :---------------------------- |
-| Yuhang Chen  | 40253925 | yuhang.chen@mail.concordia.ca |
+| Yuhang Chen | 40253925 | yuhang.chen@mail.concordia.ca |
 | Jiaxi Yang  |          |                               |
 | Yulin Zhang | 40264421 | yulin.zhang@mail.concordia.ca |
 | Boyang Wang |          |                               |
@@ -17,7 +17,7 @@
 | IDE                          | Pycharm 2023.2.1 |
 | Programming Language         | Python 3.10.13   |
 | Group Communication Software | WeChat           |
-| Progress Tracking Tools      | Monday       |
+| Progress Tracking Tools      | Monday           |
 
 ------------------------------------------
 

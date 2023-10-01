@@ -1,0 +1,1264 @@
+[{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272a2"
+  },
+  "Hotel_name": "Hôtel Québec Inn",
+  "Location": "Sainte-Foy-Sillery, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/366900734.jpg?k=99b2173476e205251d3db00e279334354bf7306b3af329f4755eaed739467dca&o=",
+  "score": 7.6,
+  "Price": 123.25,
+  "address": {
+    "__typename": "Location",
+    "address": "7175, Boulevard Wilfrid-Hamel Ouest ",
+    "city": "Quebec City",
+    "countryCode": "ca"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272a3"
+  },
+  "Hotel_name": "Hôtel Le Concorde Québec",
+  "Location": "Old Quebec - Upper Town, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/167139969.jpg?k=172e358471d7b454683d1976d9798993828a157749b53fca87773e5604409715&o=",
+  "score": 7.1,
+  "Price": 195,
+  "address": {
+    "address": "1225 Cours du Général-de Montcalm",
+    "countryCode": "ca",
+    "city": "Québec (Québec)",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272a4"
+  },
+  "Hotel_name": "Hotel du Nord",
+  "Location": "Centre-Ville, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/439152817.jpg?k=9995a3f45fdbad8423fb822b51c01c4b277db56c35ffa37149edac2d1f87460a&o=",
+  "score": 7.2,
+  "Price": 129,
+  "address": {
+    "countryCode": "ca",
+    "city": "Québec City (Québec)",
+    "address": "640 St-Vallier Ouest",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272a5"
+  },
+  "Hotel_name": "Hilton Québec",
+  "Location": "Old Quebec - Upper Town, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/484392732.jpg?k=a542b0cf7aced0b412c67bf401c010fcd40ce8a0811498487353e400b9c64f83&o=",
+  "score": 8.4,
+  "Price": 220.15,
+  "address": {
+    "address": "1100 Rene Levesque East",
+    "countryCode": "ca",
+    "city": "QuÃ©bec (Quebec)",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272a6"
+  },
+  "Hotel_name": "Quality Inn",
+  "Location": "Les Rivières, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/345764451.jpg?k=32659259bc3b35ae9e02a1583baf3dd45d63c2bd049314f539f471d1591e822a&o=",
+  "score": 8.1,
+  "Price": 138.255520117102,
+  "address": {
+    "__typename": "Location",
+    "address": "3825 boulevard Wilfrid-Hamel",
+    "city": "Québec City (Québec)",
+    "countryCode": "ca"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272a7"
+  },
+  "Hotel_name": "Econo Lodge Airport Quebec",
+  "Location": "Sainte-Foy-Sillery, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/430732121.jpg?k=f6b2832c86aa3c570f59784bf6b8301132b309a74f72018640005fa3f50674b7&o=",
+  "score": 7.2,
+  "Price": 109,
+  "address": {
+    "address": "7320 Boulevard Wilfrid Hamel",
+    "city": "Sainte Foy (QuÃ©bec)",
+    "countryCode": "ca",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272a8"
+  },
+  "Hotel_name": "Quality Suites Quebec City",
+  "Location": "Les Rivières, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/191131164.jpg?k=ea96cd8947386f85c84addac430d59dc3f2705dbf81dbc721b8e853e83615a08&o=",
+  "score": 8,
+  "Price": 110.46,
+  "address": {
+    "city": "Quebec City (Quebec)",
+    "countryCode": "ca",
+    "address": "1600 rue Bouvier",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272a9"
+  },
+  "Hotel_name": "Les Lofts de la Barricade - Par les Lofts Vieux-Québec",
+  "Location": "Old Quebec, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/448232062.jpg?k=ac70d2ca2eb362fddbd105d2bf8cd641968032594983df32afb34ef2b3bc492d&o=",
+  "score": 8.4,
+  "Price": 320,
+  "address": {
+    "__typename": "Location",
+    "city": "Québec",
+    "countryCode": "ca",
+    "address": "17 Rue de la Barricade"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272aa"
+  },
+  "Hotel_name": "Hôtel Lindbergh",
+  "Location": "Sainte-Foy-Sillery, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/373077615.jpg?k=0d557ab2e68c83535b9837cd43e82e3195d4a294c5420808e4fb989d31a29bb2&o=",
+  "score": 7.4,
+  "Price": 142,
+  "address": {
+    "__typename": "Location",
+    "city": "Québec (Québec)",
+    "countryCode": "ca",
+    "address": "2825, boulevard Laurier"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272ab"
+  },
+  "Hotel_name": "Hôtel & Suites Le Dauphin Québec",
+  "Location": "Les Rivières, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/404159507.jpg?k=d39cb1b8455f320e5f60bfb74ce4789588ad858e836150761a14702e17ba245e&o=",
+  "score": 7.9,
+  "Price": 149,
+  "address": {
+    "address": "400 rue Marais",
+    "countryCode": "ca",
+    "city": "Québec (Québec)",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272ac"
+  },
+  "Hotel_name": "Hotel Sepia",
+  "Location": "Sainte-Foy-Sillery, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/39628264.jpg?k=148b02111445800201f498be24b33b8991d2877b5e63dc306b7a774dd0587d6d&o=",
+  "score": 8.1,
+  "Price": 129.562160109739,
+  "address": {
+    "countryCode": "ca",
+    "city": "Québec City (Québec)",
+    "address": "3135 Chemin St. Louis",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272ad"
+  },
+  "Hotel_name": "77 St-Vallier",
+  "Location": "Saint-Roch, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/296945936.jpg?k=571bc0f4138c40ac9c192acc6155138c3734ffb243e448aba293d549b698fb9f&o=",
+  "score": 8.7,
+  "Price": 300.51,
+  "address": {
+    "address": "77 Rue Saint-Vallier Est",
+    "city": "Québec",
+    "countryCode": "ca",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272ae"
+  },
+  "Hotel_name": "Hôtel Cofortel",
+  "Location": "Sainte-Foy-Sillery, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/21533834.jpg?k=42ec28836af97de5bea1d8227c3e1d72264099f0dac8263a9f1ec42507777720&o=",
+  "score": 8.7,
+  "Price": 158.94,
+  "address": {
+    "countryCode": "ca",
+    "city": "L'Ancienne-Lorette (Québec)",
+    "address": "6500 Boulevard Wilfrid-Hamel",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272af"
+  },
+  "Hotel_name": "Monastère des Augustines",
+  "Location": "Old Quebec, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/56134953.jpg?k=8115cf8fed5d8ee349460922b5d5c18796af6031cb78b0dbc45850782cd31d1a&o=",
+  "score": 8.8,
+  "Price": 249,
+  "address": {
+    "address": "77, rue des Remparts",
+    "city": "Quebec City (Quebec)",
+    "countryCode": "ca",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272b0"
+  },
+  "Hotel_name": "Hôtel Palace Royal",
+  "Location": "Old Quebec, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/366328709.jpg?k=6fd47ecefd17312eab6ba5ee6f78efb7f523e7166c83d84c1bc20f61ea0ed15f&o=",
+  "score": 7.7,
+  "Price": 200.244720169607,
+  "address": {
+    "countryCode": "ca",
+    "city": "Quebec City",
+    "address": "775 Honoré-Mercier",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272b1"
+  },
+  "Hotel_name": "Hotel AtypiQ",
+  "Location": "Old Quebec, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/423488977.jpg?k=fc5003463172cf6cffd0aa42357b5623cd3b3a06481e2472f4277070fd502b15&o=",
+  "score": 8.2,
+  "Price": 169,
+  "address": {
+    "city": "Quebec (Quebec)",
+    "countryCode": "ca",
+    "address": "109 Rue St-Anne",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272b2"
+  },
+  "Hotel_name": "Hôtel Québec Best Western PLUS Centre-Ville - City Center",
+  "Location": "Saint-Roch, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/468175249.jpg?k=f8ab74296b6c3186fbf9de4faf4d51084467fd38b0625fd905ef80aaf9fb8677&o=",
+  "score": 7.8,
+  "Price": 159.99,
+  "address": {
+    "city": "Québec City (Québec)",
+    "countryCode": "ca",
+    "address": "330 Rue de la Couronne",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272b3"
+  },
+  "Hotel_name": "Hotel Royal William, Ascend Hotel Collection",
+  "Location": "Saint-Roch, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/278108115.jpg?k=8fa3bdf4439e243925d09b9d978f2ab3fff4a872e0630a27937e71ba3a9c6bc5&o=",
+  "score": 8.5,
+  "Price": 166.69,
+  "address": {
+    "__typename": "Location",
+    "city": "Québec (Québec)",
+    "countryCode": "ca",
+    "address": "360 boulevard Charest Est"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272b4"
+  },
+  "Hotel_name": "Hotel Plaza Quebec",
+  "Location": "Sainte-Foy-Sillery, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/366263955.jpg?k=a9d514220e77e7b0183f74188034acbd21b00b7e76c3d0bbe4f9e347d3e0ae7d&o=",
+  "score": 7.4,
+  "Price": 142,
+  "address": {
+    "__typename": "Location",
+    "city": "Quebec City",
+    "countryCode": "ca",
+    "address": "3031 Boul. Laurier"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272b5"
+  },
+  "Hotel_name": "Hotel Relais Charles-Alexandre",
+  "Location": "Centre-Ville, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/447488570.jpg?k=948d22fff828370eaae30d7d95d9e45d12473f39eac9e950a02dc52f625edcdb&o=",
+  "score": 8.2,
+  "Price": 185,
+  "address": {
+    "__typename": "Location",
+    "countryCode": "ca",
+    "city": "Québec (Québec)",
+    "address": "91 Grande- Allée E."
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272b6"
+  },
+  "Hotel_name": "Courtyard by Marriott Quebec City",
+  "Location": "Les Rivières, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/448674252.jpg?k=29dd1a549d5281366e739cc313b5b39759d316d98adcd251942e9e4d94ae359c&o=",
+  "score": 8.3,
+  "Price": 161.1,
+  "address": {
+    "__typename": "Location",
+    "address": "900 des Rocailles",
+    "city": "Quebec City",
+    "countryCode": "ca"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272b7"
+  },
+  "Hotel_name": "Chateau Repotel Henri IV",
+  "Location": "Les Rivières, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/287975936.jpg?k=7bb75a4ebd8fbeeb14736d8d481c111629dcc2a8f701cf62945e9d29a732bc3a&o=",
+  "score": 7.6,
+  "Price": 119,
+  "address": {
+    "address": "2500 Avenue St-Jean-Baptiste",
+    "city": "Québec (Québec)",
+    "countryCode": "ca",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272b8"
+  },
+  "Hotel_name": "Hotel PUR, Quebec, a Tribute Portfolio Hotel",
+  "Location": "Saint-Roch, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/337705959.jpg?k=def715d17ef2fb9017e862e64f4affd0d7e804a6026c95beb85c38e6dbcf538b&o=",
+  "score": 8.2,
+  "Price": 192.28,
+  "address": {
+    "__typename": "Location",
+    "city": "Quebec City (Quebec)",
+    "countryCode": "ca",
+    "address": "395 rue de la Couronne"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272b9"
+  },
+  "Hotel_name": "Auberge du Trésor",
+  "Location": "Old Quebec, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/28485785.jpg?k=1942dd1cb0ffebec570445f11a3e86443407eb4c1b34176dd7fc8eb47648142c&o=",
+  "score": 8.6,
+  "Price": 229,
+  "address": {
+    "countryCode": "ca",
+    "city": "Quebec City (Quebec)",
+    "address": "20 Rue Sainte Anne",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994cf6372357cf7e272ba"
+  },
+  "Hotel_name": "Le Haute Ville",
+  "Location": "Old Quebec, Quebec City",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/251066146.jpg?k=a49d32219fc0b1a8d978015af8ec609a946cbc9f352de1ea8d84b51b26a2eee1&o=",
+  "score": 7.9,
+  "Price": 145,
+  "address": {
+    "__typename": "Location",
+    "address": "138 rue Sainte-Anne",
+    "city": "Québec (Québec)",
+    "countryCode": "ca"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272bb"
+  },
+  "Hotel_name": "Hilton Garden Inn Montreal Centre-Ville",
+  "Location": "Downtown Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/474362341.jpg?k=179d0c27d58462872eaeeae2981c0025c76e27758c9a07df72f12c1fc732cd39&o=",
+  "score": 8.1,
+  "Price": 210.68,
+  "address": {
+    "city": "Montréal (Québec)",
+    "__typename": "Location",
+    "countryCode": "ca",
+    "address": "380 Sherbrooke Street West"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272bc"
+  },
+  "Hotel_name": "Sonder Maisonneuve",
+  "Location": "Downtown Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/492757776.jpg?k=089238a402394473da0b8d04aa2f82c214f953dd5f5c3e72c2ee08ada179eef5&o=",
+  "score": 8.7,
+  "Price": 393,
+  "address": {
+    "address": "1470 Rue Mackay",
+    "countryCode": "ca",
+    "city": "Montréal",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272bd"
+  },
+  "Hotel_name": "Le Chabrol Hotel & Suites",
+  "Location": "Notre-Dame-de-Grace, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/149236889.jpg?k=bc8f69d67210ceace92c6279dd8e9de2b59207f664c017d70da452231d0f40aa&o=",
+  "score": 7.1,
+  "Price": 116.49,
+  "address": {
+    "city": "Montréal (Québec)",
+    "__typename": "Location",
+    "countryCode": "ca",
+    "address": "6951 Rue, St-Jacques O."
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272be"
+  },
+  "Hotel_name": "Vogue Hotel Montreal Downtown, Curio Collection by Hilton",
+  "Location": "Downtown Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/485820260.jpg?k=40547484cab032e61e97315cc5ddf1f5aa6d731d5b372502a932b0c0c83df6fe&o=",
+  "score": 8.5,
+  "Price": 365.11,
+  "address": {
+    "countryCode": "ca",
+    "address": "1425 rue de la Montagne",
+    "city": "Montréal (Québec)",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272bf"
+  },
+  "Hotel_name": "Holiday Inn Hotel & Suites - Montreal Centre-ville Ouest, an IHG Hotel",
+  "Location": "Downtown Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/234145192.jpg?k=5b85c0691c48fd46ebc97ed561f9344deab71fe63a3a107da44eb73cb21659b1&o=",
+  "score": 8.5,
+  "Price": 211.65,
+  "address": {
+    "city": "Montreal",
+    "__typename": "Location",
+    "address": "1390, boulevard René-Lévesque Ouest",
+    "countryCode": "ca"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272c0"
+  },
+  "Hotel_name": "Appartement deux chambres",
+  "Location": "Verdun, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/495403204.jpg?k=06ee07fcb66829abec7b6874830780a8e74fa14fa465aea403e82751dfeec408&o=",
+  "score": 0,
+  "Price": 150,
+  "address": {
+    "address": "1007 Rue Leclair",
+    "countryCode": "ca",
+    "city": "Montréal",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272c1"
+  },
+  "Hotel_name": "AC Hotel by Marriott Montreal Downtown",
+  "Location": "Downtown Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/451121165.jpg?k=c28efe9d3d181317dd21b7a329839b1ae5c5b10287867d99b650383e495abf5a&o=",
+  "score": 8.5,
+  "Price": 233.1,
+  "address": {
+    "countryCode": "ca",
+    "address": "250 René-Lévesque O",
+    "__typename": "Location",
+    "city": "Montréal (Québec)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272c2"
+  },
+  "Hotel_name": "Auberge du Plateau",
+  "Location": "Plateau Mont Royal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/211280317.jpg?k=c53ef770c80534c1909c591cfbc7604802b7d2b75bab0c3787b37466e6c8b158&o=",
+  "score": 8.2,
+  "Price": 152.4,
+  "address": {
+    "address": "185 Street Sherbrooke Est",
+    "countryCode": "ca",
+    "city": "Montréal (Québec)",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272c3"
+  },
+  "Hotel_name": "Auberge Saintlo Montréal Hostel",
+  "Location": "Downtown Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/374992419.jpg?k=6c25a5880503f97c92ec82ddbc9be4613cd7f33a2dc431d379980dacb0a8c70d&o=",
+  "score": 8.4,
+  "Price": 174.91,
+  "address": {
+    "city": "Montreal (Quebec)",
+    "__typename": "Location",
+    "countryCode": "ca",
+    "address": "1030 MacKay"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272c4"
+  },
+  "Hotel_name": "LHotel",
+  "Location": "Old Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/39764774.jpg?k=8cbc309edd8b76db7afae6dd973dc2f9bceed4ccce5e21b103286b740bf54db8&o=",
+  "score": 8.3,
+  "Price": 281,
+  "address": {
+    "countryCode": "ca",
+    "address": "262 Saint Jacques Ouest",
+    "city": "Montreal (Quebec)",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272c5"
+  },
+  "Hotel_name": "Auberge Les Bons Matins",
+  "Location": "Downtown Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/61885777.jpg?k=7c9f4e793c9f89d205b5de98731872958688c6c5c3b2dfbcbf72356e5e7c18c6&o=",
+  "score": 8.9,
+  "Price": 200.8,
+  "address": {
+    "address": "1401 Argyle Avenue",
+    "countryCode": "ca",
+    "__typename": "Location",
+    "city": "Montreal (Quebec)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272c6"
+  },
+  "Hotel_name": "Quality Inn Centre-Ville",
+  "Location": "Downtown Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/249045524.jpg?k=da5a1e0fe00ae80c9291ff05d98add00b4d68e76b5a2ed55a8c332c1c6552300&o=",
+  "score": 7.9,
+  "Price": 245.65,
+  "address": {
+    "address": "1620 St. Hubert Street",
+    "countryCode": "ca",
+    "__typename": "Location",
+    "city": "Montreal (Quebec)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272c7"
+  },
+  "Hotel_name": "Terrasse Royale Hotel",
+  "Location": "Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/104925394.jpg?k=3935c22fdf2a7606df16fd0149118d2db5754edaf08db478e0427c8c6e057f07&o=",
+  "score": 8.6,
+  "Price": 175,
+  "address": {
+    "countryCode": "ca",
+    "address": "5225 Côte-des-Neiges",
+    "city": "Montréal (Québec)",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272c8"
+  },
+  "Hotel_name": "HONEYROSE Hotel, Montreal, a Tribute Portfolio Hotel",
+  "Location": "Downtown Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/480989095.jpg?k=506b07c7dd7b2e82d6216be760dbd048e16b261d6c00f93094307d6b646b373a&o=",
+  "score": 9.3,
+  "Price": 246,
+  "address": {
+    "__typename": "Location",
+    "city": "Montreal",
+    "countryCode": "ca",
+    "address": "355 Boulevard de Maisonneuve Ouest"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272c9"
+  },
+  "Hotel_name": "Hyatt Centric Montreal",
+  "Location": "Old Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/426145443.jpg?k=074319ed5526748dbc225ec94122c661250e138de77822463a88c2355a2ace1e&o=",
+  "score": 8.9,
+  "Price": 229.5,
+  "address": {
+    "__typename": "Location",
+    "city": "Montreal",
+    "address": "621 Rue Notre Dame Est",
+    "countryCode": "ca"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272ca"
+  },
+  "Hotel_name": "Samesun Montreal Central",
+  "Location": "Downtown Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/375214142.jpg?k=0c14f0bf7e426aae104f1e6c0c7007d39f26e63ccb3686c37658ba1f07cb3ddf&o=",
+  "score": 7.8,
+  "Price": 202.03,
+  "address": {
+    "countryCode": "ca",
+    "address": "1586 St-Hubert",
+    "city": "Montréal (Québec)",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272cb"
+  },
+  "Hotel_name": "Hotel Quartier des Spectacles",
+  "Location": "Downtown Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/22173656.jpg?k=77a27791c9f6feb09dd24c6c29765aea9e84e38a65998aff68b3dabbfc4a3e5e&o=",
+  "score": 6.4,
+  "Price": 105.3,
+  "address": {
+    "city": "Montréal (Québec)",
+    "__typename": "Location",
+    "countryCode": "ca",
+    "address": "17 Sainte-Catherine Ouest"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272cc"
+  },
+  "Hotel_name": "Le Penfield Par Nomade MTL",
+  "Location": "Downtown Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/369254647.jpg?k=267ef062bf68012483bed8f1cf6fb01595bed283dc54df6c0cdd8bc987df3b3d&o=",
+  "score": 8.2,
+  "Price": 137,
+  "address": {
+    "address": "1595 Avenue du Docteur-Penfield",
+    "countryCode": "ca",
+    "__typename": "Location",
+    "city": "Montréal"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272cd"
+  },
+  "Hotel_name": "Hotel Chez Swann",
+  "Location": "Downtown Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/377102286.jpg?k=ba0456bafb2b338039435f391f6a7a3541705e34429c3e1cc9534a2cc2a0b3c9&o=",
+  "score": 7.9,
+  "Price": 280.49,
+  "address": {
+    "countryCode": "ca",
+    "address": "1444 Drummond",
+    "__typename": "Location",
+    "city": "Montreal (Quebec)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272ce"
+  },
+  "Hotel_name": "3,5 style contemporain près de tous les services et transport en commun",
+  "Location": "Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/495216006.jpg?k=8f439eefb3c7a6d3f07a883451ede7c84acae5c833832bc8515c524bc7120712&o=",
+  "score": 0,
+  "Price": 121.63,
+  "address": {
+    "address": "597 Avenue Mercier",
+    "countryCode": "ca",
+    "city": "Montréal",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272cf"
+  },
+  "Hotel_name": "Econo Lodge",
+  "Location": "Downtown Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/310557849.jpg?k=15d4459b20db5fa81fc9b86395325bfebfb1cf63e8711d50dd1e8058518ef376&o=",
+  "score": 7.2,
+  "Price": 179,
+  "address": {
+    "__typename": "Location",
+    "city": "Montréal (Québec)",
+    "countryCode": "ca",
+    "address": "1683 Rue St. Hubert"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272d0"
+  },
+  "Hotel_name": "Best Western Ville-Marie Hotel & Suites",
+  "Location": "Downtown Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/491879037.jpg?k=0ebd543bd23d76f423801c4acf2c7cebcca2d78c5aad391b60e3237df94346d5&o=",
+  "score": 7.6,
+  "Price": 193.49,
+  "address": {
+    "city": "Montréal (Québec)",
+    "__typename": "Location",
+    "countryCode": "ca",
+    "address": "3407 rue Peel"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272d1"
+  },
+  "Hotel_name": "Manoir Sherbrooke",
+  "Location": "Plateau Mont Royal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/35148835.jpg?k=9e515a7e55214ff449ae77401862cc1f8b7795951d2c5cda40b4f0906eb6601a&o=",
+  "score": 8.9,
+  "Price": 219,
+  "address": {
+    "city": "Montreal (Quebec)",
+    "__typename": "Location",
+    "address": "157, Rue Sherbrooke Est",
+    "countryCode": "ca"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272d2"
+  },
+  "Hotel_name": "Montreal Marriott Chateau Champlain",
+  "Location": "Downtown Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/433373743.jpg?k=0a7e85e0b6a3290dd29dbe04dfdaebba637aacc89f451b023b2c6f097a65eea6&o=",
+  "score": 8.8,
+  "Price": 280,
+  "address": {
+    "address": "1050 de la Gauchetiere West",
+    "countryCode": "ca",
+    "__typename": "Location",
+    "city": "Montréal (Québec)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272d3"
+  },
+  "Hotel_name": "Courtyard by Marriott Montreal Midtown",
+  "Location": "Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/465583127.jpg?k=a7fc2c2c32f1b0e17a62678eb056480cbb90f81bdc25fb5a7927a6b6182890a1&o=",
+  "score": 7.8,
+  "Price": 198,
+  "address": {
+    "__typename": "Location",
+    "city": "Montreal",
+    "countryCode": "ca",
+    "address": "6787 Decarie Boulevard"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272d4"
+  },
+  "Hotel_name": "Maison Saint-Vincent By Maisons & co",
+  "Location": "Old Montreal, Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/368133206.jpg?k=c582c36c7dc6542452978ee70625940e0a9a4fbb1e0781ca061a13751ba90339&o=",
+  "score": 9,
+  "Price": 240,
+  "address": {
+    "city": "Montréal",
+    "__typename": "Location",
+    "address": "443 Rue Saint Vincent",
+    "countryCode": "ca"
+  }
+},
+{
+  "_id": {
+    "$oid": "651994df6372357cf7e272d5"
+  },
+  "Hotel_name": "Hotel Ruby Foo's",
+  "Location": "Montréal",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/495086935.jpg?k=46c08ddc073030bf565fd400e50fd20e60911c561bec51e4c4f115288f958636&o=",
+  "score": 7.5,
+  "Price": 170.1,
+  "address": {
+    "countryCode": "ca",
+    "address": "7655 Decarie Boulevard",
+    "city": "Montréal (Québec)",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13ef3"
+  },
+  "Hotel_name": "Roxy Hotel New York",
+  "Location": "Tribeca, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/492288052.jpg?k=162d54ff112c9b6e5e4857e9a592cca293a0a4028ba0909f9b14aa5baccf5928&o=",
+  "score": 8.5,
+  "Price": 502.63304042573,
+  "address": {
+    "countryCode": "us",
+    "__typename": "Location",
+    "address": "2 Avenue of the Americas",
+    "city": "New York (New York)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13ef4"
+  },
+  "Hotel_name": "The Westin New York at Times Square",
+  "Location": "Manhattan, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/434765852.jpg?k=940f24c16b8aa90e6873dfccae82c64e460230a82ac1d8cdb2dd0f79f25c0e3c&o=",
+  "score": 7.8,
+  "Price": 378.56000032064,
+  "address": {
+    "countryCode": "us",
+    "address": "270 West 43rd Street",
+    "__typename": "Location",
+    "city": "New York (New York)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13ef5"
+  },
+  "Hotel_name": "Pod Times Square",
+  "Location": "Hell's Kitchen, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/129148007.jpg?k=815f041fa1d0220233632f1b140c0df7ba345fe22cf99964edead59d8363849c&o=",
+  "score": 8.1,
+  "Price": 272.400960230724,
+  "address": {
+    "city": "New York (New York)",
+    "countryCode": "us",
+    "address": "400 West 42nd Street",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13ef6"
+  },
+  "Hotel_name": "SoHo 54",
+  "Location": "SoHo, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/164957631.jpg?k=f847d43341020e39e2c14f61cc4b245b0ed56205e49bd4289dadf5ccc5770427&o=",
+  "score": 6.9,
+  "Price": 235.085760199118,
+  "address": {
+    "city": "New York (New York)",
+    "countryCode": "us",
+    "address": "54 Watts Street",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13ef7"
+  },
+  "Hotel_name": "West Side YMCA",
+  "Location": "Upper West Side, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/204079362.jpg?k=ad3e3b9e935728478fd7d2c0c871198135bb522158b35ed9f23cb312a067110d&o=",
+  "score": 6.6,
+  "Price": 162.037200137246,
+  "address": {
+    "__typename": "Location",
+    "address": "5 West 63rd Street",
+    "countryCode": "us",
+    "city": "New York (New York)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13ef8"
+  },
+  "Hotel_name": "The Herald by LuxUrban, Trademark Collection by Wyndham",
+  "Location": "Manhattan, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/482620202.jpg?k=ab59fa0eeee2529ff6c9e5efdef48ee28c9bce51b849a5576dacaca5f44d68e1&o=",
+  "score": 7.9,
+  "Price": 288.381600244259,
+  "address": {
+    "countryCode": "us",
+    "address": "71 West 35th Street",
+    "__typename": "Location",
+    "city": "New York"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13ef9"
+  },
+  "Hotel_name": "Delta Hotels by Marriott New York Times Square",
+  "Location": "Hell's Kitchen, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/486726683.jpg?k=e72521e92d7235d33cef5b3e5d464cc0e96428154039a5b7a8ecbb3cb98cd1a6&o=",
+  "score": 7.8,
+  "Price": 297.440000251932,
+  "address": {
+    "__typename": "Location",
+    "address": "340 West 40th Street",
+    "countryCode": "us",
+    "city": "New York (New York)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13efa"
+  },
+  "Hotel_name": "Dream Midtown, Part Of Hyatt",
+  "Location": "Manhattan, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/452143201.jpg?k=9445c3a85e6f7b7c7a82570ebf96b57c057a603721d626ada6014af9cff9c492&o=",
+  "score": 7.6,
+  "Price": 270.062000228743,
+  "address": {
+    "city": "New York (New York)",
+    "address": "210 West 55th Street",
+    "__typename": "Location",
+    "countryCode": "us"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13efb"
+  },
+  "Hotel_name": "Hilton New York Times Square",
+  "Location": "Manhattan, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/484129602.jpg?k=f3420f434fa2d9b0c1094e0da913c8489c4398a208320b895f8d1db21ed7ab12&o=",
+  "score": 7.6,
+  "Price": 297.696880252149,
+  "address": {
+    "countryCode": "us",
+    "address": "234 West 42nd Street",
+    "__typename": "Location",
+    "city": "New York (New York)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13efc"
+  },
+  "Hotel_name": "The Cloud One New York-Downtown, by the Motel One Group",
+  "Location": "Wall Street - Financial District, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/482037950.jpg?k=2e386683442f6e82718d526676443bf2addb27c27be2ab679a44a48c9f29d0c9&o=",
+  "score": 8.4,
+  "Price": 350.168000296592,
+  "address": {
+    "city": "New York",
+    "address": "133 Greenwich Street",
+    "__typename": "Location",
+    "countryCode": "us"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13efd"
+  },
+  "Hotel_name": "The Tuscany Powered by LuxUrban",
+  "Location": "Murray Hill, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/120750848.jpg?k=a0277330b0d41a1676732f6c9b1e543dfb00b119d7c5165b4fc2a5148d2cca35&o=",
+  "score": 7.2,
+  "Price": 356.928000302318,
+  "address": {
+    "countryCode": "us",
+    "address": "120 East 39th Street",
+    "__typename": "Location",
+    "city": "New York (New York)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13efe"
+  },
+  "Hotel_name": "Park South Hotel, part of JdV by Hyatt",
+  "Location": "NoMad, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/245103760.jpg?k=c651ad3d621232036e8155167f8fa248c6b353b52e0f237857ed4d86e188931a&o=",
+  "score": 8.5,
+  "Price": 371.908160315006,
+  "address": {
+    "city": "New York (New York)",
+    "address": "124 East 28th Street",
+    "__typename": "Location",
+    "countryCode": "us"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13eff"
+  },
+  "Hotel_name": "Tempo By Hilton New York Times Square",
+  "Location": "Manhattan, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/488244482.jpg?k=a056faa876986d1ae33818f06975e650194a86c13fc2abc8716c34ef6bea6d0b&o=",
+  "score": 8.9,
+  "Price": 459.680000389349,
+  "address": {
+    "city": "New York City",
+    "__typename": "Location",
+    "address": "1568 Broadway",
+    "countryCode": "us"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13f00"
+  },
+  "Hotel_name": "Paramount Hotel Times Square",
+  "Location": "Manhattan, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/58134090.jpg?k=54641703ea3dbbd0c4306ef367cafd4e2f86540676511ea2ecfb08495dd09141&o=",
+  "score": 6.5,
+  "Price": 269.048000227884,
+  "address": {
+    "city": "New York (New York)",
+    "countryCode": "us",
+    "address": "235 West 46th Street",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13f01"
+  },
+  "Hotel_name": "W New York - Times Square",
+  "Location": "Manhattan, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/430855368.jpg?k=247eb92a02c71ec96f48fc60978f7e5cff687f9a723a610602aa6f32a9695a4a&o=",
+  "score": 7.7,
+  "Price": 435.344000368736,
+  "address": {
+    "address": "1567 Broadway",
+    "__typename": "Location",
+    "countryCode": "us",
+    "city": "New York (New York)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13f02"
+  },
+  "Hotel_name": "Wingate by Wyndham New York Midtown South/5th Ave",
+  "Location": "Manhattan, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/230263897.jpg?k=c090ef9be2aa3422580f43851ee4f1b4e0ecd32e1c24368cf10b457bb7aac073&o=",
+  "score": 8,
+  "Price": 322.587200273231,
+  "address": {
+    "address": "11 West 37th St",
+    "__typename": "Location",
+    "countryCode": "us",
+    "city": "New York (New York)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13f03"
+  },
+  "Hotel_name": "The New Yorker, A Wyndham Hotel",
+  "Location": "Hell's Kitchen, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/83778539.jpg?k=6c3a6f5219ea4d2f89eca9a39bd501dbb4115146a45e200b5d927ceee0bd5e5d&o=",
+  "score": 7.7,
+  "Price": 357.860880303108,
+  "address": {
+    "address": "481 Eighth Avenue",
+    "__typename": "Location",
+    "countryCode": "us",
+    "city": "New York (New York)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13f04"
+  },
+  "Hotel_name": "Hyatt Centric Midtown 5th Avenue New York",
+  "Location": "Manhattan, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/310727384.jpg?k=84ba5c25fe707c2fafa202c680f8b940bee667019a213dadde54b51c63d862bb&o=",
+  "score": 8,
+  "Price": 363.823200308158,
+  "address": {
+    "countryCode": "us",
+    "address": "16 East 39th St",
+    "__typename": "Location",
+    "city": "New York (New York)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13f05"
+  },
+  "Hotel_name": "Dream Downtown, Part Of Hyatt",
+  "Location": "Chelsea, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/43860221.jpg?k=034e43cabfa6c96f50a916145daa5a4dd8fb229c7a35cc9d9a8b132ba8924bca&o=",
+  "score": 7.3,
+  "Price": 323.060400273632,
+  "address": {
+    "countryCode": "us",
+    "address": "355 West 16th Street",
+    "__typename": "Location",
+    "city": "New York (New York)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13f06"
+  },
+  "Hotel_name": "Park Central",
+  "Location": "Manhattan, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/19082406.jpg?k=17006a7c87dc25893e47ceec1ea1abe180ddead15f7ef8cc3fc261a253da1044&o=",
+  "score": 7.5,
+  "Price": 357.103760302467,
+  "address": {
+    "__typename": "Location",
+    "address": "870 7th Avenue at 56th Street",
+    "countryCode": "us",
+    "city": "New York (New York)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13f07"
+  },
+  "Hotel_name": "The Manhattan at Times Square",
+  "Location": "Manhattan, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/20455439.jpg?k=bd4340dd5bc576ae6771c20f5bdf4f003f6abdf01da496c69c08e29e3edbb4bf&o=",
+  "score": 5.6,
+  "Price": 330.86144028024,
+  "address": {
+    "city": "New York (New York)",
+    "countryCode": "us",
+    "__typename": "Location",
+    "address": "790 7th Avenue"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13f08"
+  },
+  "Hotel_name": "The Westin New York Grand Central",
+  "Location": "Murray Hill, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/465574606.jpg?k=0ed82342a20fbc371ff33aa65a13941b7e5db92f66a87028725c0e1fa8794373&o=",
+  "score": 8,
+  "Price": 350.168000296592,
+  "address": {
+    "countryCode": "us",
+    "address": "212 East 42nd Street",
+    "__typename": "Location",
+    "city": "New York (New York)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13f09"
+  },
+  "Hotel_name": "Hilton Garden Inn New York/Midtown Park Avenue",
+  "Location": "Manhattan, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/485684166.jpg?k=234227d2f4af3fe5596c46f6e370a0f1b26bf8403ed0d004380551ba71a84a87&o=",
+  "score": 8,
+  "Price": 419.120000354995,
+  "address": {
+    "address": "45 East 33rd Street",
+    "__typename": "Location",
+    "countryCode": "us",
+    "city": "New York (New York)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13f0a"
+  },
+  "Hotel_name": "The Evelyn NoMad",
+  "Location": "NoMad, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/472958134.jpg?k=553115e2fad1f066602375087264d98c1ad4769593a718e6eaade92ee443bd30&o=",
+  "score": 7.7,
+  "Price": 388.159200328771,
+  "address": {
+    "__typename": "Location",
+    "address": "7 East 27th Street",
+    "countryCode": "us",
+    "city": "New York (New York)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13f0b"
+  },
+  "Hotel_name": "33 Seaport Hotel New York",
+  "Location": "Wall Street - Financial District, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/460282320.jpg?k=f6d06474dd39260e9941d571e653b5cea9ee332abeffdf830e62a91378b6450c&o=",
+  "score": 8.5,
+  "Price": 546.045760462501,
+  "address": {
+    "city": "New York (New York)",
+    "countryCode": "us",
+    "address": "33 Peck Slip",
+    "__typename": "Location"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13f0c"
+  },
+  "Hotel_name": "Millennium Hotel Broadway Times Square",
+  "Location": "Manhattan, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/397320344.jpg?k=6c845edac779802b7dd7227475688f03324f0cbe945186c9f24525aac000ac9c&o=",
+  "score": 7.1,
+  "Price": 381.791280323377,
+  "address": {
+    "countryCode": "us",
+    "address": "145 West 44th Street",
+    "__typename": "Location",
+    "city": "New York (New York)"
+  }
+},
+{
+  "_id": {
+    "$oid": "651995654a3629f6cac13f0d"
+  },
+  "Hotel_name": "City Club Hotel",
+  "Location": "Manhattan, New York",
+  "Images": "https://cf.bstatic.com//xdata/images/hotel/square600/36715440.jpg?k=525b7e1639f77f3fac947494e3db323c8b8ad264019e5e2e752373c56d5bff2f&o=",
+  "score": 7.3,
+  "Price": 267.547280226613,
+  "address": {
+    "__typename": "Location",
+    "address": "55 West 44th Street",
+    "countryCode": "us",
+    "city": "New York (New York)"
+  }
+}]
