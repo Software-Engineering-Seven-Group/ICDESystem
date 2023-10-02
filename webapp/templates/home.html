@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
 <img src="{{ url_for('static',filename='img/image1.jpg')}}" alt="">
 
@@ -8,15 +9,17 @@
     <title>Home Page</title>
 </head>
 
+
+
 <body>
     <div style="width:600px;height:30px">
     <div class="rr">
-        {% if data != ''  %} #Todo: check login status
-        <a href="#">{{data}}</a>
+        {% if loginstate != ''  %} #Todo: check login status
+        <a href="#">{{loginstate}}</a>
         <a href="#">Logout</a>
     {% else %}
         <a href="/login">Login</a>
-        <a href="#">Regist</a>
+        <a href="/register">Register</a>
     {% endif %}
 
     </div>
@@ -28,6 +31,44 @@
     <p style="color:red">{{data}}</p>
     <p><a href="/page1">About 7th Group</a>></p>
     <p><a href="/page2">Data Analysis</a>></p>
+    <p>{{data_keys_list}}</p>
+    <p>{{ data_keys_list }}[0]</p>
+    <p>{{data_values_list}}</p>
+
+
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+<script>
+
+    const xValues = {{data_keys_list | tojson}};
+    const yValues = {{data_values_list}};
+    const barColors = [
+        "#b91d47",
+        "#00aba9",
+        "#2b5797",
+        "#e8c3b9",
+        "#1e7145"
+    ];
+
+    new Chart("myChart", {
+    type: "pie",
+    data: {
+        labels: xValues,
+        datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+        }]
+    },
+    options: {
+        title: {
+        display: true,
+        text: "The Top 5 nation visitors' number in Montreal"
+        }
+    }
+    });
+</script>
+
+
 </body>
 </head>
 </html>
