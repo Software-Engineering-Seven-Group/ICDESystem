@@ -1,25 +1,37 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
-from flask_pymongo import PyMongo
 from crawler.Get_Hotel import Get_booking_hotel
+from database_manager import MongoDBManager, UserInfoCollection, mongo_manager, user_infor_manager
+from app_instance import app
 import copy
-app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb://localhost:27017/Tripedia"
-app.secret_key = "mysecretkey"
-mongo = PyMongo(app)
+
 
 "“首页，重定向”"
 @app.route('/')
 def home():
-    return redirect(url_for('register'))
+    #return redirect(url_for('register'))
+
+    #todo: data analysis model
+    analysed_data = {"America": 14, "China": 10, "India": 20, "France": 50, "England": 6}
+
+    analysed_data_keys = list(analysed_data.keys())
+    analysed_data_values = list(analysed_data.values())
+
+    print(analysed_data_values)
+    print(analysed_data_keys)
+
+    #return render_template("search.html", data_keys_list=analysed_data_keys, data_values_list=analysed_data_values,
+    return render_template("home.html", data_keys_list=analysed_data_keys, data_values_list=analysed_data_values,
+                           loginstate='')
+
+
 "插入信息（注册用户信息）"
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
-        users = mongo.db.userInfo
-        existing_user = users.find_one({'username': request.form['username']})
+        existing_user = user_infor_manager.find_user_info('username')
 
         if existing_user is None:
-            users.insert_one({
+            user_infor_manager.insert_one_user({
                 'username': request.form['username'],
                 'name': request.form['name'],
                 'password': request.form['password'],
@@ -39,8 +51,7 @@ def register():
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
-        users = mongo.db.userInfo
-        login_user = users.find_one({'username': request.form['username']})
+        login_user = user_infor_manager.find_user_info('username')
 
         if login_user:
             if request.form['password'] == login_user['password']:
@@ -52,8 +63,8 @@ def login():
 
 @app.route('/search',methods=['POST', 'GET'])# Search
 def search():
-    hotels=mongo.db.Hotels
-    
+    hotels = mongo_manager.get_collection("Hotels")
+
     if request.method == 'POST':
         Keyword=request.form['Keyword']
         checkin=request.form['checkin']
@@ -85,5 +96,6 @@ def search():
         exist_datas=list(copy.deepcopy(exist_data))
         return render_template('search.html',results=exist_datas)
     return render_template('search.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
