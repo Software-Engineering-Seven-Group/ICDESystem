@@ -318,7 +318,7 @@ None.
 
 \textbf{Pre-condition}: The traveler has to open the Tripedia website.
 
-\textbf{Post-condition}: Website displays suitable mode of transportation.
+\textbf{Post-condition}: Website displays a suitable mode of transportation.
 
 \textbf{Basic-Path}:
 
@@ -330,7 +330,7 @@ None.
 
 4. The user clicks the 'search' button.
 
-5. The website displays suitable tickets.( include flights or trains)
+5. The website displays suitable tickets. (include flights or trains)
 
 6. The user can choose his favorite transportation function and then add it to his wish list.
 
@@ -373,8 +373,166 @@ None.
 \section{Functional Requirements}
 
 
+\subsection{ Login}
 
-\section{Unfunctional Requirements}
+\subsubsection{ Enter Username and password}
+
+The users can enter their username and password in the input box. The 
+user can click on the Show Password button in the password box. When the user 
+clicks on this button, the password will be displayed in plaintext in the password 
+box so that the user can check if the password is correct before logging in.
+
+\subsubsection{ Validate}
+
+When the user clicks on the login button if the user enters an incorrect 
+password or username, the message "Username or password error" will be 
+displayed. If the user enters the correct username and password, the system 
+will automatically jump to the home page, and the user's login status will be 
+displayed on the home page.
+
+
+\subsection{  Register}
+Users can create a new account by entering a username, name, password, email,
+and other relevant personal information.
+
+\subsubsection{ Enter Personal Information}
+When the user clicks on the register button, the page will display several 
+input fields to let the user enter their personal information. After finishing the 
+input, the user can click the “Create” button to create a new account.
+
+\subsubsection{ Verify Email Address }
+
+After the user inputs their email address, they can click the “Verify the 
+email” button, and then the system will send an email to the address. The user
+should open the email and click the link in the email to finish the registration. If 
+the user doesn't receive the email, they can click the “don’t receive the email” 
+button and the system will send another email.
+
+\subsection{ Editing Personal Information }
+
+\subsubsection{ Change Password }
+
+When the user wants to change their password, they can enter their 
+own account page, and click “Change the password” to edit it. The user needs to 
+type the old password first to ensure safety. If the user inputs the wrong 
+password, a system will display the message “ wrong password. You can’t 
+change the password.” If the password is right, the user can type the new 
+password and they should input it for the second time to confirm the new
+password. After confirming the new password, the user clicks on the “Save”
+button to save the change.
+
+\subsubsection{ Update Email Address }
+
+When the user wants to change their email address, they can enter their 
+own account page, and click “Change the email address” to edit it. The user can 
+input the new email address and click the “Verify the email” button, and then the 
+system will send an email to the address. The user should open the email and 
+click the link in the email to finish the update. If the user doesn't receive the 
+email, they can click the “don’t receive the email” button, and the system will 
+send another email.
+
+\subsubsection{ Edit Other Information }
+
+When the user wants to change other personal information, they can 
+enter their own account page to edit it. After inputting the new information, click 
+the “Save” button to save the edit.
+
+\subsection{ Search }
+
+Users can enter keywords, locations, or other criteria to search for travel 
+destinations.
+A list of related travel destinations is displayed and the user can click to view 
+details.
+
+\subsubsection{ Search Method }
+
+Users should be able to search for the information by using the search 
+bar. When users are typing, the system will list the related entries under the 
+search bar to help users to search. Moreover, Users should be able to use 
+filters and restrictions to narrow down search results. The system should be 
+able to save the user's search history so that the user can quickly find the 
+required information the next time.
+
+\subsubsection{ Search Result Display }
+
+Search results should be clear and sorted in order of relevance so that 
+users can quickly find the information they need. When there are too many 
+search results, pagination should be supported. Users can enter the details 
+page by displaying the results, which introduces specific information about 
+the scenic spot, and the user can enter the official page of the tourist 
+destination through the link displayed on the website to learn more.
+
+\subsection{ Intelligent Recommendations }
+
+Users can fill out a questionnaire describing their travel preferences.
+Based on the user's questionnaire responses, the system will automatically 
+recommend suitable travel destinations.
+
+\subsubsection{ Questionnaire }
+
+After the user registers, the user is asked to choose to skip the location 
+recommendation or make a location recommendation. If the user chooses 
+to recommend a location, the system will jump to the questionnaire page, 
+and then after completing a simple questionnaire, the system will send the 
+questionnaire information into the ICDE system for processing, and return 
+and save the results of the recommendation to the user's database.
+
+\subsubsection{ Recommendation }
+
+When a user clicks on the questionnaire button after registration and 
+completes the questionnaire, the system will analyze the results of the 
+questionnaire and display results in the Recommendations module on the 
+home page of the website.
+
+If you are a guest or a registered user who skipped the survey, the 
+currently popular destinations, highly-rated restaurants, and hotels will be 
+displayed in the Recommendations module of the web page.
+
+
+\section{Nonfunctional Requirements}
+
+\subsection{ Performance }
+
+In order to cope with high concurrency scenarios, it ensures that users still 
+get fast responses during high loads, while maximizing the utilization of server 
+resources. The system should be able to support multi-threaded processing, 
+making full use of the server's multi-core resources to improve response speed 
+and processing efficiency.
+
+\subsection{ Usability }
+
+The website's interface should be easy to use, clear, and appropriate for all 
+age groups of users. The user interface should be simple and intuitive. Elements 
+such as color, fonts, and layout should all contribute to the user experience.
+When the user enters incorrect information, there will be a clear error message 
+to guide the user on how to correct the error.
+
+\subsection{ Security }
+
+To ensure the security of user passwords, the system performs hash 
+processing to encrypt the passwords instead of storing them in the database in 
+plaintext.
+
+
+\subsection{ Compatibility }
+
+
+\subsubsection{ Browser compatibility }
+
+
+The website is compatible with mainstream browsers such as Chrome, 
+Firefox, Safari, etc.
+
+\subsubsection{ Operate System compatibility }
+
+Users can access the server page through computer operating systems 
+such as Linux, Windows, macOS, and mobile device operating systems such 
+as iOS and Android.
+
+
+
+
+
 
 
 
