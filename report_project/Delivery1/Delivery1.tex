@@ -144,7 +144,7 @@ None.
 
 \textbf{Actors}: Traveller, Client, Server, Data Store.
 
-\textbf{Summary Description}: Allows any traveller register an account and login in the Tripedia website.
+\textbf{Summary Description}: Allows any traveller to register an account and log in the Tripedia website.
  
 \textbf{Status}: Medium level of details.
 
@@ -210,13 +210,11 @@ None.
 2a. The user abandons the chance to complete the questionnaire.
 
 
-
-
 \subsubsection{User Cases: Data Analysis Diagram}
 
 \textbf{ }
 
-\textbf{Use Case}: Questionnaire
+\textbf{Use Case}: Data Analysis Diagram
 
 \textbf{Actors}: Traveller, Client, Server.
 
@@ -224,12 +222,11 @@ None.
  
 \textbf{Status}: Medium level of details.
 
-\textbf{Pre-condition}: Travelers must be in login state and the website is on home page.
+\textbf{Pre-condition}: Travelers must be in login state and the website is on the home page.
 
 \textbf{Post-condition}: Travelers can search the recommended cities in the search area for more information.
 
 \textbf{Basic-Path}:
-
 
 1. The traveler clicks the "Analysis Panel" button.
 
@@ -249,30 +246,25 @@ None.
 
 \textbf{Actors}: Traveller, Client, Server.
 
-\textbf{Summary Description}: Allows any traveler to search for his destination, then the website recommends related information (e.t. hotel, transport function, Landmark Tickets, scenic spot review)
+\textbf{Summary Description}: Allows any traveler to search for his destination, then the website recommends related information.
 
 \textbf{Status}: Medium level of details.
 
 \textbf{Pre-condition}: The traveler has to open the Tripedia website.
 
-\textbf{Post-condition}: Website displays the relevant recommendation information.
+\textbf{Post-condition}: The website displays the relevant recommendation information.
 
 \textbf{Basic-Path}:
 
 1. The user enters the website.
 
-2. The user enters the destination in the input box.
+2. The user enters the traveling destination in the input box.
 
 3. The user clicks the 'search' button
 
-4. The website displays the relevant recommendation information in the form of a list.( Information including food, accommodation, transportation and shopping)
+4. The website displays the relevant recommendation information in the form of a list.
 
-\textbf{Alternate Paths}: 
-
-1a. The user sign in the website.
-
-4a. The website displays the relevant recommendation information in the form of a list.( Information related to the personal data of the user including food, accommodation, transportation and shopping)
-
+\textbf{Alternate Paths}:  None
 
 \subsubsection{User Cases: Search hotels}
 
@@ -282,13 +274,13 @@ None.
 
 \textbf{Actors}: Traveller, Client, Server.
 
-\textbf{Summary Description}: Allows any traveler to search right hotels
+\textbf{Summary Description}: Allows any traveler to search appropriate hotels.
 
 \textbf{Status}: Medium level of details.
 
-\textbf{Pre-condition}: The traveler has to open the Tripedia website.
+\textbf{Pre-condition}: Travelers must be in login state and the website is on the home page.
 
-\textbf{Post-condition}: Website displays suitable hotels.
+\textbf{Post-condition}: The website displays the appropriate hotels list.
 
 \textbf{Basic-Path}:
 
@@ -296,7 +288,7 @@ None.
 
 2. The user enters the destination in the input box.
 
-3. The user chooses the check-in date and check-out date from the date-form.
+3. The user chooses the check-in date and check-out date from the date form.
 
 4. The user clicks the 'search' button
 
@@ -312,7 +304,7 @@ None.
 
 \textbf{Actors}: Traveller, Client, Server.
 
-\textbf{Summary Description}: Allows any traveler to search the right mode of transportation
+\textbf{Summary Description}: Allows any traveler to search for the right mode of transportation
 
 \textbf{Status}: Medium level of details.
 
@@ -344,13 +336,13 @@ None.
 
 \textbf{Actors}: Traveller, Client, Server.
 
-\textbf{Summary Description}: Allows any traveler to check the details of hotel.
+\textbf{Summary Description}: Allows any traveler to check the details of the hotel.
 
 \textbf{Status}: Medium level of details.
 
 \textbf{Pre-condition}: The traveler has to open the Tripedia website.
 
-\textbf{Post-condition}: Website jumps to new page of hotel booking details.
+\textbf{Post-condition}: Website jumps to a new page of hotel booking details.
 
 \textbf{Basic-Path}:
 
@@ -358,7 +350,7 @@ None.
 
 2. The user enters the destination in the input box.
 
-3. The user chooses check in date and check out date from the date-form.
+3. The user chooses the check-in date and check-out date from the date form.
 
 4. The user clicks the 'search' button.
 
@@ -366,7 +358,7 @@ None.
 
 6. The user clicks one of the hotels.
 
-7. The website jump to a new page of hotel booking details.
+7. The website jumps to a new page of hotel booking details.
 
 \textbf{Alternate Paths}: None
 
@@ -375,6 +367,9 @@ None.
 
 \subsection{ Login}
 
+As the user case: Register and Login shows, the requirement of Login is an essential functional feature. If users have their accounts, they can log in to the website and get all services. This requirement can be divided into three sub-requirements: 
+Enter Username and Password, Validation, and Edit Personal Information.
+
 \subsubsection{ Enter Username and password}
 
 The users can enter their username and password in the input box. The 
@@ -382,7 +377,7 @@ user can click on the Show Password button in the password box. When the user
 clicks on this button, the password will be displayed in plaintext in the password 
 box so that the user can check if the password is correct before logging in.
 
-\subsubsection{ Validate}
+\subsubsection{ Validation }
 
 When the user clicks on the login button if the user enters an incorrect 
 password or username, the message "Username or password error" will be 
@@ -392,13 +387,16 @@ displayed on the home page.
 
 
 \subsection{  Register}
+
 Users can create a new account by entering a username, name, password, email,
-and other relevant personal information.
+and other relevant personal information. This requirement can be divided into 
+two sub-requirements: Enter Personal Information, and Verify Email Address.
 
 \subsubsection{ Enter Personal Information}
-When the user clicks on the register button, the page will display several 
-input fields to let the user enter their personal information. After finishing the 
-input, the user can click the “Create” button to create a new account.
+
+When the user clicks on the register button on the home page, the page will display several 
+input fields to let the user enter his personal information. After finishing the 
+input, the user can click the “Register” button to create a new account.
 
 \subsubsection{ Verify Email Address }
 
@@ -406,14 +404,14 @@ After the user inputs their email address, they can click the “Verify the
 email” button, and then the system will send an email to the address. The user
 should open the email and click the link in the email to finish the registration. If 
 the user doesn't receive the email, they can click the “don’t receive the email” 
-button and the system will send another email.
+button and the system will send the verification email again.
 
-\subsection{ Editing Personal Information }
+\subsection{ Edit Personal Information }
 
 \subsubsection{ Change Password }
 
 When the user wants to change their password, they can enter their 
-own account page, and click “Change the password” to edit it. The user needs to 
+account page, and click “Change the password” to edit it. The user needs to 
 type the old password first to ensure safety. If the user inputs the wrong 
 password, a system will display the message “ wrong password. You can’t 
 change the password.” If the password is right, the user can type the new 
@@ -424,7 +422,7 @@ button to save the change.
 \subsubsection{ Update Email Address }
 
 When the user wants to change their email address, they can enter their 
-own account page, and click “Change the email address” to edit it. The user can 
+account page, and click “Change the email address” to edit it. The user can 
 input the new email address and click the “Verify the email” button, and then the 
 system will send an email to the address. The user should open the email and 
 click the link in the email to finish the update. If the user doesn't receive the 
@@ -434,7 +432,7 @@ send another email.
 \subsubsection{ Edit Other Information }
 
 When the user wants to change other personal information, they can 
-enter their own account page to edit it. After inputting the new information, click 
+enter their account page to edit it. After inputting the new information, click 
 the “Save” button to save the edit.
 
 \subsection{ Search }
@@ -462,42 +460,53 @@ page by displaying the results, which introduces specific information about
 the scenic spot, and the user can enter the official page of the tourist 
 destination through the link displayed on the website to learn more.
 
-\subsection{ Intelligent Recommendations }
+\subsection{ Data Analysis Diagram }
 
-Users can fill out a questionnaire describing their travel preferences.
-Based on the user's questionnaire responses, the system will automatically 
-recommend suitable travel destinations.
+As the User Cases: Data Analysis Diagram shows, users can check the 
+data analysis diagrams calculated by the ICDE system. Meanwhile, the precondition of the Data Analysis Diagram is the Questionnaire, 
+so the data analysis diagram requirement combines the processing of the diagram and questionnaire. Furthermore, the Data Analysis
+Diagram requirements can be divided into three sub-requirements: Questionnaire, Data Analysis, and Diagram Display.
 
 \subsubsection{ Questionnaire }
 
-After the user registers, the user is asked to choose to skip the location 
-recommendation or make a location recommendation. If the user chooses 
-to recommend a location, the system will jump to the questionnaire page, 
-and then after completing a simple questionnaire, the system will send the 
-questionnaire information into the ICDE system for processing, and return 
-and save the results of the recommendation to the user's database.
+When the user first logs in to the website, the website pops up a diagram asking the user to complete a questionnaire to 
+get an accurate recommendation. If the user chooses 
+to complete the questionnaire, the system will jump to the questionnaire page. The questionnaire page contains several one-choice questions, and
+at the end of the page, there is a submit button and a quit button. If the user clicks the "quit" button, the website jumps to the home page.
+After completing the questionnaire, the website will send the 
+questionnaire information to the data-analyzing module. At the same time, the server program(data-processing module in architecture diagram) 
+save the questionnaire information to the database.
 
-\subsubsection{ Recommendation }
+\subsubsection{ Data Analysis }
 
-When a user clicks on the questionnaire button after registration and 
-completes the questionnaire, the system will analyze the results of the 
-questionnaire and display results in the Recommendations module on the 
-home page of the website.
+The sub-requirement of Data Analysis is not visible to users, but it is an essential requirement in an ICDE system. While the information on the questionnaire has been sent to
+the data-analyzing module, the data-analyzing module will calculate the recommendation weights of cities based on the user's information. We will design a KNN algorithm as the core 
+algorithm for data analysis.  
 
-If you are a guest or a registered user who skipped the survey, the 
-currently popular destinations, highly-rated restaurants, and hotels will be 
-displayed in the Recommendations module of the web page.
 
+\subsubsection{ Diagram Display }
+
+When the user clicks the "Analysis Panel" button on the home page, the website jumps to the diagram display page.
+The website receives the information processed by the data-analyzing module and shows the results by several diagram types. 
+The diagrams are initially designed as follows:
+
+\begin{itemize}
+\item[*] The most appropriate travel destination: pie chart.
+
+\item[*] The most popular travel destination: bar chart.
+\end{itemize}
 
 \section{Nonfunctional Requirements}
 
+\iffalse
 \subsection{ Performance }
 
-In order to cope with high concurrency scenarios, it ensures that users still 
-get fast responses during high loads, while maximizing the utilization of server 
+To cope with high concurrency scenarios, it ensures that users still 
+get fast responses during high loads, while maximizing the utilization of the server 
 resources. The system should be able to support multi-threaded processing, 
 making full use of the server's multi-core resources to improve response speed 
 and processing efficiency.
+\fi
 
 \subsection{ Usability }
 
@@ -509,7 +518,7 @@ to guide the user on how to correct the error.
 
 \subsection{ Security }
 
-To ensure the security of user passwords, the system performs hash 
+To ensure the security of user passwords, the system performs a hash 
 processing to encrypt the passwords instead of storing them in the database in 
 plaintext.
 
