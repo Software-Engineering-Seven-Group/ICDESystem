@@ -56,7 +56,7 @@ def login():
         if login_user:
             if request.form['password'] == login_user['password']:
                 session['username'] = request.form['username']
-                return "登陆成功!"
+                return redirect(url_for("home"))
 
         flash('用户名或密码不正确！')
     return render_template('login.html')
