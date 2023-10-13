@@ -1,12 +1,45 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Register</title>#}
+{#</head>#}
+{#<body>#}
+{##}
+{#{% with messages = get_flashed_messages() %}#}
+{#    {% if messages %}#}
+{#        <ul>#}
+{#        {% for message in messages %}#}
+{#            <li>{{ message }}</li>#}
+{#        {% endfor %}#}
+{#        </ul>#}
+{#    {% endif %}#}
+{#{% endwith %}#}
+{##}
+{#<form method="post" action="/register" onsubmit="return confirm('Are you sure you want to register?');">#}
+{#    Username: <input type="text" name="username" required><br>#}
+{#    Name: <input type="text" name="name" required><br>#}
+{#    Password: <input type="password" name="password" required><br>#}
+{#    Sex: <input type="text" name="sex"><br>#}
+{#    Age: <input type="number" name="age"><br>#}
+{#    Phone: <input type="text" name="phone"><br>#}
+{#    Email: <input type="email" name="email"><br>#}
+{#    <input type="submit" value="Register">#}
+{#</form>#}
+{##}
+{#</body>#}
+{#</html>#}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>注册页面</title>
+    <!--    引入格式文件-->
+    <link rel="stylesheet" href="html&css.css">
 </head>
 <body>
-
 {% with messages = get_flashed_messages() %}
     {% if messages %}
         <ul>
@@ -16,19 +49,111 @@
         </ul>
     {% endif %}
 {% endwith %}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            height: 100%;
+        }
+        body {
+            height: 100%;
+        }
+        .container {
+            height: 100%;
+            background-image: url("../static/img/Register.jpg");
+            background-position: center bottom;
+            background-repeat: no-repeat;
+        }
+        .login-wrapper {
+            background-color: bisque;
+            width: 358px;
+            height: 688px;
+            border-radius: 15px;
+            padding: 0 50px;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            opacity: 0.85;
+        }
+        .header {
+            font-size: 22px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 90px;
+        }
+        .input-item {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 0;
+            padding: 10px;
+            border-bottom: 1px solid rgb(128,125,125);
+            font-size: 15px;
+            outline: none;
+        }
+        .input-item::placeholder {
+            text-transform: uppercase;
+        }
+        .btn {
 
-<form method="post" action="/register" onsubmit="return confirm('Are you sure you want to register?');">
-    Username: <input type="text" name="username" required><br>
-    Name: <input type="text" name="name" required><br>
-    Password: <input type="password" name="password" required><br>
-    Sex: <input type="text" name="sex"><br>
-    Age: <input type="number" name="age"><br>
-    Phone: <input type="text" name="phone"><br>
-    Email: <input type="email" name="email"><br>
-    <input type="submit" value="Register">
-</form>
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            margin-top: 40px;
+            background-image: linear-gradient(to right,#a6c1ee, #fbc2eb);
+            color: #fff;
+        }
+        .msg {
+            text-align: center;
+            line-height: 88px;
+        }
+        a {
+            text-decoration-line: none;
+            color: #abc1ee;
+        }
+    </style>
+<div class="container">
+    <div class="login-wrapper">
+       <div class="header">
+        <p>USER REGISTER</p>
+    </div>
+        <div class="form-wrapper">
+            <form method="post" action="/register" onsubmit="return confirm('Are you sure you want to register?');">
 
+                        <input type="text" placeholder="Username" id="username" class="input-item">
+
+                        <input type="text" placeholder="Name" id="name" class="input-item">
+
+                        <input type="password" placeholder="Password" id="password" class="input-item">
+
+                        <input type="number" placeholder="age" id="age"  class="input-item">
+
+                        <input type="text" placeholder="Sex" id="sex" class="input-item">
+
+                        <input type="text" placeholder="Phone number" id="phone" class="input-item">
+
+                        <input type="email" placeholder="Email:xxxx@xxxx.com" id="email" class="input-item">
+
+
+
+                            <input type="submit" value="Register" class="btn">
+
+
+                </table>
+            </form>
+        </div>
+
+    </div>
+    </div>
+    <div class="rg_right">
+        <p>Have an account?<a href="login.html">Login NOW!</a></p>
+    </div>
+</div>
 </body>
 </html>
+
 
 
