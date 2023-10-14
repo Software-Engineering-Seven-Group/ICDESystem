@@ -80,7 +80,7 @@ The goal of the project is to solve the travel planning difficulties faced by us
 
 \textbf{Search} The search feature is responsible for obtaining search results based on the user's search keywords and collected user preferences. This function includes searching for tourist cities, searching for hotels, etc. The search function can provide users with travel route planning.
 
-\textbf{Data Analysis}If the user doesn't know where is better for vacation, the website provides a data analysis function. Based on current user preferences and existing data in the system, the website provides data analysis charts of tourist cities suitable for users to help users make better decisions.
+\textbf{Data Analysis} The website provides a data analysis function if the user doesn't know where is better for vacation. Based on current user preferences and existing data in the system, the website provides data analysis charts of tourist cities suitable for users to help users make better decisions.
 
 \subsection{User Stories}
 
@@ -110,11 +110,11 @@ The goal of the project is to solve the travel planning difficulties faced by us
 
 \textbf{ }
 
-\textbf{Use Case}: Open Website without Login.
+\textbf{Use Case}: Open Website.
 
-\textbf{Actors}: Traveller, Client, Server, Analysis Module.
+\textbf{Actors}: Traveler, Server.
 
-\textbf{Summary Description}:Allows any travelers to open Tripedia, and Tripedia shows some basic information about traveling according to the traveler's position.
+\textbf{Summary Description}: Allows any travelers to open Tripedia, and Tripedia shows some basic information about traveling according to the traveler's position.
  
 \textbf{Status}: Medium level of details.
 
@@ -126,11 +126,9 @@ The goal of the project is to solve the travel planning difficulties faced by us
 
 1. The traveler enters the Tripedia website in a browser.
 
-2. The Tripedia website catches the user's position and sends the basic information to the server.
+2. The server recommends the travel information entry based on the user's position.
 
-3. The server recommends the travel information entry based on the user's position.
-
-4. The website displays the available travel information sent by the server.
+3. The website displays the available travel information sent by the server.
 
 \textbf{Alternate Paths}:
 
@@ -140,11 +138,11 @@ None.
 
 \textbf{ }
 
-\textbf{Use Case}: Register
+\textbf{Use Case}: Register and Login
 
-\textbf{Actors}: Traveller, Client, Server, Data Store.
+\textbf{Actors}: Traveler, Server.
 
-\textbf{Summary Description}: Allows any traveller to register an account and log in the Tripedia website.
+\textbf{Summary Description}: Allows any traveler to register an account and log in to the Tripedia website.
  
 \textbf{Status}: Medium level of details.
 
@@ -154,26 +152,38 @@ None.
 
 \textbf{Basic-Path}:
 
-1. The traveler clicks the "register" button on the home page and enters the register page.
+1. The traveler clicks the "register" button on the home page.
 
-2. The traveler fills in the register information: user name, nationality, gender, and password. Then the traveler clicks the "submit" button.
+2. The website enters the register page
 
-3. The server validates the username is repetitive in the system, and saves the register information to Data Store.
+3. The traveler fills in the register information: user name, nationality, gender, and password. 
 
-4. The client displays the "register successfully" information and enters the login page.
+4. The traveler clicks the "submit" button.
 
-5. The traveler fills in the user information: user name, and password. The the traveller clicks "login" button.
+5. The server validates the username is repetitive in the database.
 
-6. The server recommends the travel information entry based on the user's information and transfers the recommended information to the client.
+6. The server saves the register information to the database.
 
-7. The client enters the home page and displays the information entry sent by the server.
+7. The website displays the "register successfully" information and enters the login page.
+
+8. The traveler clicks the "login" button on the home page.
+
+9. The traveler fills in the user information, name, and password. 
+
+10. The traveler clicks the "login" button.
+
+11. The server validates the username with the password.
+
+12. The website enters the home page.
+
 
 \textbf{Alternate Paths}:
 
-3a. The user name is repetitive in the system.
+5a. The user name is repetitive in the system.
 
-5a. The user forgets username/password.
+11a. User forgets username/password.
 
+11b. Invalid username/password.
 
 \subsubsection{User Cases: Questionnaire}
 
@@ -181,7 +191,7 @@ None.
 
 \textbf{Use Case}: Questionnaire
 
-\textbf{Actors}: Traveller, Client, Server, Data Store.
+\textbf{Actors}: Traveller, Server.
 
 \textbf{Summary Description}: Allows any traveler within the login state to have opportunities to complete the questionnaire to get appropriate recommendations.
  
@@ -189,25 +199,30 @@ None.
 
 \textbf{Pre-condition}: Traveler must be in login state.
 
-\textbf{Post-condition}: None
+\textbf{Post-condition}: Traveler has to user the search function to get more information.
 
 \textbf{Basic-Path}:
 
-1. The traveler logs in to the website firstly, the website pops up a dialog to ask the user to fill out a questionnaire.
+1. The website pops up a dialog to ask the user to fill out a questionnaire.
 
-2. The traveler clicks "yes", and the client enters the questionnaire page.
+2. The traveler clicks "yes", and the website enters the questionnaire page.
 
-3. The website has several questions about preference. The traveler can select one answer for each question.
+3. The traveler can complete questions about preference.
 
-4. The traveler clicks the "submit" button, and the answers are sent to the server.
+4. The traveler clicks the "submit" button.
 
-5. The server recommends the travel information entry based on the user's answers and transfers the recommended information to the client.
-
-7. The client enters the home page and displays the information entry sent by the server.
+5. The server stores the preference data in the Database.
 
 \textbf{Alternate Paths}:
 
 2a. The user abandons the chance to complete the questionnaire.
+
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.3\textwidth]{activity_diagram_question.pdf}}
+\caption{The activity diagram of Questionnaire User Case.}
+\label{fig2}
+\end{figure}
 
 
 \subsubsection{User Cases: Data Analysis Diagram}
@@ -216,7 +231,7 @@ None.
 
 \textbf{Use Case}: Data Analysis Diagram
 
-\textbf{Actors}: Traveller, Client, Server.
+\textbf{Actors}: Traveller, Server, Data Analyzing System.
 
 \textbf{Summary Description}: Allows any traveler within the login state to check the data analysis diagram.
  
@@ -232,11 +247,20 @@ None.
 
 2. The client enters the Data Analysis Page.
 
-3. The server sends the analyzed data based on the user's information to the client.
+3. The data analyzing system analyzes the user's preference data.
 
-4. The website displays the diagrams of recommended cities, such as the visitors' number, the visitors' nationalities proportion, etc.
+4. The server processes the analyzed data.
+
+5. The website displays the diagrams of recommended cities, such as the visitors' number, the visitors' nationalities proportion, etc.
 
 \textbf{Alternate Paths}: None.
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.5\textwidth]{activity_diagram_diagram.pdf}}
+\caption{The activity diagram of Data Analysis Diagram User Case.}
+\label{fig3}
+\end{figure}
+
 
 \subsubsection{User Cases: Recommend related information}
 
@@ -244,7 +268,7 @@ None.
 
 \textbf{Use Case}: Recommendation
 
-\textbf{Actors}: Traveller, Client, Server.
+\textbf{Actors}: Traveler, Server, Data Analyzing System.
 
 \textbf{Summary Description}: Allows any traveler to search for his destination, then the website recommends related information.
 
@@ -260,9 +284,13 @@ None.
 
 2. The user enters the traveling destination in the input box.
 
-3. The user clicks the 'search' button
+3. The user clicks the 'search' button.
 
-4. The website displays the relevant recommendation information in the form of a list.
+4. The data analyzing system analyzes the preference data of the user.
+
+4. The server processed the analyzed data.
+
+5. The website displays the relevant recommendation information in the form of a list.
 
 \textbf{Alternate Paths}:  None
 
@@ -270,9 +298,9 @@ None.
 
 \textbf{ }
 
-\textbf{Use Case}: Hotels
+\textbf{Use Case}: Search Hotels
 
-\textbf{Actors}: Traveller, Client, Server.
+\textbf{Actors}: Traveler, Server.
 
 \textbf{Summary Description}: Allows any traveler to search appropriate hotels.
 
@@ -290,19 +318,21 @@ None.
 
 3. The user chooses the check-in date and check-out date from the date form.
 
-4. The user clicks the 'search' button
+4. The user clicks the 'search' button.
 
-5. The website displays suitable hotels
+5. The server collects the target hotels' data.
+
+5. The website displays suitable hotels.
 
 \textbf{Alternate Paths}: None
 
-\subsubsection{User Cases: Search suitable transportation tickets}
+\subsubsection{User Cases: Search Transportation Tickets}
 
 \textbf{ }
 
-\textbf{Use Case}: Transportation
+\textbf{Use Case}: Search Transportation Tickets
 
-\textbf{Actors}: Traveller, Client, Server.
+\textbf{Actors}: Traveler, Server.
 
 \textbf{Summary Description}: Allows any traveler to search for the right mode of transportation
 
@@ -310,7 +340,7 @@ None.
 
 \textbf{Pre-condition}: The traveler has to open the Tripedia website.
 
-\textbf{Post-condition}: Website displays a suitable mode of transportation.
+\textbf{Post-condition}: The user can choose his favorite transportation function.
 
 \textbf{Basic-Path}:
 
@@ -322,19 +352,20 @@ None.
 
 4. The user clicks the 'search' button.
 
-5. The website displays suitable tickets. (include flights or trains)
+5. The server collects the transportation data. (include flights or trains)
 
-6. The user can choose his favorite transportation function and then add it to his wish list.
+6. The website displays suitable tickets. 
+
 
 \textbf{Alternate Paths}: None
 
-\subsubsection{User Cases: Check favorite hotel}
+\subsubsection{User Cases: Check Hotels}
 
 \textbf{ }
 
-\textbf{Use Case}: Details of hotel
+\textbf{Use Case}: Check Hotels
 
-\textbf{Actors}: Traveller, Client, Server.
+\textbf{Actors}: Traveller, Server.
 
 \textbf{Summary Description}: Allows any traveler to check the details of the hotel.
 
@@ -342,7 +373,7 @@ None.
 
 \textbf{Pre-condition}: The traveler has to open the Tripedia website.
 
-\textbf{Post-condition}: Website jumps to a new page of hotel booking details.
+\textbf{Post-condition}: The user clicks one of the hotels, and the website jumps to a new page of hotel booking details.
 
 \textbf{Basic-Path}:
 
@@ -354,30 +385,49 @@ None.
 
 4. The user clicks the 'search' button.
 
-5. The website displays suitable hotels.
+5. The server collects the hotel's data
 
-6. The user clicks one of the hotels.
-
-7. The website jumps to a new page of hotel booking details.
+6. The website displays suitable hotels.
 
 \textbf{Alternate Paths}: None
 
+
+
+\subsection{User Case Diagram}
+
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.5\textwidth]{UserCaseDiagram.pdf}}
+\caption{The user case diagram of Tripedia.}
+\label{fig2}
+\end{figure}
+
+
+
 \section{Functional Requirements}
 
+\subsection{ The Requirements Ordering }
 
-\subsection{ Login}
+We should consider the importance of each requirement and confirm the ordering of requirements.
+We divide the requirements into two types: \textbf{mandatory} and \textbf{optional}. A mandatory requirement 
+is essential in the system, so these requirements are the first targets to implement for us.
+As for optional requirements, these requirements are designed to improve the usability and consummate
+the functions in the system. We would like to complete these requirements in the incremental stage.
+
+
+\subsection{ Login (mandatory)}
 
 As the user case: Register and Login shows, the requirement of Login is an essential functional feature. If users have their accounts, they can log in to the website and get all services. This requirement can be divided into three sub-requirements: 
 Enter Username and Password, Validation, and Edit Personal Information.
 
-\subsubsection{ Enter Username and password}
+\subsubsection{ Enter Username and password(mandatory)}
 
 The users can enter their username and password in the input box. The 
 user can click on the Show Password button in the password box. When the user 
 clicks on this button, the password will be displayed in plaintext in the password 
 box so that the user can check if the password is correct before logging in.
 
-\subsubsection{ Validation }
+\subsubsection{ Validation(mandatory) }
 
 When the user clicks on the login button if the user enters an incorrect 
 password or username, the message "Username or password error" will be 
@@ -386,19 +436,19 @@ will automatically jump to the home page, and the user's login status will be
 displayed on the home page.
 
 
-\subsection{  Register}
+\subsection{  Register(mandatory)}
 
 Users can create a new account by entering a username, name, password, email,
 and other relevant personal information. This requirement can be divided into 
 two sub-requirements: Enter Personal Information, and Verify Email Address.
 
-\subsubsection{ Enter Personal Information}
+\subsubsection{ Enter Personal Information(mandatory)}
 
 When the user clicks on the register button on the home page, the page will display several 
 input fields to let the user enter his personal information. After finishing the 
 input, the user can click the “Register” button to create a new account.
 
-\subsubsection{ Verify Email Address }
+\subsubsection{ Verify Email Address(mandatory) }
 
 After the user inputs their email address, they can click the “Verify the 
 email” button, and then the system will send an email to the address. The user
@@ -406,9 +456,9 @@ should open the email and click the link in the email to finish the registration
 the user doesn't receive the email, they can click the “don’t receive the email” 
 button and the system will send the verification email again.
 
-\subsection{ Edit Personal Information }
+\subsection{ Edit Personal Information(optional) }
 
-\subsubsection{ Change Password }
+\subsubsection{ Change Password(optional) }
 
 When the user wants to change their password, they can enter their 
 account page, and click “Change the password” to edit it. The user needs to 
@@ -419,7 +469,7 @@ password and they should input it for the second time to confirm the new
 password. After confirming the new password, the user clicks on the “Save”
 button to save the change.
 
-\subsubsection{ Update Email Address }
+\subsubsection{ Update Email Address(optional) }
 
 When the user wants to change their email address, they can enter their 
 account page, and click “Change the email address” to edit it. The user can 
@@ -429,20 +479,20 @@ click the link in the email to finish the update. If the user doesn't receive th
 email, they can click the “don’t receive the email” button, and the system will 
 send another email.
 
-\subsubsection{ Edit Other Information }
+\subsubsection{ Edit Other Information(optional) }
 
 When the user wants to change other personal information, they can 
 enter their account page to edit it. After inputting the new information, click 
 the “Save” button to save the edit.
 
-\subsection{ Search }
+\subsection{ Search(mandatory) }
 
 Users can enter keywords, locations, or other criteria to search for travel 
 destinations.
 A list of related travel destinations is displayed and the user can click to view 
 details.
 
-\subsubsection{ Search Method }
+\subsubsection{ Search Method(mandatory) }
 
 Users should be able to search for the information by using the search 
 bar. When users are typing, the system will list the related entries under the 
@@ -451,7 +501,7 @@ filters and restrictions to narrow down search results. The system should be
 able to save the user's search history so that the user can quickly find the 
 required information the next time.
 
-\subsubsection{ Search Result Display }
+\subsubsection{ Search Result Display(mandatory) }
 
 Search results should be clear and sorted in order of relevance so that 
 users can quickly find the information they need. When there are too many 
@@ -460,14 +510,14 @@ page by displaying the results, which introduces specific information about
 the scenic spot, and the user can enter the official page of the tourist 
 destination through the link displayed on the website to learn more.
 
-\subsection{ Data Analysis Diagram }
+\subsection{ Data Analysis Diagram(mandatory) }
 
 As the User Cases: Data Analysis Diagram shows, users can check the 
 data analysis diagrams calculated by the ICDE system. Meanwhile, the precondition of the Data Analysis Diagram is the Questionnaire, 
 so the data analysis diagram requirement combines the processing of the diagram and questionnaire. Furthermore, the Data Analysis
 Diagram requirements can be divided into three sub-requirements: Questionnaire, Data Analysis, and Diagram Display.
 
-\subsubsection{ Questionnaire }
+\subsubsection{ Questionnaire(mandatory) }
 
 When the user first logs in to the website, the website pops up a diagram asking the user to complete a questionnaire to 
 get an accurate recommendation. If the user chooses 
@@ -477,14 +527,14 @@ After completing the questionnaire, the website will send the
 questionnaire information to the data-analyzing module. At the same time, the server program(data-processing module in architecture diagram) 
 save the questionnaire information to the database.
 
-\subsubsection{ Data Analysis }
+\subsubsection{ Data Analysis(mandatory) }
 
 The sub-requirement of Data Analysis is not visible to users, but it is an essential requirement in an ICDE system. While the information on the questionnaire has been sent to
 the data-analyzing module, the data-analyzing module will calculate the recommendation weights of cities based on the user's information. We will design a KNN algorithm as the core 
 algorithm for data analysis.  
 
 
-\subsubsection{ Diagram Display }
+\subsubsection{ Diagram Display(mandatory) }
 
 When the user clicks the "Analysis Panel" button on the home page, the website jumps to the diagram display page.
 The website receives the information processed by the data-analyzing module and shows the results by several diagram types. 
@@ -495,6 +545,11 @@ The diagrams are initially designed as follows:
 
 \item[*] The most popular travel destination: bar chart.
 \end{itemize}
+
+
+
+
+
 
 \section{Nonfunctional Requirements}
 
