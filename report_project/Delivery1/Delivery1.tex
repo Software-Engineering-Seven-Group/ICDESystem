@@ -71,7 +71,6 @@ To sum up, Tripedia's architecture is a standard ICDE system. The Client part in
 \section{Overview}
 
 
-
 \subsection{Project Goal}
 
 The goal of the project is to solve the travel planning difficulties faced by users. In response to travel planning issues, this project set out to develop search features to help users. Meanwhile, some users don’t know where is more suitable for travel. This project provides clear charts through the background data analysis function to help users make better decisions. 
@@ -118,9 +117,9 @@ The goal of the project is to solve the travel planning difficulties faced by us
  
 \textbf{Status}: Medium level of details.
 
-\textbf{Pre-condition}: Traveler has to register an account and log in to the Tripedia website to use its service.
+\textbf{Pre-condition}: The traveler has to have a personal computer and an available network environment.
 
-\textbf{Post-condition}: The traveler has to have a personal computer and an available network environment.
+\textbf{Post-condition}: Traveler has to register an account and log in to the Tripedia website to use its service.
 
 \textbf{Basic-Path}:
 
@@ -133,6 +132,13 @@ The goal of the project is to solve the travel planning difficulties faced by us
 \textbf{Alternate Paths}:
 
 None.
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.3\textwidth]{activity_diagram_enter.pdf}}
+\caption{The activity diagram of Open Website.}
+\label{fig2}
+\end{figure}
+
 
 \subsubsection{User Cases: Register and Login}
 
@@ -154,7 +160,7 @@ None.
 
 1. The traveler clicks the "register" button on the home page.
 
-2. The website enters the register page
+2. The website jumps to the register page
 
 3. The traveler fills in the register information: user name, nationality, gender, and password. 
 
@@ -164,17 +170,17 @@ None.
 
 6. The server saves the register information to the database.
 
-7. The website displays the "register successfully" information and enters the login page.
+7. The website displays the "register successfully" information and jumps to the login page.
 
 8. The traveler clicks the "login" button on the home page.
 
-9. The traveler fills in the user information, name, and password. 
+9. The traveler fills in the user information, username, and password. 
 
 10. The traveler clicks the "login" button.
 
 11. The server validates the username with the password.
 
-12. The website enters the home page.
+12. The website jumps to the home page.
 
 
 \textbf{Alternate Paths}:
@@ -184,6 +190,13 @@ None.
 11a. User forgets username/password.
 
 11b. Invalid username/password.
+
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.5\textwidth]{activity_diagram_login.pdf}}
+\caption{The activity diagram of Login.}
+\label{fig3}
+\end{figure}
 
 \subsubsection{User Cases: Questionnaire}
 
@@ -199,13 +212,13 @@ None.
 
 \textbf{Pre-condition}: Traveler must be in login state.
 
-\textbf{Post-condition}: Traveler has to user the search function to get more information.
+\textbf{Post-condition}: Traveler has to use the search function to get more information.
 
 \textbf{Basic-Path}:
 
 1. The website pops up a dialog to ask the user to fill out a questionnaire.
 
-2. The traveler clicks "yes", and the website enters the questionnaire page.
+2. The traveler clicks "yes", and the website jumps to the questionnaire page.
 
 3. The traveler can complete questions about preference.
 
@@ -221,7 +234,7 @@ None.
 \begin{figure}[htbp]
 \centerline{\includegraphics[width=0.3\textwidth]{activity_diagram_question.pdf}}
 \caption{The activity diagram of Questionnaire User Case.}
-\label{fig2}
+\label{fig4}
 \end{figure}
 
 
@@ -245,7 +258,7 @@ None.
 
 1. The traveler clicks the "Analysis Panel" button.
 
-2. The client enters the Data Analysis Page.
+2. The website jumps to the Data Analysis Page.
 
 3. The data analyzing system analyzes the user's preference data.
 
@@ -258,7 +271,7 @@ None.
 \begin{figure}[htbp]
 \centerline{\includegraphics[width=0.5\textwidth]{activity_diagram_diagram.pdf}}
 \caption{The activity diagram of Data Analysis Diagram User Case.}
-\label{fig3}
+\label{fig5}
 \end{figure}
 
 
@@ -297,7 +310,7 @@ None.
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=0.5\textwidth]{Recommendation_Activity_diagram.pdf}}
 	\caption{The activity diagram of Recommend Related Information User Case.}
-	\label{fig4}
+	\label{fig6}
 \end{figure}
 
 \subsubsection{User Cases: Search Hotels}
@@ -335,7 +348,7 @@ H
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=0.5\textwidth]{Searching_Hotel_Activity_Diagram_2.pdf}}
 	\caption{The activity diagram of Search Hotels User Case.}
-	\label{fig4}
+	\label{fig7}
 \end{figure}
 
 \subsubsection{User Cases: Search Transportation Tickets}
@@ -371,6 +384,14 @@ H
 
 \textbf{Alternate Paths}: None
 
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=0.5\textwidth]{activity_diagram_ticket.pdf}}
+	\caption{The activity diagram of Search Tickets User Case.}
+	\label{fig8}
+\end{figure}
+
+
 \subsubsection{User Cases: Check Hotels}
 
 \textbf{ }
@@ -403,6 +424,12 @@ H
 
 \textbf{Alternate Paths}: None
 
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=0.5\textwidth]{activity_diagram_hotel.pdf}}
+	\caption{The activity diagram of Search Hotels User Case.}
+	\label{fig9}
+\end{figure}
 
 
 \subsection{User Case Diagram}
