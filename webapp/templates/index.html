@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tripadvisor</title>
+    <link rel="stylesheet" href="./assets/css/fonts.css" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+    <link rel="stylesheet" href="./assets/css/fontawesome.css" />
+    <script
+      src="https://kit.fontawesome.com/5e8b469dd2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <div id="menu">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div id="logo">
+          <a href="#"><img src="./assets/img/icons/Tripedialogo.png"  alt="Tripedia" /></a>
+        </div>
+        <div class="search-group">
+          <input
+            type="text"
+            type="search"
+            class="search"
+            placeholder="Search something"
+          />
+          <i class="fas fa-search"></i>
+        </div>
+        <div class="links">
+          <a href="#" class="link">
+            <i class="fas fa-pen"></i> <span>Feedback</span>
+          </a>
+          <a href="#" class="link">
+            <i class="far fa-bell"></i> <span>Alert</span>
+          </a>
+          <a href="#" class="link">
+            <i class="far fa-heart"></i> <span>Favorite</span>
+          </a>
+          <a href="login.html" class="link blackbutton">
+            <span>Login</span></a
+          >
+        </div>
+      </nav>
+    </header>
+    <main class="container">
+      <section>
+        <h1 class="title">
+          <span>Explore </span><span class="black">Montreal</span>
+        </h1>
+        <nav id="activities">
+          <a href="#lastActivity" class="scroll hide">
+            <i class="fas fa-chevron-right scroll"></i>
+          </a>
+          <a href="#" class="activity">
+            <div>Hotels</div>
+            <i class="fas fa-hotel"></i>
+          </a>
+          <a href="#" class="activity">
+            <div>Recommendations</div>
+            <i class="fas fa-key"></i>
+          </a>
+          <a href="#" class="activity">
+            <div>Tourist Destinations</div>
+            <i class="fas fa-hiking"></i>
+          </a>
+          <a href="#" class="activity">
+            <div>Restaurants</div>
+            <i class="fas fa-utensils"></i>
+          </a>
+        </nav>
+        <div class="gallery">
+          <img src="./assets/img/oldport2.jpg" alt="Seine" class="main" />
+          <div class="photos">
+            <img src="./assets/img/montroyal.jpg" alt="Moto" />
+            <img src="./assets/img/oldport.jpg" alt="Tour Eiffel" />
+          </div>
+          <div class="allpictures">
+            <a href="#" class="link blackbutton">
+              <i class="fas fa-images"></i> See all photos
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="city">
+        <div class="locate">
+          <nav class="location">
+            <div class="point">
+              <a href="#">North America</a>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="point">
+              <a href="#">Canada</a>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="point">
+              <a href="#">Quebec</a>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="point">
+              <a href="#">Montreal</a>
+            </div>
+          </nav>
+          <div class="visit">Visiter : Montreal</div>
+        </div>
+        <div class="about-city">
+          <div class="text">
+            <h2>Welcome to Montreal</h2>
+            <p>
+              Montreal is the second most populous city in Canada,  and the most populous city in the province of Quebec. Founded in 1642 as Ville-Marie, or "City of Mary", it is named after Mount Royal, the triple-peaked hill around which the early city of Ville-Marie was built. The city is centred on the Island of Montreal, which obtained its name from the same origin as the city, and a few much smaller peripheral islands, the largest of which is Île Bizard. The city is 196 km (122 mi) east of the national capital Ottawa, and 258 km (160 mi) southwest of the provincial capital, Quebec City.
+
+As of 2021, the city has a population of 1,762,949, and a metropolitan population of 4,291,732,making it the second-largest city, and second-largest metropolitan area in Canada. French is the city's official language. In 2021, 85.7% of the population of the city of Montreal considered themselves fluent in French while 90.2% could speak it in the metropolitan area.
+            </p>
+          </div>
+          <div class="trip">
+            <div class="start">
+              <h3>Have no idea about this city?</h3>
+              <p>
+                Click the button, we will recommend some interesting places according your personal preference!
+              </p>
+              <a href="#" class="btn link blackbutton">Click me</a>
+            </div>
+            <div class="picture"></div>
+          </div>
+        </div>
+      </section>
+      <section class="musthave">
+        <h2>Paris : les immanquables</h2>
+        <div class="list-do">
+          <div class="card">
+            <h3>Se divertir</h3>
+            <p>
+              Des lieux à voir, des rues à explorer et des expériences
+              emblématiques à Paris.
+            </p>
+            <a href="#">Tout afficher</a>
+          </div>
+          <div class="elements-content">
+            <i class="fas fa-arrow-left previous"></i>
+            <i class="fas fa-arrow-right next"></i>
+            <div class="elements">
+              <div class="card">
+                <a href="#" class="plain">
+                  <div class="photo" data-text="2021">
+                    <img
+                      src="./assets/img/divertir/eiffel.jpg"
+                      alt="Tour Eiffel"
+                    />
+                  </div>
+                  <div class="title">Tour Eiffel</div>
+                  <div class="notation" data-note="4.5">140 249</div>
+                  <div class="category">
+                    Tours et plateformes d'observation, Monuments & Points
+                    d'intérêt
+                  </div>
+                  <i class="far fa-heart"></i>
+                </a>
+              </div>
+              <div class="card">
+                <a href="#" class="plain">
+                  <div class="photo" data-text="2021">
+                    <img
+                      src="./assets/img/divertir/louvre.jpg"
+                      alt="Musée du Louvre"
+                    />
+                  </div>
+                  <div class="title">Musée du Louvre</div>
+                  <div class="notation" data-note="4.5">100 864</div>
+                  <div class="category">
+                    Bâtiments architecturaux, Musées d'art
+                  </div>
+                  <i class="far fa-heart"></i>
+                </a>
+              </div>
+              <div class="card">
+                <a href="#" class="plain">
+                  <div class="photo" data-text="2021">
+                    <img
+                      src="./assets/img/divertir/triomphe.jpg"
+                      alt="Arc de Triomphe"
+                    />
+                  </div>
+                  <div class="title">Arc de Triomphe</div>
+                  <div class="notation" data-note="4.5">45 099</div>
+                  <div class="category">
+                    Bâtiments architecturaux, Sites historiques
+                  </div>
+                  <i class="far fa-heart"></i>
+                </a>
+              </div>
+              <div class="card">
+                <a href="#" class="plain">
+                  <div class="photo" data-text="2021">
+                    <img
+                      src="./assets/img/divertir/rodin.jpg"
+                      alt="Musée Rodin"
+                    />
+                  </div>
+                  <div class="title">Musée Rodin</div>
+                  <div class="notation" data-note="4.5">12 456</div>
+                  <div class="category">Musée spécialisés</div>
+                  <i class="far fa-heart"></i>
+                </a>
+              </div>
+              <div class="card">
+                <a href="#" class="plain">
+                  <div class="photo" data-text="2021">
+                    <img
+                      src="./assets/img/divertir/notre-dame.jpg"
+                      alt="Cathédrale Notre Dame"
+                    />
+                  </div>
+                  <div class="title">Cathédrale Notre Dame</div>
+                  <div class="notation" data-note="4.5">71 250</div>
+                  <div class="category">
+                    Bâtiments architecturaux, Sites historiques
+                  </div>
+                  <i class="far fa-heart"></i>
+                </a>
+              </div>
+              <div class="card">
+                <a href="#" class="plain">
+                  <div class="photo" data-text="2021">
+                    <img
+                      src="./assets/img/divertir/shakespeare.jpg"
+                      alt="Librairie Shakespeare and Company"
+                    />
+                  </div>
+                  <div class="title">Librairie Shakespeare and Company</div>
+                  <div class="notation" data-note="4.5">3 920</div>
+                  <div class="category">Bibliothèque, Grands Magasins</div>
+                  <i class="far fa-heart"></i>
+                </a>
+              </div>
+              <div class="card">
+                <a href="#" class="plain">
+                  <div class="photo" data-text="2021">
+                    <img
+                      src="./assets/img/divertir/orsay.jpg"
+                      alt="Musée d'Orsay"
+                    />
+                  </div>
+                  <div class="title">Musée d'Orsay</div>
+                  <div class="notation" data-note="4.5">65 171</div>
+                  <div class="category">Category</div>
+                  <i class="far fa-heart"></i>
+                </a>
+              </div>
+              <div class="card">
+                <a href="#" class="plain">
+                  <div class="photo" data-text="2021">
+                    <img
+                      src="./assets/img/divertir/puces.jpg"
+                      alt="Marché aux Puces de St Ouen"
+                    />
+                  </div>
+                  <div class="title">Marché aux Puces de St Ouen</div>
+                  <div class="notation" data-note="4">864</div>
+                  <div class="category">
+                    Antiquaires, Marchés aux puces & Marché de rues
+                  </div>
+                  <i class="far fa-heart"></i>
+                </a>
+              </div>
+              <div class="card">
+                <a href="#" class="plain">
+                  <div class="photo" data-text="2021">
+                    <img
+                      src="./assets/img/divertir/basilica.jpg"
+                      alt="Basilique du Sacré Coeur"
+                    />
+                  </div>
+                  <div class="title">Basilique du Sacré Coeur</div>
+                  <div class="notation" data-note="4.5">38 637</div>
+                  <div class="category">Eglises et cathédrale</div>
+                  <i class="far fa-heart"></i>
+                </a>
+              </div>
+              <div class="card">
+                <a href="#" class="plain">
+                  <div class="photo" data-text="2021">
+                    <img
+                      src="./assets/img/divertir/tuileries.jpg"
+                      alt="Jardin des Tuileries"
+                    />
+                  </div>
+                  <div class="title">Jardin des Tuileries</div>
+                  <div class="notation" data-note="4.5">7 253</div>
+                  <div class="category">Jardins</div>
+                  <i class="far fa-heart"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="guide">
+        <h2>Guide de voyageurs</h2>
+        <div class="elements">
+          <div class="card">
+            <a href="#" class="plain">
+              <img
+                src="./assets/img/articles/catacombes.jpg"
+                alt="Catacombes"
+              />
+              <div class="title">
+                Top 10 des choses à faire ou à voir dans le 14ème
+              </div>
+              <div class="nb">10 articles</div>
+            </a>
+            <div class="by">
+              <a href="#">
+                <img src="./assets/img/icons/topito.jpg" alt="Topito" />
+              </a>
+              Par <a href="#">Topito</a>
+            </div>
+          </div>
+          <div class="card">
+            <a href="#" class="plain">
+              <img
+                src="./assets/img/articles/montmartre.jpg"
+                alt="Montmartre"
+              />
+              <div class="title">
+                Best summer things to do in Paris | Eatwith
+              </div>
+              <div class="nb">36 articles</div>
+            </a>
+            <div class="by">
+              <a href="#">
+                <img src="./assets/img/icons/eatwith.jpg" alt="Eatwith" />
+              </a>
+              Par <a href="#">Eatwith</a>
+            </div>
+          </div>
+          <div class="card">
+            <a href="#" class="plain">
+              <img
+                src="./assets/img/articles/musee-grevin.jpg"
+                alt="Musée Grévin"
+              />
+              <div class="title">
+                Les 10 monuments et musées de Paris à faire.
+              </div>
+              <div class="nb">10 articles</div>
+            </a>
+            <div class="by">
+              <a href="#">
+                <img src="./assets/img/icons/topito.jpg" alt="Topito" />
+              </a>
+              Par <a href="#">Topito</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="forum">
+        <h2>Dans les forums</h2>
+        <a href="#" class="location">Tout afficher</a>
+        <div class="elements">
+          <div class="card">
+            <a href="#">Hôtel avec cuisinette dans Paris même.</a>
+            <div class="from">
+              <img src="./assets/img/forum/1.jpg" alt="1" />
+              Par <a href="#">Lise T</a> • 3 réponses
+            </div>
+          </div>
+          <div class="card">
+            <a href="#">Paris Attitude</a>
+            <div class="from">
+              <img src="./assets/img/forum/2.jpg" alt="2" />
+              Par <a href="#">Alla R</a> • 1 réponse
+            </div>
+          </div>
+          <div class="card">
+            <a href="#">Départ à Tahiti</a>
+            <div class="from">
+              <img src="./assets/img/forum/3.jpg" alt="3" />
+              Par <a href="#">Piritua A</a> • 3 réponses
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="list-do">
+        <h2>Splendides espaces verts</h2>
+        <div class="elements-content">
+          <i class="fas fa-arrow-left previous"></i>
+          <i class="fas fa-arrow-right next"></i>
+          <div class="elements">
+            <div class="card">
+              <a href="#">
+                <div class="photo" data-text="2021">
+                  <img
+                    src="./assets/img/verts/jardin-des-tuileries.jpg"
+                    alt="Jardins des Tuileries"
+                  />
+                </div>
+                <div class="title">Jardins des Tuileries</div>
+                <div class="notation" data-note="4.5">7 523</div>
+                <div class="category">Jardins</div>
+                <i class="far fa-heart"></i>
+              </a>
+            </div>
+            <div class="card">
+              <a href="#">
+                <div class="photo" data-text="2021">
+                  <img
+                    src="./assets/img/verts/coulee-verte-rene-dumont.jpg"
+                    alt="Parc des Buttes-Chaumont"
+                  />
+                </div>
+                <div class="title">Parc des Buttes-Chaumont</div>
+                <div class="notation" data-note="4.5">2 058</div>
+                <div class="category">Parcs</div>
+                <i class="far fa-heart"></i>
+              </a>
+            </div>
+            <div class="card">
+              <a href="#">
+                <div class="photo" data-text="2021">
+                  <img
+                    src="./assets/img/verts/vosges.jpg"
+                    alt="Parc des Vosges"
+                  />
+                </div>
+                <div class="title">Parc des Vosges</div>
+                <div class="notation" data-note="4.5">5 662</div>
+                <div class="category">Monuments et Points d'intérêt</div>
+                <i class="far fa-heart"></i>
+              </a>
+            </div>
+            <div class="card">
+              <a href="#">
+                <div class="photo" data-text="2021">
+                  <img
+                    src="./assets/img/verts/parc-monceau.jpg"
+                    alt="Parc Monceau"
+                  />
+                </div>
+                <div class="title">Parc Monceau</div>
+                <div class="notation" data-note="4.5">1 018</div>
+                <div class="category">Parcs</div>
+                <i class="far fa-heart"></i>
+              </a>
+            </div>
+            <div class="card">
+              <a href="#">
+                <div class="photo" data-text="2021">
+                  <img
+                    src="./assets/img/verts/coulee-verte-rene-dumont.jpg"
+                    alt="Coulée Verte René-Dumont"
+                  />
+                </div>
+                <div class="title">Coulée Verte René-Dumont</div>
+                <div class="notation" data-note="4.5">896</div>
+                <div class="category">Jardins, Parcs</div>
+                <i class="far fa-heart"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="footer">
+      <a href="#" id="contact">Contact Us</a>
+        <a href="#"><img src="./assets/img/icons/Tripedialogo.png" style="width: 25%;" alt="Tripedia" /></a><p></p>
+      <a href="#">Group 7</a> - 2023
+    </footer>
+    <div class="modal" id="modal">
+      <div
+        class="modal-dialog modal-dialog-centered fade-scale"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Envoyer un message</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body center">
+            <form method="post" class="autoform">
+              <input type="text" name="firstname" placeholder="First Name" />
+              <input type="text" name="lastname" placeholder="Surname" />
+              <input type="email" name="email" placeholder="xxxx@xxxxx.COM" />
+              <textarea
+                name="message"
+                id=""
+                cols="30"
+                rows="10"
+                placeholder="Send Message"
+              ></textarea>
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
