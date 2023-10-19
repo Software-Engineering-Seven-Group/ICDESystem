@@ -2,8 +2,11 @@ from flask import Flask, render_template, request, redirect, url_for, flash, ses
 from crawler.Get_Hotel import Get_booking_hotel
 from database_manager import MongoDBManager, UserInfoCollection, mongo_manager, user_infor_manager, user_preference_infor_manager
 from app_instance import app
+from questionnaire import questionnaire_api, questionnaire
 import copy
 
+#bind questionnaire api
+app.register_blueprint(questionnaire_api)
 
 "“首页，重定向”"
 @app.route('/')
@@ -56,7 +59,7 @@ def login():
         if login_user:
             if request.form['password'] == login_user['password']:
                 session['username'] = request.form['username']
-                return redirect(url_for("questionnaire"))
+                return redirect(url_for("questionnaire_api.questionnaire"))
 
         flash('用户名或密码不正确！')
     return render_template('login.html')
@@ -99,56 +102,6 @@ def search():
         exist_datas=list(copy.deepcopy(exist_data))
         return render_template('search.html',results=exist_datas)
     return render_template('search.html')
-
-
-#pre-process of questionnaire data
-def prcess_questionnaire_data(workload, area, history, people, alone, hum, sports, water):
-    preference_data = {
-        "daily_workload":0,
-        "address_urbanization":0,
-        "quiet_chara":0,
-        "noisy_chara":0,
-        "sports":0,
-        "prefer_solitude":0,
-        "prefer_history": 0,
-        "prefer_culture": 0,
-        "prefer_nature": 0
-    }
-
-    preference_data['daily_workload'] = workload * 2
-    preference_data['address_urbanization'] = area * 20
-    preference_data['quiet_chara'] = alone * 20
-    preference_data['noisy_chara'] = people * 20
-    preference_data['sports'] = sports
-    preference_data['prefer_solitude'] = alone
-    preference_data['prefer_history'] = history * 20
-    preference_data['prefer_culture'] = hum * 20
-    preference_data['prefer_nature'] = water * 20
-
-    return preference_data
-
-
-@app.route('/questionnaire', methods=['POST', 'GET'])
-def questionnaire():
-    if request.method == 'POST':
-        existing_preference_infor = user_preference_infor_manager.find_user_preference_infor('username')
-
-        if existing_preference_infor is None:
-            processed_data = prcess_questionnaire_data(
-                request.form['workload'],
-                request.form['area'],
-                request.form['history'],
-                request.form['people'],
-                request.form['alone'],
-                request.form['hum'],
-                request.form['sports'],
-                request.form['water'],
-            )
-
-            user_preference_infor_manager.insert_one_user_preference_data_item(processed_data)
-            return redirect(url_for('home'))
-
-    return render_template('questionnaire.html')
 
 
 
