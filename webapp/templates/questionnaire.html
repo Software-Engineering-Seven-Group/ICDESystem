@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Preference Questionnaire</title>
+		<style>
+			body{
+				background-color: gray;
+				background-image: url("../static/img/questionnaire.jpg");
+				font-family: 'Roboto Condensed', sans-serif;
+			}
+			.index{
+				margin: auto;
+				width:920px;
+				background-color: grey;
+				box-shadow:10px 10px 15px black;
+				margin-top:10px;
+				opacity: 0.9;
+			}
+			.p1 {
+  				font-family: "Times New Roman", Times, serif;
+			}
+		    h1{
+				color:white;
+				padding-top:30px;
+				text-align:center;
+			}
+			form{
+				padding-left: 100px;
+				line-height:180%;
+			}
+			input{
+				border-color: black;
+				border-top-width:0px;
+				border-right-width:0px;
+				border-bottom-width:2px;
+				border-left-width:0px;
+			}
+			#btn{
+				background-color: #FFA500;
+				color:white;
+				padding:5px 10px;
+				margin-left:320px;
+				margin-top:16px;
+				margin-bottom: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="index">
+			<h1>Questionnaire of Your Preference</h1>
+			<hr color="White" width="700px" />
+			<form method="post" action="/questionnaire" onsubmit="return confirm('Are you sure you want to submit questionnaire?');">
+				<ol>
+					<li>Do you usually have a lot of stress at work?</li>
+					<label><input type="radio" name="workload" value="1" required />  Very Easy  </label>
+					<label><input type="radio" name="workload" value="2" />  Easy  </label>
+					<label><input type="radio" name="workload" value="3" />  Mediate   </label>
+					<label><input type="radio" name="workload" value="4" />  Hard   </label>
+					<label><input type="radio" name="workload" value="5" />  Very Hard </label>
+					<li>Do you live in an urban area?</li>
+					<label><input type="radio" name="area" value="1" required />  Remote place   </label>
+					<label><input type="radio" name="area" value="2" />  Village  </label>
+					<label><input type="radio" name="area" value="3" />  Outskirts   </label>
+					<label><input type="radio" name="area" value="4" />  Urban Region   </label>
+					<label><input type="radio" name="area" value="5" />  Mega-city Region </label>
+					<li>Do you like historical stories?</li>
+					<label><input type="radio" name="history" value="1" required />  Feel Bored  </label>
+					<label><input type="radio" name="history" value="2" />  Not Interested   </label>
+					<label><input type="radio" name="history" value="3" />  Mediate  </label>
+					<label><input type="radio" name="history" value="4" />  Interesed   </label>
+					<label><input type="radio" name="history" value="5" />  Devotion </label>
+					<li>Do you like being with people ?</li>
+					<label><input type="radio" name="people" value="1" required />  Feel Bored  </label>
+					<label><input type="radio" name="people" value="2" />  Not Interested   </label>
+					<label><input type="radio" name="people" value="3" />  Mediate  </label>
+					<label><input type="radio" name="people" value="4" />  Interesed   </label>
+					<label><input type="radio" name="people" value="5" />  Devotion </label>
+					<li>Do you like staying alone?</li>
+					<label><input type="radio" name="alone" value="1" required />  Never </label>
+					<label><input type="radio" name="alone" value="2" />  No  </label>
+					<label><input type="radio" name="alone" value="3" />  Mediate  </label>
+					<label><input type="radio" name="alone" value="4" />  Not Bad   </label>
+					<label><input type="radio" name="alone" value="5" />  It's OK </label>
+					<li>Do you feel lonely?</li>
+					<label><input type="radio" name="hum" value="1" required />  Never </label>
+					<label><input type="radio" name="hum" value="2" />  No  </label>
+					<label><input type="radio" name="hum" value="3" />  Mediate  </label>
+					<label><input type="radio" name="hum" value="4" />  Somtimes   </label>
+					<label><input type="radio" name="hum" value="5" />  Yes </label>
+					<li>Do you like sports?</li>
+					<label><input type="radio" name="sports" value="1" required />  Feel Bored  </label>
+					<label><input type="radio" name="sports" value="2" />  Not Interested   </label>
+					<label><input type="radio" name="sports" value="3" />  Mediate  </label>
+					<label><input type="radio" name="sports" value="4" />  Interesed   </label>
+					<label><input type="radio" name="sports" value="5" />  Devotion </label>
+					<li>Do you like peaceful scene?</li>
+					<label><input type="radio" name="water" value="1" required />  Feel Bored  </label>
+					<label><input type="radio" name="water" value="2" />  Not Interested   </label>
+					<label><input type="radio" name="water" value="3" />  Mediate  </label>
+					<label><input type="radio" name="water" value="4" />  Interesed   </label>
+					<label><input type="radio" name="water" value="5" />  Devotion </label>
+				<button id="btn" type="submit">Submit</button>
+			</form>
+		</div>
+	</body>
+</html>
