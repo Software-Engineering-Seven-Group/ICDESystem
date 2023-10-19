@@ -17,12 +17,12 @@ def prcess_questionnaire_data(workload, area, history, people, alone, hum, sport
         "prefer_nature": 0
     }
 
-    preference_data['daily_workload'] = workload * 2
+    preference_data['daily_workload'] = workload * 20
     preference_data['address_urbanization'] = area * 20
     preference_data['quiet_chara'] = alone * 20
     preference_data['noisy_chara'] = people * 20
     preference_data['sports'] = sports
-    preference_data['prefer_solitude'] = alone
+    preference_data['prefer_solitude'] = alone * 20
     preference_data['prefer_history'] = history * 20
     preference_data['prefer_culture'] = hum * 20
     preference_data['prefer_nature'] = water * 20

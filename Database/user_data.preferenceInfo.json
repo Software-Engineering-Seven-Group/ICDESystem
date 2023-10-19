@@ -1,14 +1,14 @@
 [
   {
     "username": "zhangyulin",
-    "daily_workload": 9,
-    "address_urbanization": 7,
-    "quiet_chara": 1,
-    "noisy_chara": 0,
+    "daily_workload": 80,
+    "address_urbanization": 60,
+    "quiet_chara": 80,
+    "noisy_chara": 20,
     "sports": 1,
-    "prefer_solitude": 0,
-    "prefer_history": 1,
-    "prefer_culture": 1,
-    "prefer_nature": 1
+    "prefer_solitude": 80,
+    "prefer_history": 80,
+    "prefer_culture": 100,
+    "prefer_nature": 100
   }
 ]

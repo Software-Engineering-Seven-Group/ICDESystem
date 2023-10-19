@@ -19,6 +19,7 @@ class MongoDBManager():
         res_list = []
         for item in data:
             res_list.append(item[target_entry])
+        return res_list
 
     #insert item to collection with collection_name
     def insert_item_to_collection(self, collection_name, item):
@@ -74,6 +75,22 @@ class CitiesInfoCollection():
     def find_city_infor(self, city_name):
         return mongo_manager.find_item_from_collection(self.collection_name, 'city_name', city_name)
 
+    def get_city_all_data(self, city_name):
+        city_data = {
+            "popularity": self.get_city_popularity(city_name),
+            "humanistic": self.get_city_humanistic(city_name),
+            "historical": self.get_city_historical(city_name),
+            "natural": self.get_city_natural(city_name),
+            "metropolis": self.get_city_metropolis(city_name),
+            "forest": self.get_city_forest(city_name),
+            "mountain": self.get_city_mountain(city_name),
+            "river": self.get_city_river(city_name),
+            "sea": self.get_city_sea(city_name),
+            "lake": self.get_city_lake(city_name),
+            "cost": self.get_city_cost(city_name)
+        }
+        return city_data
+
     def list_cities_name(self):
         cities_name_list = mongo_manager.list_all_items_target_entry(self.collection_name, 'city_name')
         return cities_name_list
@@ -108,7 +125,6 @@ class CitiesInfoCollection():
     def get_city_cost(self, city_name):
         return self.find_city_infor(city_name)['cost']
 
-
     def get_city_metropolis(self, city_name):
         return self.find_city_infor(city_name)['metropolis']
 
@@ -116,6 +132,7 @@ class CitiesInfoCollection():
 city_infor_manager = CitiesInfoCollection()
 
 def city_infor_manager_test_case():
+    print(city_infor_manager.list_cities_name())
     print('city population:', city_infor_manager.get_city_popularity('Calgary'))
     print('city metropolis:', city_infor_manager.get_city_metropolis('Calgary'))
     print('city mountain:', city_infor_manager.get_city_mountain('Calgary'))
@@ -128,10 +145,52 @@ class PreferenceInforCollection():
         self.collection_name = 'preferenceInfo'
 
     def find_user_preference_infor(self, user_name):
-        return mongo_manager.find_item_from_collection(self.collection_name, 'user_name', user_name)
+        return mongo_manager.find_item_from_collection(self.collection_name, 'username', user_name)
 
     def insert_one_user_preference_data_item(self, item):
         return mongo_manager.insert_item_to_collection(self.collection_name, item)
+
+    def get_daily_workload(self, user_name):
+        return self.find_user_preference_infor(user_name)['daily_workload']
+
+    def get_address_urbanization(self, user_name):
+        return self.find_user_preference_infor(user_name)['address_urbanization']
+
+    def get_quiet_chara(self, user_name):
+        return self.find_user_preference_infor(user_name)['quiet_chara']
+
+    def get_noisy_chara(self, user_name):
+        return self.find_user_preference_infor(user_name)['noisy_chara']
+
+    def get_sports(self, user_name):
+        return self.find_user_preference_infor(user_name)['sports']
+
+    def get_prefer_solitude(self, user_name):
+        return self.find_user_preference_infor(user_name)['prefer_solitude']
+
+    def get_prefer_history(self, user_name):
+        return self.find_user_preference_infor(user_name)['prefer_history']
+
+    def get_prefer_culture(self, user_name):
+        return self.find_user_preference_infor(user_name)['prefer_culture']
+
+    def get_prefer_nature(self, user_name):
+        return self.find_user_preference_infor(user_name)['prefer_nature']
+
+    def get_user_all_preference_data(self, user_name):
+        preference_data = {
+            "daily_workload": self.get_daily_workload(user_name),
+            "address_urbanization": self.get_address_urbanization(user_name),
+            "quiet_chara": self.get_quiet_chara(user_name),
+            "noisy_chara": self.get_noisy_chara(user_name),
+            "sports": self.get_sports(user_name),
+            "prefer_solitude": self.get_prefer_solitude(user_name),
+            "prefer_history": self.get_prefer_history(user_name),
+            "prefer_culture": self.get_prefer_culture(user_name),
+            "prefer_nature": self.get_prefer_nature(user_name)
+        }
+        return preference_data
+
 
 user_preference_infor_manager = PreferenceInforCollection()
 
