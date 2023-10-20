@@ -38,6 +38,7 @@ class KNNDataAnalayzer():
         }
 
         #map current login user's preference data
+        print('user_name:', user_name)
         preference_data = user_preference_infor_manager.get_user_all_preference_data(user_name)
         if preference_data == None:
             return user_dream_city_data
@@ -93,7 +94,7 @@ class KNNDataAnalayzer():
         cities_queue = PriorityQueue()
         for city_name in cities_namelists:
             current_city = city_infor_manager.get_city_all_data(city_name)
-            cities_queue.put((10000 - current_city['popularity'], city_name))
+            cities_queue.put((10000 - int(current_city['popularity']), city_name))
 
         popular_cities_name_list = []
         popular_cities_priority_list = []
@@ -101,11 +102,9 @@ class KNNDataAnalayzer():
             cur_priority_num = cities_queue.get()[0]
             cur_city_name = cities_queue.get()[1]
             popular_cities_name_list.append(cur_city_name)
-            popular_cities_priority_list.append(10000 - cur_priority_num)
+            popular_cities_priority_list.append(10000 - int(cur_priority_num))
 
         return popular_cities_name_list, popular_cities_priority_list
-
-
 
 
 

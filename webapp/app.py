@@ -3,6 +3,7 @@ from crawler.Get_Hotel import Get_booking_hotel
 from database_manager import MongoDBManager, UserInfoCollection, mongo_manager, user_infor_manager, user_preference_infor_manager
 from app_instance import app
 from questionnaire import questionnaire_api, questionnaire
+from data_displayer import displayer_api
 from flask import Flask, render_template, request, session, redirect, url_for, flash, make_response
 from wtforms import Form, StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired
@@ -15,6 +16,7 @@ import random
 #bind questionnaire api
 app.register_blueprint(questionnaire_api)
 app.register_blueprint(search_api)
+app.register_blueprint(displayer_api)
 "“首页，重定向”"
 @app.route('/')
 def home():
@@ -56,7 +58,7 @@ def register():
                 'email': request.form['email']
             })
             session['username'] = request.form['username']
-            return redirect(url_for('login'))
+            return redirect(url_for('questionnaire_api.questionnaire'))
 
         flash('用户名已经存在，请换一个用户名！')
         return redirect(url_for('register'))
@@ -86,6 +88,20 @@ def logout():
 def index():
     is_logged_in = 'username' in session
     return render_template('index.html', is_logged_in=is_logged_in, username=session.get('username'))
+
+
+
+#process analysis logic
+@app.route('/analysis', methods=['BACK'])
+def analysis():
+    if request.method == 'back':
+        return redirect(url_for('BACK'))
+
+    return render_template('analysis.html')
+
+
+
+
 
 
 if __name__ == '__main__':

@@ -88,8 +88,12 @@
     		padding-right: 0;
     		margin-left: auto;
    			margin-right: auto;"></canvas>
-			<form method="back" action="/analysis" onsubmit="return confirm('Are you sure you want back to home page?');">
-			<button id="btn" type="submit">Home</button>
+
+			<button id="btn" type="submit">
+				<a href="/" class="link blackbutton">
+                    <span>HOME</span>
+				</a>
+			</button>
             <script>
 
 				const recommend_cities_name = {{data_keys_list | tojson}};
@@ -107,13 +111,13 @@ const barColors = [
 ];
 
 
-new Chart("BarChat", {
+new Chart("PieChart", {
   type: "pie",
   data: {
-    labels: popular_cities_name,
+    labels: recommend_cities_name,
     datasets: [{
       backgroundColor: barColors,
-      data: popular_cities_value
+      data: recommend_cities_value
     }]
   },
   options: {
@@ -124,13 +128,13 @@ new Chart("BarChat", {
   }
 });
 
-new Chart("PieChart", {
+new Chart("BarChat", {
   type: "bar",
   data: {
-    labels: recommend_cities_name,
+    labels: popular_cities_name,
     datasets: [{
       backgroundColor: barColors,
-      data: recommend_cities_value
+      data: popular_cities_value
     }]
   },
   options: {

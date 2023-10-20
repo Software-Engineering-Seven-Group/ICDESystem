@@ -1,3 +1,4 @@
+from flask import  session
 from flask import render_template, request, redirect, url_for, Blueprint
 from database_manager import user_preference_infor_manager
 from data_displayer import enter_analysis_page
@@ -17,6 +18,7 @@ def prcess_questionnaire_data(workload, area, history, people, alone, hum, sport
         "prefer_nature": 0
     }
 
+    preference_data['username'] = session['username']
     preference_data['daily_workload'] = workload * 20
     preference_data['address_urbanization'] = area * 20
     preference_data['quiet_chara'] = alone * 20
@@ -33,22 +35,25 @@ def prcess_questionnaire_data(workload, area, history, people, alone, hum, sport
 @questionnaire_api.route('/questionnaire', methods=['POST', 'GET'])
 def questionnaire():
     if request.method == 'POST':
-        existing_preference_infor = user_preference_infor_manager.find_user_preference_infor('username')
+        existing_preference_infor = user_preference_infor_manager.find_user_preference_infor(session['username'])
 
         if existing_preference_infor is None:
             processed_data = prcess_questionnaire_data(
-                request.form['workload'],
-                request.form['area'],
-                request.form['history'],
-                request.form['people'],
-                request.form['alone'],
-                request.form['hum'],
-                request.form['sports'],
-                request.form['water'],
+                int(request.form['workload'][0]),
+                int(request.form['area'][0]),
+                int(request.form['history']),
+                int(request.form['people']),
+                int(request.form['alone']),
+                int(request.form['hum']),
+                int(request.form['sports']),
+                int(request.form['water']),
             )
-
+            #print('process_data:',processed_data)
             user_preference_infor_manager.insert_one_user_preference_data_item(processed_data)
-            return enter_analysis_page() #redirect(url_for('home'))
+            existing_preference_infor2 = user_preference_infor_manager.find_user_preference_infor(session['username'])
+            #print('existing:', existing_preference_infor2)
+            return enter_analysis_page()
+            #return redirect(url_for('home'))
 
     return render_template('questionnaire.html')
 
