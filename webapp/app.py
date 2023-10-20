@@ -12,7 +12,6 @@ from search import search_api
 import copy
 import random
 
-
 #bind questionnaire api
 app.register_blueprint(questionnaire_api)
 app.register_blueprint(search_api)
@@ -73,12 +72,20 @@ def login():
         if login_user:
             if request.form['password'] == login_user['password']:
                 session['username'] = request.form['username']
-                return redirect(url_for("questionnaire_api.questionnaire"))
+                return redirect(url_for("home"))
 
         flash('用户名或密码不正确！')
     return render_template('login.html')
-
-
+#"登出"
+@app.route('/logout')
+def logout():
+    session.pop('username', None)  # 从 session 中移除 username
+    return redirect(url_for('index'))  # 重定向到主页或其他适当的页面
+#"登录状态"
+@app.route('/')
+def index():
+    is_logged_in = 'username' in session
+    return render_template('index.html', is_logged_in=is_logged_in, username=session.get('username'))
 
 
 if __name__ == '__main__':

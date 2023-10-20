@@ -147,7 +147,8 @@ header #logo {
 header #logo img {
   display: block;
   height: 100%;
-  width: 188px;
+  width: 250px;
+  top: 20px;
   margin-right: 28px;
 }
 
