@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
 </head>
+<style>
+body{
+            background-color: gray;
+            background-repeat:no-repeat;
+            font-family: 'Roboto Condensed', sans-serif;
+            background-size:100% 120%;
+        }
+</style>
 <body>
 <form method="post" action="/search">
-    Keyword: <input type="text" name="Keyword" required><br>
-    Checkin: <input type="text" name="checkin" required><br>
-    Checkout: <input type="text" name="checkout" required><br>
+    Keyword: <input type="text" name="Keyword" required>
+    Checkin: <input type="text" name="checkin" required>
+    Checkout: <input type="text" name="checkout" required>
     <input type="submit" value="Search">
 </form>
 {% with messages = get_flashed_messages() %}
@@ -28,8 +36,8 @@
 <br>
 {% for result in results %}
     <tr>
-    <img src="{{ result['Images']}}" width="200" height="200">
-        <td>{{result['Hotel_name']}}</td>
+    <img src="{{ result['Images']}}" width="200" height="200" >
+        <td ><a href="{{result['Linkss']}}">{{result['Hotel_name']}}</a></td>
         <td>{{ result['address']}}</td>
         <td>{{ result['Price']}}</td>
         <td>{{ result['score']}}</td> 
@@ -43,5 +51,4 @@
 
 </body>
 </html>
-
 
