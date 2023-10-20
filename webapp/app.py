@@ -45,7 +45,7 @@ class LoginForm(FlaskForm):
 def register():
     if request.method == 'POST':
         existing_user = user_infor_manager.find_user_info('username')
-
+        # existing_user = user_infor_manager.find_user_info(request.form['username'])
         if existing_user is None:
             user_infor_manager.insert_one_user({
                 'username': request.form['username'],

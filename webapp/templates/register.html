@@ -98,23 +98,14 @@
         <div class="form-wrapper">
             <form method="post" action="/register" onsubmit="return confirm('Are you sure you want to register?');">
 
-                        <input type="text" placeholder="Username" id="username" class="input-item">
-
-                        <input type="text" placeholder="Name" id="name" class="input-item">
-
-                        <input type="password" placeholder="Password" id="password" class="input-item">
-
-                        <input type="number" placeholder="age" id="age"  class="input-item">
-
-                        <input type="text" placeholder="Sex" id="sex" class="input-item">
-
-                        <input type="text" placeholder="Phone number" id="phone" class="input-item">
-
-                        <input type="email" placeholder="Email:xxxx@xxxx.com" id="email" class="input-item">
-
-
-
-                            <input type="submit" value="Register" class="btn">
+                        <input type="text" placeholder="Username" id="username" name="username" class="input-item">
+                        <input type="text" placeholder="Name" id="name" name="name" class="input-item">
+                        <input type="password" placeholder="Password" id="password" name="password" class="input-item">
+                        <input type="number" placeholder="age" id="age" name="age" class="input-item">
+                        <input type="text" placeholder="Sex" id="sex" name="sex" class="input-item">
+                        <input type="text" placeholder="Phone number" id="phone" name="phone" class="input-item">
+                        <input type="email" placeholder="Email:xxxx@xxxx.com" id="email" name="email" class="input-item">
+                        <input type="submit" value="Register" class="btn">
 
 
                 </table>
@@ -123,9 +114,7 @@
 
     </div>
     </div>
-    <div class="rg_right">
-        <p>Have an account?<a href="login.html">Login NOW!</a></p>
-    </div>
+
 </div>
 </body>
 </html>
