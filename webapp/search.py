@@ -17,13 +17,13 @@ def search():
         Keyword = request.form['Keyword']
         checkin = request.form['checkin']
         checkout = request.form['checkout']
-        exist_data = hotels.find({"Location": {"$regex": Keyword}}).limit(10)
+        exist_data = hotels.find({"Location": {"$regex": Keyword, "$options": 'i'}}).limit(9)
         exist_datas = list(copy.deepcopy(exist_data))
         list_num = len(exist_datas)
         if list_num > 0:
             print('载入数据')
             # print(exist_data[0])
-            return render_template('search.html', results=exist_datas)
+            return render_template('search2.html', results=exist_datas)
 
         search_data = Get_booking_hotel(Keyword, checkin, checkout)
         if search_data:
@@ -32,6 +32,8 @@ def search():
                 room_id=each_data['blocks'][0]['blockId']['roomId']
                 policyGroupId=each_data['blocks'][0]['blockId']['policyGroupId']
                 pagename=each_data['basicPropertyData']['pageName']
+                countryCode=each_data['basicPropertyData']['location']['countryCode']
+                # print(each_data['location'])
                 insert_data = {
                     'Hotel_name': each_data['displayName']['text'],
                     'Location': each_data['location']['displayLocation'],
@@ -40,15 +42,16 @@ def search():
                     'score': each_data['basicPropertyData']['reviewScore']['score'],
                     'Price': each_data['blocks'][0]['finalPrice']['amount'],
                     'address': each_data['basicPropertyData']['location'],
-                    'Linkss':'https://www.booking.com/hotel/ca/{}.en-gb.html?all_sr_blocks={}_{}_0_2_0;checkin={};checkout={}'.format(pagename,room_id,policyGroupId,checkin,checkout),
+                    'Linkss':'https://www.booking.com/hotel/{}/{}.en-gb.html?all_sr_blocks={}_{}_0_2_0;checkin={};checkout={}'.format(countryCode,pagename,room_id,policyGroupId,checkin,checkout),
 
                 }
-                # print(insert_data)
+                print(insert_data)
                 hotels.insert_one(insert_data)
         # flash('搜索成功')
-        exist_data = hotels.find({"Location": {"$regex": Keyword}}).limit(10)
+        exist_data = hotels.find({"Location": {"$regex": Keyword, "$options": 'i' }}).limit(9)
         exist_datas = list(copy.deepcopy(exist_data))
+        print(exist_datas)
         # exist_datas = copy.deepcopy(exist_data)
-        return render_template('search.html', results=exist_datas)
+        return render_template('search2.html', results=exist_datas)
         # jsonify(exist_datas)
-    return render_template('search.html')
+    return render_template('search2.html')

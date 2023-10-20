@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Grid - Hotel Booking</title>
+  <link rel="stylesheet" href="../static/assets/css/SearchHotelStyle.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+{#<form method="post" action="/search">#}
+{#    Keyword: <input type="text" name="Keyword" required>#}
+{#    Checkin: <input type="date" name="checkin" required>#}
+{#    Checkout: <input type="date" name="checkout" required>#}
+{#    <input type="submit" value="Search">#}
+{#</form>#}
+<div class="wrapper">
+  <div class="top__header">
+    <div class="icon__menu">
+        <div class="menu__mobile">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+            width="24" height="24"
+            viewBox="0 0 192 192"
+            style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g fill="#ffffff"><g id="surface1"><path d="M0,34.56v7.68h192v-7.68zM0,92.16v7.68h192v-7.68zM0,149.76v7.68h192v-7.68z"></path></g></g></g></svg>
+        </div>
+        <div class="menu__desktop">
+
+          <ul class="desktop__menu">
+               <li><a href="../">Return</a></li>
+          <form method="post" action="/search">
+                Keyword: <input type="text" name="Keyword" required>
+                Checkin: <input type="date" name="checkin" required>
+                Checkout: <input type="date" name="checkout" required>
+                <input type="submit" value="Search">
+            </form>
+{#            <li>Register</li>#}
+{#            <li>Login</li>#}
+          </ul>
+        </div>
+    </div>
+    <h3>SearchResult</h3>
+  </div>
+    <div class="cards">
+    {% for result in results %}
+
+    <div class="card">
+      <div class="card__img">
+          <picture>
+            <img src="{{ result['Images']}}" width="300" height="200">
+          </picture>
+      </div>
+      <div class="card__details">
+        <h3 for="cozyroom">{{result['Hotel_name']}}</h3>
+        <div class="address">{{ result['address']['address']}}</div>
+        <div class="price">
+          <div class="star">
+            <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
+            <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
+            <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
+            <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
+          </div>
+          <div class="price__l">
+            <span class="price__label">{{ result['Price']}} CAD</span>
+            <span class="measure__label"> Total</span>
+          </div>
+        </div>
+        <button ><a href="{{result['Linkss']}}">Detail</a></button>
+      </div>
+    </div>
+
+    {% endfor %}
+    </div>
+</div>
+<!-- partial -->
+<link rel="stylesheet" href="../static/assets/css/SearchHotelStyle.css">
+</body>
+</html>
