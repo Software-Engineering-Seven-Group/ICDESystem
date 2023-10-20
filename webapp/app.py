@@ -18,20 +18,7 @@ app.register_blueprint(questionnaire_api)
 "“首页，重定向”"
 @app.route('/')
 def home():
-    #return redirect(url_for('register'))
-
-    #todo: data analysis model
-    analysed_data = {"America": 14, "China": 10, "India": 20, "France": 50, "England": 6}
-
-    analysed_data_keys = list(analysed_data.keys())
-    analysed_data_values = list(analysed_data.values())
-
-    print(analysed_data_values)
-    print(analysed_data_keys)
-
-    #return render_template("search.html", data_keys_list=analysed_data_keys, data_values_list=analysed_data_values,
-    return render_template("home.html", data_keys_list=analysed_data_keys, data_values_list=analysed_data_values,
-                           loginstate='')
+    return render_template("index.html")
 
 image_captcha = ImageCaptcha()
 #验证码位数(4)
