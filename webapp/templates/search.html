@@ -16,8 +16,8 @@ body{
 <body>
 <form method="post" action="/search">
     Keyword: <input type="text" name="Keyword" required>
-    Checkin: <input type="text" name="checkin" required>
-    Checkout: <input type="text" name="checkout" required>
+    Checkin: <input type="date" name="checkin" required>
+    Checkout: <input type="date" name="checkout" required>
     <input type="submit" value="Search">
 </form>
 {% with messages = get_flashed_messages() %}
