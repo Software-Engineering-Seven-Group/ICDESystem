@@ -19,7 +19,7 @@ ul {
   position: relative;
   height: 45px;
   padding: 10px;
-  background: #51D6FB;
+  background: #56B6FF;
   color: #FFFFFF;
   font-size: 12px;
   font-family: "Roboto", sans-serif;
@@ -43,7 +43,7 @@ ul {
   content: "";
   width: 100%;
   border-radius: 10px 10px 0 0;
-  background: #1fcafa;
+  background: #56B6FF;
   height: 100%;
   display: block;
   position: absolute;
@@ -114,7 +114,7 @@ ul {
   padding: 15px;
   border: none;
   border-radius: 5px;
-  background: #51D6FB;
+  background: #56B6FF;
   color: #FFFFFF;
 }
 .cards .card__details button:focus {

@@ -17,7 +17,7 @@ def search():
         Keyword = request.form['Keyword']
         checkin = request.form['checkin']
         checkout = request.form['checkout']
-        exist_data = hotels.find({"Location": {"$regex": Keyword, "$options": 'i'}}).limit(9)
+        exist_data = hotels.find({"Location": {"$regex": Keyword, "$options": 'i'},"CheckIn":checkin,"CheckOut":checkout}).limit(9)
         exist_datas = list(copy.deepcopy(exist_data))
         list_num = len(exist_datas)
         if list_num > 0:
@@ -36,6 +36,8 @@ def search():
                 # print(each_data['location'])
                 insert_data = {
                     'Hotel_name': each_data['displayName']['text'],
+                    'CheckIn':checkin,
+                    'CheckOut':checkout,
                     'Location': each_data['location']['displayLocation'],
                     'Images': 'https://cf.bstatic.com' +
                               each_data['basicPropertyData']['photos']['main']['highResJpegUrl']['relativeUrl'],
@@ -48,7 +50,7 @@ def search():
                 print(insert_data)
                 hotels.insert_one(insert_data)
         # flash('搜索成功')
-        exist_data = hotels.find({"Location": {"$regex": Keyword, "$options": 'i' }}).limit(9)
+        exist_data = hotels.find({"Location": {"$regex": Keyword, "$options": 'i'},"CheckIn":checkin,"CheckOut":checkout}).limit(9)
         exist_datas = list(copy.deepcopy(exist_data))
         print(exist_datas)
         # exist_datas = copy.deepcopy(exist_data)
