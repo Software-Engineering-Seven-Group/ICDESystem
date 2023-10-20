@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Preference Questionnaire</title>
+		<style>
+			body{
+				background-color: gray;
+				background-image: url("../static/img/analysis.jpg");
+				background-repeat:no-repeat;
+				font-family: 'Roboto Condensed', sans-serif;
+				background-size:100% 120%;
+			}
+			.index{
+				margin: auto;
+				width:920px;
+				background-color: white;
+				box-shadow:10px 10px 15px black;
+				margin-top:10px;
+				opacity: 0.9;
+			}
+            .pie{
+				margin: auto;
+				width:920px;
+				background-color: grey;
+				box-shadow:10px 10px 15px black;
+				margin-top:10px;
+				text-align: center;
+				opacity: 0.9;
+			}
+            .bar{
+				margin: auto;
+				width:920px;
+				background-color: grey;
+				box-shadow:10px 10px 15px black;
+				margin-top:10px;
+				margin-left:100px;
+				opacity: 0.9;
+			}
+			.p1 {
+  				font-family: "Times New Roman", Times, serif;
+			}
+		    h1{
+				color:black;
+				padding-top:30px;
+				text-align:center;
+			}
+			form{
+				padding-left: 100px;
+				line-height:180%;
+			}
+			input{
+				border-color: black;
+				border-top-width:0px;
+				border-right-width:0px;
+				border-bottom-width:2px;
+				border-left-width:0px;
+			}
+			#btn{
+				background-color: #FFA500;
+				color:white;
+				padding:5px 10px;
+				margin-left:320px;
+				margin-top:16px;
+				margin-bottom: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="index">
+			<h1>Diagram Analysis</h1>
+			<hr color="White" width="700px" />
+
+            <canvas id="PieChart" style="
+            width:100%;
+            max-width:600px;
+            color:white;
+            padding-left: 0;
+    		padding-right: 0;
+    		margin-left: auto;
+   			margin-right: auto;"></canvas>
+			<canvas id="BarChat" style="
+            width:100%;
+            max-width:600px;
+            color:white;
+            padding-left: 0;
+    		padding-right: 0;
+    		margin-left: auto;
+   			margin-right: auto;"></canvas>
+			<form method="back" action="/analysis" onsubmit="return confirm('Are you sure you want back to home page?');">
+			<button id="btn" type="submit">Home</button>
+            <script>
+
+				const recommend_cities_name = {{data_keys_list | tojson}};
+    			const recommend_cities_value = {{data_values_list}};
+    			const popular_cities_name = {{data_keys_list_popular | tojson}};
+  				const popular_cities_value = {{data_values_list_popular}};
+				const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+				const yValues = [55, 49, 44, 24, 15];
+const barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+
+new Chart("BarChat", {
+  type: "pie",
+  data: {
+    labels: popular_cities_name,
+    datasets: [{
+      backgroundColor: barColors,
+      data: popular_cities_value
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "The best cities for you to visit"
+    }
+  }
+});
+
+new Chart("PieChart", {
+  type: "bar",
+  data: {
+    labels: recommend_cities_name,
+    datasets: [{
+      backgroundColor: barColors,
+      data: recommend_cities_value
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "The most popular cities"
+    }
+  }
+});
+			</script>
+</div>
+
+	</body>
+</html>

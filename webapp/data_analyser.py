@@ -88,6 +88,27 @@ class KNNDataAnalayzer():
 
         return recommend_cities_name_list, recommend_cities_priority_list
 
+    def popular_cities(self):
+        cities_namelists = city_infor_manager.list_cities_name()
+        cities_queue = PriorityQueue()
+        for city_name in cities_namelists:
+            current_city = city_infor_manager.get_city_all_data(city_name)
+            cities_queue.put((10000 - current_city['popularity'], city_name))
+
+        popular_cities_name_list = []
+        popular_cities_priority_list = []
+        for i in range(0, self.priority_num):
+            cur_priority_num = cities_queue.get()[0]
+            cur_city_name = cities_queue.get()[1]
+            popular_cities_name_list.append(cur_city_name)
+            popular_cities_priority_list.append(10000 - cur_priority_num)
+
+        return popular_cities_name_list, popular_cities_priority_list
+
+
+
+
+
 #the test case of KNN data analyser
 def KNNDataAnalayzer_test_case():
     analyzer_instance = KNNDataAnalayzer()

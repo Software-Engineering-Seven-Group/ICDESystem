@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for, Blueprint
 from database_manager import user_preference_infor_manager
-
+from data_displayer import enter_analysis_page
 questionnaire_api = Blueprint('questionnaire_api', __name__)
 
 #pre-process of questionnaire data
@@ -48,7 +48,7 @@ def questionnaire():
             )
 
             user_preference_infor_manager.insert_one_user_preference_data_item(processed_data)
-            return redirect(url_for('home'))
+            return enter_analysis_page() #redirect(url_for('home'))
 
     return render_template('questionnaire.html')
 
