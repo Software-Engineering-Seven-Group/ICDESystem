@@ -20,19 +20,19 @@ app.register_blueprint(questionnaire_api)
 def home():
     return render_template("index.html")
 
-image_captcha = ImageCaptcha()
-#验证码位数(4)
-def generate_captcha():
-    return ''.join([str(random.randint(0, 9)) for _ in range(4)])
-#验证码模块
-@app.route('/captcha/')
-def captcha():
-    code = generate_captcha()
-    session['captcha'] = code
-    data = image_captcha.generate(code)
-    response = make_response(data.read())
-    response.content_type = 'image/png'
-    return response
+# image_captcha = ImageCaptcha()
+# #验证码位数(4)
+# def generate_captcha():
+#     return ''.join([str(random.randint(0, 9)) for _ in range(4)])
+# #验证码模块
+# @app.route('/captcha/')
+# def captcha():
+#     code = generate_captcha()
+#     session['captcha'] = code
+#     data = image_captcha.generate(code)
+#     response = make_response(data.read())
+#     response.content_type = 'image/png'
+#     return response
 #用户登录表
 class LoginForm(FlaskForm):
     username = StringField('Username', [DataRequired()])
@@ -66,29 +66,16 @@ def register():
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
-    form = LoginForm()
-    if form.validate_on_submit():
-        if form.captcha.data.lower() != session.get('captcha', '').lower():
-            flash('验证码错误!')
-            return render_template('login.html', form=form)
+    if request.method == 'POST':
+        login_user = user_infor_manager.find_user_info('username')
 
-        login_user = user_infor_manager.find_user_info(form.username.data)
-        if login_user and form.password.data == login_user['password']:
-            session['username'] = form.username.data
-            return render_template('register.html', form=form)
+        if login_user:
+            if request.form['password'] == login_user['password']:
+                session['username'] = request.form['username']
+                return redirect(url_for("questionnaire_api.questionnaire"))
 
         flash('用户名或密码不正确！')
-    return render_template('login.html', form=form)
-    # if request.method == 'POST':
-    #     login_user = user_infor_manager.find_user_info('username')
-    #
-    #     if login_user:
-    #         if request.form['password'] == login_user['password']:
-    #             session['username'] = request.form['username']
-    #             return redirect(url_for("questionnaire_api.questionnaire"))
-    #
-    #     flash('用户名或密码不正确！')
-    # return render_template('login.html')
+    return render_template('login.html')
 
 
 
