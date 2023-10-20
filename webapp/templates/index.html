@@ -33,9 +33,12 @@
             placeholder="Search something"
           />
           <i class="fas fa-search"></i>
+            <a href="/search" class="link blackbutton1">
+                    <span>SEARCH</span></a>
         </div>
 
             <div class="links">
+
                 {% if 'username' not in session %}
                     <a href="/login" class="link blackbutton">
                     <span>Login</span>
@@ -64,7 +67,7 @@
           <a href="#lastActivity" class="scroll hide">
             <i class="fas fa-chevron-right scroll"></i>
           </a>
-          <a href="#" class="activity">
+          <a href="/search" class="activity">
             <div>Hotels</div>
             <i class="fas fa-hotel"></i>
           </a>
