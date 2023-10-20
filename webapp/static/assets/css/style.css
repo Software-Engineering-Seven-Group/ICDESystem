@@ -72,7 +72,22 @@ h3 {
 section a:not(.btn):not(.plain):hover {
   text-decoration: underline;
 }
-
+.link.blackbutton1{
+  background: #56B6FF;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: white;
+  font-size: 18px;
+  line-height: 160%;
+  min-width: 40px;
+  display: inline-block;
+  height: 27px;
+  border-radius: 20px;
+  transition: background-color 0.1s linear, border-color 0.1s linear;
+}
+.link.blackbutton1:hover {
+  background: #1E4980;
+}
 .link.blackbutton {
   background: black;
   padding-left: 15px;
