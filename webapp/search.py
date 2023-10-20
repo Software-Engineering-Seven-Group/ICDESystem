@@ -31,6 +31,7 @@ def search():
             for each_data in list_data:
                 room_id=each_data['blocks'][0]['blockId']['roomId']
                 policyGroupId=each_data['blocks'][0]['blockId']['policyGroupId']
+                pagename=each_data['basicPropertyData']['pageName']
                 insert_data = {
                     'Hotel_name': each_data['displayName']['text'],
                     'Location': each_data['location']['displayLocation'],
@@ -39,7 +40,7 @@ def search():
                     'score': each_data['basicPropertyData']['reviewScore']['score'],
                     'Price': each_data['blocks'][0]['finalPrice']['amount'],
                     'address': each_data['basicPropertyData']['location'],
-                    'Linkss':'https://www.booking.com/hotel/ca/brossard.en-gb.html?all_sr_blocks={}_{}_0_2_0;checkin={};checkout={}'.format(room_id,policyGroupId,checkin,checkout),
+                    'Linkss':'https://www.booking.com/hotel/ca/{}.en-gb.html?all_sr_blocks={}_{}_0_2_0;checkin={};checkout={}'.format(pagename,room_id,policyGroupId,checkin,checkout),
 
                 }
                 # print(insert_data)
