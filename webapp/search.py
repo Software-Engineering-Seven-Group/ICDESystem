@@ -3,13 +3,14 @@ from database_manager import user_preference_infor_manager
 from database_manager import MongoDBManager, UserInfoCollection, mongo_manager, user_infor_manager, user_preference_infor_manager
 import copy
 from crawler.Get_Hotel import Get_booking_hotel
+from crawler.Get_Tickets import get_tickets_list
 from flask_cors import CORS
 
 search_api = Blueprint('search_api', __name__)
 
 CORS(search_api)
-@search_api.route('/search', methods=['POST', 'GET'])  # Search
-def search():
+@search_api.route('/search_hotel', methods=['POST', 'GET'])  # Search
+def search_hotel():
     hotels = mongo_manager.get_collection("Hotels")
 
     if request.method == 'POST':
@@ -57,3 +58,30 @@ def search():
         return render_template('search2.html', results=exist_datas)
         # jsonify(exist_datas)
     return render_template('search2.html')
+@search_api.route('/search_tickets', methods=['POST', 'GET'])  # Search
+def search_tickets():
+    tickets = mongo_manager.get_collection("Tickets")
+    result_list=get_tickets_list('YTO','YMQ','2023-11-27','2023-12-04')
+    resultIds = result_list['resultIds']
+    for i in range(1, len(resultIds)):
+        try:
+            each = result_list['results'][resultIds[i]]
+            legs = each['legs']
+            legs_list = [i['segments'][0] for i in legs]
+            fees = each['optionsByFare']
+            bookingurl = 'https://www.ca.kayak.com' + fees[0]['options'][0]['url']
+            price = fees[0]['options'][0]['fees']['rawPrice']
+            result_dict = {
+                'depart': 'YTO',
+                'arrive': 'YMQ',
+                'depart_date': '2023-11-27',
+                'return_date': '2023-11-30',
+                'price': price,
+                'bookingurl': bookingurl,
+                'legs_list': legs_list
+            }
+            print(result_dict)
+            tickets.insert_one(result_dict)
+        except:pass
+if __name__=='__main__':
+    search_tickets()
