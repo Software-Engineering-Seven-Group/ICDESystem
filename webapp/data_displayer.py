@@ -18,7 +18,7 @@ def enter_analysis_page():
 
     recommend_rates = []
     for priority_value in recommend_cities_priority_list:
-        current_recommend_rate = ((priority_value - min_priority) / (max_priority - min_priority)) * 100.0
+        current_recommend_rate = ((priority_value - min_priority) / (max_priority - min_priority)) * 90.0 + 10.0
         recommend_rates.append(current_recommend_rate)
 
     popular_cities_name_list, popular_cities_priority_list = analyzer.popular_cities()

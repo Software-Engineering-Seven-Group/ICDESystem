@@ -82,8 +82,9 @@ class KNNDataAnalayzer():
         recommend_cities_name_list = []
         recommend_cities_priority_list = []
         for i in range(0, self.priority_num):
-            cur_priority_num = cities_queue.get()[0]
-            cur_city_name = cities_queue.get()[1]
+            cur_item = cities_queue.get()
+            cur_priority_num = cur_item[0]
+            cur_city_name = cur_item[1]
             recommend_cities_name_list.append(cur_city_name)
             recommend_cities_priority_list.append(cur_priority_num)
 
@@ -94,15 +95,18 @@ class KNNDataAnalayzer():
         cities_queue = PriorityQueue()
         for city_name in cities_namelists:
             current_city = city_infor_manager.get_city_all_data(city_name)
-            cities_queue.put((10000 - int(current_city['popularity']), city_name))
+            print('city name:', city_name, ' city popularity:', int(current_city['popularity']))
+            cities_queue.put((0 - int(current_city['popularity']), city_name))
 
         popular_cities_name_list = []
         popular_cities_priority_list = []
         for i in range(0, self.priority_num):
-            cur_priority_num = cities_queue.get()[0]
-            cur_city_name = cities_queue.get()[1]
+            cur_item = cities_queue.get()
+            cur_priority_num = cur_item[0]
+            cur_city_name = cur_item[1]
+            print('！@！！ city name:', cur_city_name, ' city popularity:', int(cur_priority_num))
             popular_cities_name_list.append(cur_city_name)
-            popular_cities_priority_list.append(10000 - int(cur_priority_num))
+            popular_cities_priority_list.append(0 - int(cur_priority_num))
 
         return popular_cities_name_list, popular_cities_priority_list
 
