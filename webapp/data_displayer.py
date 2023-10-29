@@ -31,3 +31,7 @@ def enter_analysis_page():
     return render_template("analysis.html", data_keys_list=recommend_cities_name_list, data_values_list=recommend_rates,
                            data_keys_list_popular=popular_cities_name_list, data_values_list_popular=popular_cities_priority_list)
 
+#process analysis logic
+@displayer_api.route('/analysis')
+def analysis():
+    return enter_analysis_page()

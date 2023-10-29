@@ -3,7 +3,7 @@ from crawler.Get_Hotel import Get_booking_hotel
 from database_manager import MongoDBManager, UserInfoCollection, mongo_manager, user_infor_manager, user_preference_infor_manager
 from app_instance import app
 from questionnaire import questionnaire_api, questionnaire
-from data_displayer import displayer_api
+from data_displayer import displayer_api, enter_analysis_page
 from flask import Flask, render_template, request, session, redirect, url_for, flash, make_response
 from wtforms import Form, StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired
@@ -133,13 +133,6 @@ def reset_password():
         return redirect(url_for('login'))
 
     return render_template('reset_password.html')
-#process analysis logic
-@app.route('/analysis', methods=['BACK'])
-def analysis():
-    if request.method == 'back':
-        return redirect(url_for('BACK'))
-
-    return render_template('analysis.html')
 
 
 

@@ -31,7 +31,6 @@ def prcess_questionnaire_data(workload, area, history, people, alone, hum, sport
 
     return preference_data
 
-
 @questionnaire_api.route('/questionnaire', methods=['POST', 'GET'])
 def questionnaire():
     if request.method == 'POST':
@@ -48,12 +47,7 @@ def questionnaire():
                 int(request.form['sports']),
                 int(request.form['water']),
             )
-            #print('process_data:',processed_data)
             user_preference_infor_manager.insert_one_user_preference_data_item(processed_data)
-            existing_preference_infor2 = user_preference_infor_manager.find_user_preference_infor(session['username'])
-            #print('existing:', existing_preference_infor2)
-            return enter_analysis_page()
-            #return redirect(url_for('home'))
-
+            return redirect(url_for('home'))
     return render_template('questionnaire.html')
 
