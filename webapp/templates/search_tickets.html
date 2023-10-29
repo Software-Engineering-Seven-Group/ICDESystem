@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Tripedia</title>
+    <link rel="stylesheet" href="../static/assets/css/TicketsStyle.css">
+    <link rel="stylesheet" href="../static/assets/css/SearchBox.css">
+    <link rel="stylesheet" href="../static/assets/css/SearchHotelStyle.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .bold-text {
+        font-weight: bold;
+        }
+    .gray-text {
+        color: #777;
+    }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="top__header">
+    <div class="icon__menu">
+        <div class="menu__mobile">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+            width="24" height="24"
+            viewBox="0 0 192 192"
+            style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g fill="#ffffff"><g id="surface1"><path d="M0,34.56v7.68h192v-7.68zM0,92.16v7.68h192v-7.68zM0,149.76v7.68h192v-7.68z"></path></g></g></g></svg>
+        </div>
+        <div class="menu__desktop">
+
+          <ul class="desktop__menu">
+               <li><a href="../">Return</a></li>
+          <form method="post" action="/search_tickets">
+                From?: <input type="text" name="Departure" id="search-box1" required>
+                To?: <input type="text" name="Arrive" id="search-box2" required>
+                Departure: <input type="date" name="Departure_date" required>
+                Return: <input type="date" name="Return_date" required>
+                <input type="submit" value="Search">
+          </form>
+          </ul>
+
+        </div>
+    </div>
+{#    <h3>SearchResult</h3>#}
+  </div>
+    <div id="autocomplete-list"></div>
+    <div class="flightResults">
+    {% for result in results %}
+        <div class="boards">
+        {%  for leg in result['legs_list'] %}
+        <div class="flightResult vcenter">
+        <div class="flightNo infoDiv">
+          <div class="label">
+            FLIGHT NO.
+          </div>
+          <div class="value">
+            {{ leg['flightNumber'] }}
+          </div>
+        </div>
+        <div class="flightDisplay vcenter">
+          <div class="location infoDiv">
+            <div class="label">SOURCE</div>
+            <div class="value">{{ leg['departure']['airport']['code'] }}</div>
+          </div>
+          <div class="timeline">
+            <div class="symbol center"><img src="{{ leg['airline']['logoUrl'] }}" alt="airplane.png" border="0" /></div>
+            <div class="duration center">{{ leg['duration'] }}</div>
+          </div>
+          <div class="location infoDiv">
+            <div class="label">DESTINATION</div>
+            <div class="value">{{ leg['arrival']['airport']['code'] }}</div>
+          </div>
+        </div>
+        <div class="flightInfo infoDiv">
+          <div class="label">FLIGHT TIME</div>
+           <div class="value">{{ leg['departure']['isoDateTimeLocal']}}</div>
+          <div class="label">SEAT CLASS</div>
+           <div class="value">{{ leg['cabinDisplay'] }}</div>
+        </div>
+        <div class="flightFare infoDiv">
+          <div class="label">FLIGHT FARE</div>
+           <div class="value">{{ result['price'] }}</div>
+        </div>
+      </div>
+            {% endfor %}
+    </div>
+    {% endfor %}
+    </div>
+</div>
+<!-- partial -->
+<script>
+        $(document).ready(function() {
+            $('#search-box1').on('input', function() {
+                var query = $(this).val();
+                $.get('/autocomplete?query=' + query, function(data) {
+                    var autocompleteList = $('#autocomplete-list');
+                    autocompleteList.empty();
+                    data.forEach(function(option) {
+                        var listItem = $('<li><span class="bold-text">'+option['displayname']+'</span> - <span class="gray-text">' + option['searchFormPrimary'] + '</span> </li>');
+                        // 为每个选项添加点击事件
+                        listItem.click(function() {
+                            $('#search-box1').val(option['searchFormPrimary']);  // 将选项补全到输入框
+                            autocompleteList.empty();  // 清空自动补全选项
+                        });
+                        autocompleteList.append(listItem);
+                    });
+                });
+            });
+        });
+        $(document).ready(function() {
+            $('#search-box2').on('input', function() {
+                var query = $(this).val();
+                $.get('/autocomplete?query=' + query, function(data) {
+                    var autocompleteList = $('#autocomplete-list');
+                    autocompleteList.empty();
+                    data.forEach(function(option) {
+                        var listItem = $('<li><span class="bold-text">'+option['displayname']+'</span> - <span class="gray-text">' + option['searchFormPrimary'] + '</span> </li>');
+                        // 为每个选项添加点击事件
+                        listItem.click(function() {
+                            $('#search-box2').val(option['searchFormPrimary']);  // 将选项补全到输入框
+                            autocompleteList.empty();  // 清空自动补全选项
+                        });
+                        autocompleteList.append(listItem);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

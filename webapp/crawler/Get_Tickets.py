@@ -97,8 +97,42 @@ def get_tickets_list(depart,arrive,depart_date,return_date):
     searchId = get_searchId(depart,arrive,depart_date,return_date)
     result = get_Ticket(searchId)
     return result
+def get_imageing(keyword):
+    headers = {
+    'authority': 'www.ca.kayak.com',
+    'accept': '*/*',
+    'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,en-CN;q=0.7,en-US;q=0.6,en-CA;q=0.5',
+    # 'content-length': '0',
+    # 'cookie': 'Apache=TES6rw-AAABi3iO_jY-ca-HiYlgw; cluster=4; p1.med.token=TcQeNdGHgnZ8omhV4XoF4Z; p1.med.sid=R-4WM5HxiK9qJAdjWZKCaOV-SThi2cid2yAtvfVj82jK1lL7YGmAix36ykeFFXB0A; kanid=; kanlabel=; kayak=ZRgVLarPBu7BCsgZuvRY; csid=3a4d96a7-1087-4373-b4d2-77b8084517d5; kmkid=AzWZONFPPpczOfKT6SIXRdY; _gcl_au=1.1.977708422.1698534720; _fbp=fb.1.1698534720000.0.83877501037026; _uetsid=6614126075e711ee80b143ab187e5dcf; _uetvid=c31415203bb311ee9d86293a66b74360; kayak.mc=AQxtwVhgt3bclXkFGrZFPIpj8EWes7AoIhXi4x1b6CyWTZfqMGBguco5dIRibmiTfZ2q32X5yZETyIsfuyGGbUr4ZrHGN081mG7gct3gIq2WCcYPzq5KKm4tXy_RwPj2pkavaNDUGhF6ZudEFvXAqHSjOS5Tx3r0zkkhKiyuACGN65qKjn2P72YSJqAHFl1JW7-muCdsDmAH0pJq34UUclKmLKHK1R6eMdxkvoeW0QKe18lZOqqO45T7qW1OMYL8gASgE4khzhyVvf5dxVUsAe36LGiUy9FFtiNmtlqfbfzK1fi61w4ew7dxLRsStRiZEv9a5chhW30sUw7ac9DHXnRVIVxkxidWcZ7xkaQYRCrhcBEqlIo7Hy5vLKAZzYA6I_YMMRZa0pRf60dNGwN35ejVeWpMzWIaiJyR2FUP1f37; __gads=ID=73819b9a526939f8:T=1698530499:RT=1698540238:S=ALNI_MYPUp5g0Wv_u62onGeU-pOluWGERA; __gpi=UID=00000d9d43481b06:T=1698530499:RT=1698540238:S=ALNI_MYizyZ1B0zDAG-EfLJooBLy36TvpQ; mst_iBfK2g=J8xuYXWVoDcXA95JKfYyWfw2aObLBMJHq_utDuzZkmE7E2VsYGDY3wvRs_iqhemyZusMMKW-qy7TrY4SlHD88Q; mst_ADIrkw=a5lVm-BbvgkXghfdZ9OfgXvA6aZsvq9WQpyfu-w6A6QETbUZb7N2ZBC4RH-ukKProDk9zeJ7gp3cTWcWz2G30Q',
+    'origin': 'https://www.ca.kayak.com',
+    'referer': 'https://www.ca.kayak.com/flights/YMQ-YTO/2023-11-27/2023-12-04?sort=bestflight_a',
+    'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"Windows"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
+    'x-requested-with': 'XMLHttpRequest',
+    }
+
+    params = {
+        'f': 'j',
+        's': '58',
+        'where': keyword,
+        'lc_cc': 'CA',
+        'lc': 'en',
+        'sv': '5',
+        'cv': 'undefined',
+        'c': 'undefined',
+        'searchId': 'undefined',
+        'v': 'undefined',
+    }
+
+    response3 = requests.post('https://www.ca.kayak.com/mvm/smartyv2/search', params=params, headers=headers)
+    return response3.json()
 if __name__=='__main__':
-    searchId=get_searchId('YTO','YMQ','2023-11-27','2023-11-30')
+    searchId=get_searchId('YTO','YMQ','2023-10-29','2023-11-11')
     result=get_Ticket(searchId)
     resultIds=result['resultIds']
     for i in range(1,len(resultIds)):

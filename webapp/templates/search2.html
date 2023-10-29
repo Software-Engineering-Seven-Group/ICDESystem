@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <title>Tripedia</title>
   <link rel="stylesheet" href="../static/assets/css/SearchHotelStyle.css">
-
+    <link rel="stylesheet" href="../static/assets/css/SearchBox.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -21,7 +22,7 @@
           <ul class="desktop__menu">
                <li><a href="../">Return</a></li>
           <form method="post" action="/search_hotel">
-                Keyword: <input type="text" name="Keyword" required>
+                Keyword: <input type="text" name="Keyword" id="search-box1"required>
                 Checkin: <input type="date" name="checkin" required>
                 Checkout: <input type="date" name="checkout" required>
                 <input type="submit" value="Search">
@@ -33,6 +34,7 @@
     </div>
     <h3>SearchResult</h3>
   </div>
+    <div id="autocomplete-list"></div>
     <div class="cards">
     {% for result in results %}
 
@@ -66,5 +68,25 @@
 </div>
 <!-- partial -->
 <link rel="stylesheet" href="../static/assets/css/SearchHotelStyle.css">
+<script>
+    $(document).ready(function() {
+            $('#search-box1').on('input', function() {
+                var query = $(this).val();
+                $.get('/autocomplete2?query=' + query, function(data) {
+                    var autocompleteList = $('#autocomplete-list');
+                    autocompleteList.empty();
+                    data.forEach(function(option) {
+                        var listItem = $('<li><span class="bold-text">'+option['displayname']+'</span> - <span class="gray-text">' + option['searchFormPrimary'] + '</span> </li>');
+                        // 为每个选项添加点击事件
+                        listItem.click(function() {
+                            $('#search-box1').val(option['searchFormPrimary']);  // 将选项补全到输入框
+                            autocompleteList.empty();  // 清空自动补全选项
+                        });
+                        autocompleteList.append(listItem);
+                    });
+                });
+            });
+        });
+</script>
 </body>
 </html>
