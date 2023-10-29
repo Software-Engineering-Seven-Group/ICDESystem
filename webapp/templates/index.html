@@ -48,12 +48,13 @@
                     </a>
                 {% else %}
                 <span>Welcome, {{ session['username'] }}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                  <a href="#" class="link blackbutton">
+                  <a href="/edit_profile" class="link blackbutton">
                     <span>Edit Info</span>
                     </a>
                 <a href="/logout" class="link blackbutton">
                     <span>Logout</span>
                 </a>
+
                 {% endif %}
             </div>
       </nav>

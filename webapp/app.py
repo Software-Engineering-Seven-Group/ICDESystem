@@ -17,24 +17,12 @@ import random
 app.register_blueprint(questionnaire_api)
 app.register_blueprint(search_api)
 app.register_blueprint(displayer_api)
+app.secret_key = 'your_secret_key'  # replace with your secret key
 "“首页，重定向”"
 @app.route('/')
 def home():
     return render_template("index.html")
 
-# image_captcha = ImageCaptcha()
-# #验证码位数(4)
-# def generate_captcha():
-#     return ''.join([str(random.randint(0, 9)) for _ in range(4)])
-# #验证码模块
-# @app.route('/captcha/')
-# def captcha():
-#     code = generate_captcha()
-#     session['captcha'] = code
-#     data = image_captcha.generate(code)
-#     response = make_response(data.read())
-#     response.content_type = 'image/png'
-#     return response
 #用户登录表
 class LoginForm(FlaskForm):
     username = StringField('Username', [DataRequired()])
@@ -55,7 +43,8 @@ def register():
                 'sex': request.form['sex'],
                 'age': request.form['age'],
                 'phone': request.form['phone'],
-                'email': request.form['email']
+                'email': request.form['email'],
+                'secret': request.form['secret']
             })
             session['username'] = request.form['username']
             return redirect(url_for('questionnaire_api.questionnaire'))
@@ -76,7 +65,7 @@ def login():
                 session['username'] = request.form['username']
                 return redirect(url_for("home"))
 
-        flash('用户名或密码不正确！')
+        flash('.用户名或密码不正确！')
     return render_template('login.html')
 #"登出"
 @app.route('/logout')
@@ -89,8 +78,61 @@ def index():
     is_logged_in = 'username' in session
     return render_template('index.html', is_logged_in=is_logged_in, username=session.get('username'))
 
+#编辑个人资料
+@app.route('/edit_profile', methods=['GET', 'POST'])
+def edit_profile():
+    print("DEBUG: session contents:", session)
+    print("DEBUG: request.form contents:", request.form)
+    if 'username' not in session:
+        flash('请先登录!')
+        return redirect(url_for('login'))
 
+    username = session['username']
 
+    if request.method == 'POST':
+        new_name = request.form['name']
+        new_phone = request.form['phone']
+        new_email = request.form['email']
+        new_sex = request.form.get('sex')
+        new_age = int(request.form['age'])
+        new_secret = request.form['secret']
+
+        user_infor_manager.update_user_info(username, new_name, new_phone, new_email, new_sex, new_age, new_secret)
+        flash('资料已更新成功！')
+        return redirect(url_for('home'))
+
+    user_data = user_infor_manager.get_user_info(username)
+    return render_template('edit_profile.html', user_data=user_data)
+#修改密码
+@app.route('/reset_password', methods=['GET', 'POST'])
+def reset_password():
+    if request.method == 'POST':
+        username = request.form['username']
+        secret_answer = request.form['secret']
+        new_password = request.form['new_password']
+        confirm_password = request.form['confirm_password']
+
+        if new_password != confirm_password:
+            flash('两次输入的密码不一致！')
+            return render_template('reset_password.html')
+        # 验证用户信息
+        user_info = user_infor_manager.find_user_by_username(username)
+        print(f"Queried user info for {username}: {user_info}")
+        if not user_info:
+            flash(f'找不到用户名：{username}！')
+            return render_template('reset_password.html')
+        print(f"Database secret for {username}: {user_info.get('secret')}")
+        print(f"Submitted secret: {secret_answer}")
+        if user_info.get('secret') != secret_answer:
+            flash('密保问题不正确！')
+            return render_template('reset_password.html')
+
+        # 更新密码
+        user_infor_manager.update_password(username, new_password)
+        flash('密码已更新成功！')
+        return redirect(url_for('login'))
+
+    return render_template('reset_password.html')
 #process analysis logic
 @app.route('/analysis', methods=['BACK'])
 def analysis():

@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>LoginForm</title>
-
-
-    {% with messages = get_flashed_messages(with_categories=true) %}
+    <title>注册页面</title>
+    <!--    引入格式文件-->
+    <link rel="stylesheet" href="html&css.css">
+</head>
+<body>
+{% with messages = get_flashed_messages(with_categories=true) %}
   {% if messages %}
     <ul class=flashes>
       {% for category, message in messages %}
@@ -27,14 +29,14 @@
         }
         .container {
             height: 100%;
-            background-image: url("../static/img/Login.jpg");
+            background-image: url("../static/img/Register.jpg");
             background-position: center bottom;
             background-repeat: no-repeat;
         }
         .login-wrapper {
             background-color: bisque;
             width: 358px;
-            height: 588px;
+            height: 688px;
             border-radius: 15px;
             padding: 0 50px;
             position: relative;
@@ -44,10 +46,10 @@
             opacity: 0.85;
         }
         .header {
-            font-size: 38px;
+            font-size: 22px;
             font-weight: bold;
             text-align: center;
-            line-height: 200px;
+            line-height: 90px;
         }
         .input-item {
             display: block;
@@ -63,6 +65,7 @@
             text-transform: uppercase;
         }
         .btn {
+
             text-align: center;
             padding: 10px;
             width: 100%;
@@ -78,34 +81,39 @@
             text-decoration-line: none;
             color: #abc1ee;
         }
-        .flashes .error {
-        color: red;
+        .flashes {
+            left: ;ist-style-type: none;
+             padding: 0;
         }
+
+.flashes .error {
+    color: red;
+}
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="login-wrapper">
-            <div class="header">Login</div>
-            <form action="/login" method="post">
-                <div class="form-wrapper">
-                    <input type="text" name="username" placeholder="username" class="input-item">
-                    <input type="password" name="password" placeholder="password" class="input-item">
-                    <input type="submit" value="Login" class="btn">
-                </div>
-            </form>
-            <div class="msg">
-                Forget Password?
-                <a href="{{ url_for('reset_password') }}">Reset Password</a>
-            </div>
-        </div>
+<div class="container">
+    <div class="login-wrapper">
+       <div class="header">
+        <p>Edit your Information</p>
     </div>
+        <div class="form-wrapper">
+            <form method="post" action="/edit_profile" onsubmit="return confirm('Are you sure you want to edit?');">
+
+                        <input type="text" placeholder="Name" id="name" name="name" class="input-item">
+                        <input type="number" placeholder="age" id="age" name="age" class="input-item">
+                        <input type="text" placeholder="Sex" id="sex" name="sex" class="input-item">
+                        <input type="text" placeholder="Phone number" id="phone" name="phone" class="input-item">
+                        <input type="email" placeholder="Email:name@example.com" id="email" name="email" class="input-item">
+                        <input type="text" placeholder="Question:What's your favorite movie" id="secret" name="secret" class="input-item">
+                        <input type="submit" value="Submit" class="btn">
+
+
+                </table>
+            </form>
+        </div>
+
+    </div>
+    </div>
+
+</div>
 </body>
 </html>
-
-
-
-
-
-
-

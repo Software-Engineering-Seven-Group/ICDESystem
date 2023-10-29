@@ -33,7 +33,11 @@ class MongoDBManager():
     def find_item_from_collection(self, collection_name, item_key, item_value):
         return self.get_collection(collection_name).find_one({item_key: item_value})
 
+    def update_item_in_collection(self, collection_name, query, update_data):
+        self.get_collection(collection_name).update_one(query, update_data)
 
+    def update_user_info(self, username, updated_data):
+        return self.get_collection('userInfo').update_one({'username': username}, {'$set': updated_data})
     #todo: insert data/ delete data/ modify data/ ... add the basic database interface
 
 #global database manager
@@ -49,11 +53,33 @@ class UserInfoCollection():
 
     def find_user_info(self, user_name):
         return mongo_manager.find_item_from_collection_with_request(self.collection_name, user_name)
-
     def list_users_name(self):
         users_name_list = mongo_manager.list_all_items_target_entry(self.collection_name, 'username')
         return users_name_list
 
+    def find_user_by_username(self, username):
+        return mongo_manager.find_item_from_collection(self.collection_name, 'username', username)
+
+    def update_user_info(self, username, new_name, new_phone, new_email, new_sex, new_age, new_secret):
+        mongo_manager.get_collection(self.collection_name).update_one(
+            {"username": username},
+            {
+                "$set": {
+                    "name": new_name,
+                    "phone": new_phone,
+                    "email": new_email,
+                    "sex": new_sex,
+                    "age": new_age,
+                    "secret": new_secret
+                }
+            }
+        )
+
+    def get_user_info(self, username):
+        user_data = mongo_manager.get_collection(self.collection_name).find_one({"username": username})
+        return user_data if user_data else None
+    def update_password(self, username, new_password):
+        mongo_manager.update_item_in_collection(self.collection_name, {'username': username}, {'$set': {'password': new_password}})
     #todo: add user data logic info according to the structure of userinfo table, for example:
     def get_user_nationality(self, user_name):
         return ''

@@ -8,7 +8,8 @@
   "sex": "male",
   "age": 23,
   "phone": "514-794-8869",
-  "email": "ya_jiaxi@live.concordia.ca"
+  "email": "ya_jiaxi@live.concordia.ca",
+  "secret": "Shawshank'sRedemption"
 },
 {
   "_id": {
@@ -20,7 +21,8 @@
   "sex": "F",
   "age": "22",
   "phone": "1234567890",
-  "email": "wangboyang@test.com"
+  "email": "wangboyang@test.com",
+  "secret": "TheKiteRunner"
 },
 {
   "_id": {
@@ -32,7 +34,8 @@
   "sex": "M",
   "age": "25",
   "phone": "1234567890",
-  "email": "zhangyulin@test.com"
+  "email": "zhangyulin@test.com",
+  "secret": "JamesBond"
 },
 {
   "_id": {
@@ -44,29 +47,7 @@
   "sex": "M",
   "age": "23",
   "phone": "1234567890",
-  "email": "yuhangchen@test.com"
-},
-{
-  "_id": {
-    "$oid": "6518e1e50a2c51d47917e4f9"
-  },
-  "username": "mxy116",
-  "name": "马心远",
-  "password": "mxy629116",
-  "sex": "F",
-  "age": "23",
-  "phone": "13783188730",
-  "email": "maxinyuan@gamil.com"
-},
-{
-  "_id": {
-    "$oid": "6518e3832c222c39221c9f61"
-  },
-  "username": "33441177",
-  "name": "jiaxi",
-  "password": "Yjx116629",
-  "sex": "M",
-  "age": "23",
-  "phone": "5147948869",
-  "email": "1042259433@qq.com"
-}]
+  "email": "yuhangchen@test.com",
+  "secret": "TopGun"
+}
+]
