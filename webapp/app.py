@@ -49,7 +49,7 @@ def register():
             session['username'] = request.form['username']
             return redirect(url_for('questionnaire_api.questionnaire'))
 
-        flash('用户名已经存在，请换一个用户名！')
+        flash('Username is existed！PlZ change another one!')
         return redirect(url_for('register'))
 
     return render_template('register.html')
@@ -70,8 +70,8 @@ def login():
 #"登出"
 @app.route('/logout')
 def logout():
-    session.pop('username', None)  # 从 session 中移除 username
-    return redirect(url_for('index'))  # 重定向到主页或其他适当的页面
+    session.pop('username', None)
+    return redirect(url_for('index'))
 #"登录状态"
 @app.route('/')
 def index():
@@ -98,7 +98,7 @@ def edit_profile():
         new_secret = request.form['secret']
 
         user_infor_manager.update_user_info(username, new_name, new_phone, new_email, new_sex, new_age, new_secret)
-        flash('资料已更新成功！')
+        flash('Update Successfully！')
         return redirect(url_for('home'))
 
     user_data = user_infor_manager.get_user_info(username)
