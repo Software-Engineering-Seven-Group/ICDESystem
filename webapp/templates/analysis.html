@@ -20,6 +20,14 @@
 				margin-top:10px;
 				opacity: 0.9;
 			}
+			.wordbox{
+				margin: auto;
+				width:600px;
+				background-color: white;
+				box-shadow:5px 5px 5px black;
+				margin-top:10px;
+				opacity: 0.5;
+			}
             .pie{
 				margin: auto;
 				width:920px;
@@ -40,10 +48,20 @@
 			}
 			.p1 {
   				font-family: "Times New Roman", Times, serif;
+  				color:black;
+				padding-top:30px;
+				padding-left: 100px;
+				padding-right: 100px;
+				text-align:center;
 			}
 		    h1{
 				color:black;
 				padding-top:30px;
+				text-align:center;
+			}
+			p2{
+				color:black;
+				padding:20px;
 				text-align:center;
 			}
 			form{
@@ -80,6 +98,10 @@
     		padding-right: 0;
     		margin-left: auto;
    			margin-right: auto;"></canvas>
+
+			<div class="wordbox">
+			<p2>{{recommend_city_word}}</p2>
+			</div>
 			<canvas id="BarChat" style="
             width:100%;
             max-width:600px;
@@ -89,13 +111,16 @@
     		margin-left: auto;
    			margin-right: auto;"></canvas>
 
+			<div class="wordbox">
+			<p2>{{popular_city_word}}</p2>
+			</div>
+
 			<button id="btn" type="submit">
 				<a href="/" class="link blackbutton">
                     <span>HOME</span>
 				</a>
 			</button>
             <script>
-
 				const recommend_cities_name = {{data_keys_list | tojson}};
     			const recommend_cities_value = {{data_values_list}};
     			const popular_cities_name = {{data_keys_list_popular | tojson}};
