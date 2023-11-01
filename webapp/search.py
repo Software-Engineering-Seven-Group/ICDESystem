@@ -79,34 +79,37 @@ def search_tickets():
             return render_template('search_tickets.html', results=exist_datas)
         else:
             print(Departure,Arrive,depart_date,return_date)
-            result_list=get_tickets_list(Departure,Arrive,depart_date,return_date)
-            resultIds = result_list['resultIds']
-            for i in range(1, len(resultIds)):
-                try:
-                    each = result_list['results'][resultIds[i]]
-                    legs = each['legs']
-                    legs_list = [i['segments'][0] for i in legs]
-                    fees = each['optionsByFare']
-                    bookingurl = 'https://www.ca.kayak.com' + fees[0]['options'][0]['url']
-                    price = fees[0]['options'][0]['fees']['rawPrice']
-                    result_dict = {
-                        'depart': Departure,
-                        'arrive': Arrive,
-                        'depart_date': depart_date,
-                        'return_date': return_date,
-                        'price': price,
-                        'bookingurl': bookingurl,
-                        'legs_list': legs_list
-                    }
-                    print(result_dict)
-                    tickets.insert_one(result_dict)
-                except:pass
-            exist_data = tickets.find(
-                {"depart": {"$regex": Departure, "$options": 'i'}, "arrive": {"$regex": Arrive, "$options": 'i'},"depart_date": depart_date, "return_date": return_date}).limit(5)
-            exist_datas = list(copy.deepcopy(exist_data))
-            print(exist_datas)
-            # exist_datas = copy.deepcopy(exist_data)
-            return render_template('search_tickets.html', results=exist_datas)
+            try:
+                result_list=get_tickets_list(Departure,Arrive,depart_date,return_date)
+                resultIds = result_list['resultIds']
+                for i in range(1, len(resultIds)):
+                    try:
+                        each = result_list['results'][resultIds[i]]
+                        legs = each['legs']
+                        legs_list = [i['segments'][0] for i in legs]
+                        fees = each['optionsByFare']
+                        bookingurl = 'https://www.ca.kayak.com' + fees[0]['options'][0]['url']
+                        price = fees[0]['options'][0]['fees']['rawPrice']
+                        result_dict = {
+                            'depart': Departure,
+                            'arrive': Arrive,
+                            'depart_date': depart_date,
+                            'return_date': return_date,
+                            'price': price,
+                            'bookingurl': bookingurl,
+                            'legs_list': legs_list
+                        }
+                        print(result_dict)
+                        tickets.insert_one(result_dict)
+                    except:pass
+                exist_data = tickets.find(
+                    {"depart": {"$regex": Departure, "$options": 'i'}, "arrive": {"$regex": Arrive, "$options": 'i'},"depart_date": depart_date, "return_date": return_date}).limit(5)
+                exist_datas = list(copy.deepcopy(exist_data))
+                print(exist_datas)
+                # exist_datas = copy.deepcopy(exist_data)
+                return render_template('search_tickets.html', results=exist_datas)
+            except:
+                return render_template('search_tickets.html', results='ReCaptcha')
     return render_template('search_tickets.html')
 
 

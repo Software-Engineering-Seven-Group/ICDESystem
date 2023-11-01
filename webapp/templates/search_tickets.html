@@ -45,8 +45,13 @@
   </div>
     <div id="autocomplete-list"></div>
     <div class="flightResults">
+    {% if results=='ReCaptcha' %}
+    <script>alert('Too many searches, please try again in 5 minutes.')</script>
+    {% elif results==[] %}
+    <h3>Sorry we do not have relate information</h3>
+    {% else %}
     {% for result in results %}
-        <div class="boards">
+        <div class="boards" onclick="window.open('{{ result['bookingurl'] }}')">
         {%  for leg in result['legs_list'] %}
         <div class="flightResult vcenter">
         <div class="flightNo infoDiv">
@@ -85,6 +90,7 @@
             {% endfor %}
     </div>
     {% endfor %}
+    {% endif %}
     </div>
 </div>
 <!-- partial -->
