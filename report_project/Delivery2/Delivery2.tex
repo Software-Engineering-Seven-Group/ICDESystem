@@ -105,6 +105,15 @@ In this section, we will discuss the design of the tasks of the Tripedia. For a 
 
 \subsubsection{\textbf{Task Conext }}
 
+\textbf{}
+
+The class diagram in Figure \ref{class1} shows the relationships among the searcher and database manager. 
+
+The DBManager is a base class in the database interface, which encapsulates the Mongo Database interface. The DBManager can search hotel data and ticket data from the database.
+
+The Searcher class is responsible for catching the keywords that users want to search for. Then call DBManager to find the data in the database based on the keywords combined into a query statement.
+
+Above all, we have designed the context of the diagram display task.
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=0.5\textwidth]{image/searching hotel class1.pdf}}
 	\caption{Class diagram of Searching data from database }
@@ -113,15 +122,26 @@ In this section, we will discuss the design of the tasks of the Tripedia. For a 
 
 \subsubsection{\textbf{Structural Conext }}
 
+\textbf{}
+
+In this section, we discuss the data flow processing by Figure \ref{activity1}. Meanwhile, we show the roles these objects play in the data flow processing, which describes the structural context of the Searching Data from Database task.
+
+The user enters the keyword on the search page. Then the service combines the keyword into a query statement. DBManager searches the data from the database based on the query statement. Finally, the Searcher shows the data in the front end.
 \begin{figure}[htbp]
-	\centerline{\includegraphics[width=0.18\textwidth]{image/searching hotel activity1.pdf}}
+	\centerline{\includegraphics[width=0.5\textwidth]{image/searching hotel activity1.pdf}}
 	\caption{Activity diagram of Searching data from database }
 	\label{activity1}
 \end{figure}
 
 
 \subsubsection{\textbf{Interaction Conext }}
+\textbf{}
 
+The sequence diagram in Figure \ref{sequence1} shows the interaction context of this task. 
+
+The user inputs the keyword and calls the SearchHotel function or Search Ticket function of the Searcher object. The Searcher object calls the read\_data function provided by the DBManager object to get the related data from the database.
+
+In the end, the Searcher Object displays the data to the user.
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=0.5\textwidth]{image/searching hotel sequence1.pdf}}
 	\caption{Sequence diagram of Searching data from database }
@@ -129,6 +149,12 @@ In this section, we will discuss the design of the tasks of the Tripedia. For a 
 \end{figure}
 
 \subsubsection{\textbf{Behavior Conext }}
+
+\textbf{}
+
+The state diagram in figure \ref{statement1} shows the behavior context of this task. 
+
+The user enters the search web page.  After inputting the keywords, the system searches data from the database. Subsequently, the website displays the data as a list. 
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=0.5\textwidth]{image/searching hotel statement1.pdf}}
@@ -139,37 +165,62 @@ In this section, we will discuss the design of the tasks of the Tripedia. For a 
 \subsection{\textbf{Task: Crawler searching }}
 
 
-\subsubsection{\textbf{Task Conext }}
 
+\subsubsection{\textbf{Task Conext }}
+\textbf{}
+
+The class diagram in Figure \ref{crawlerclass1} shows the relationships among the searcher, crawler and database manager. 
+
+The DBManager is a base class in the database interface, which encapsulates the Mongo Database interface. The DBManager can save hotel data and ticket data into the database.
+
+The Searcher class is responsible for catching the keywords that users want to search for. When the searcher receives the keywords, it will call the Crawler to search information from the internet.
+
+The Crawler class is responsible for catching data from the internet. The Crawler can be generalized as the HotelCollector and TicketsCollector. They have extended with some class functions related to searching hotel or ticket data from the internet.  When they get hotel and ticket data, they will call the DBManager to save the data into the database.
 \begin{figure*}[htbp]
 	\centerline{\includegraphics[width=0.9\textwidth]{image/crawler search class1.pdf}}
 	\caption{Class diagram of Crawler searching }
-	\label{class1}
+	\label{crawlerclass1}
 \end{figure*}
 
 \subsubsection{\textbf{Structural Conext }}
+\textbf{}
 
+In this section, we discuss the data flow processing by Figure \ref{crawleractivity1}. Meanwhile, we show the roles these objects play in the data flow processing, which describes the structural context of the Crawler searching task.
+
+The user enters the keyword on the search page. Then the service calls the Crawler to search data from the internet. Finally, the Searcher shows the data in the front end, meanwhile, the DBManager saves the data into the database.
 \begin{figure}[htbp]
-	\centerline{\includegraphics[width=0.16\textwidth]{image/crawler activity1.pdf}}
+	\centerline{\includegraphics[width=0.5\textwidth]{image/crawler activity1.pdf}}
 	\caption{Activity diagram of Crawler searching }
-	\label{activity1}
+	\label{crawleractivity1}
 \end{figure}
 
 
 \subsubsection{\textbf{Interaction Conext }}
+\textbf{}
 
+The sequence diagram in Figure \ref{crawlersequence1} shows the interaction context of this task. 
+
+The user inputs the keyword and calls the SearchHotel function or Search Ticket function of the Searcher object. The Searcher object calls the get\_hotels pr get\_tickets function provided by the Crawler object to get the related data from the Internet.
+
+The crawler first gets the searchid from the website, and then uses the searchid to get the required data. When the Crawler receives the data, it will call the DBManager to insert it into the database and return the data to the Searcher Object.
+
+In the end, the Searcher Object displays the data to the user.
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=0.5\textwidth]{image/crawler searching sequence1.pdf}}
 	\caption{Sequence diagram of Crawler searching }
-	\label{sequence1}
+	\label{crawlersequence1}
 \end{figure}
-
 \subsubsection{\textbf{Behavior Conext }}
+\textbf{}
+
+The state diagram in figure \ref{crawlerstatement1} shows the behavior context of this task. 
+
+The user enters the search web page.  After inputting the keywords, the system will call the crawler to search data from the internet. Subsequently, the website displays the data as a list and saves the data into the database.
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=0.5\textwidth]{image/crawler searching statement1.pdf}}
 	\caption{Statement diagram of Crawler searching }
-	\label{statement1}
+	\label{crawlerstatement1}
 \end{figure}
 
 
