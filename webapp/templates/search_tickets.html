@@ -121,10 +121,9 @@
                     autocompleteList.empty();
                     data.forEach(function(option) {
                         var listItem = $('<li><span class="bold-text">'+option['displayname']+'</span> - <span class="gray-text">' + option['searchFormPrimary'] + '</span> </li>');
-                        // 为每个选项添加点击事件
                         listItem.click(function() {
-                            $('#search-box2').val(option['searchFormPrimary']);  // 将选项补全到输入框
-                            autocompleteList.empty();  // 清空自动补全选项
+                            $('#search-box2').val(option['searchFormPrimary']);
+                            autocompleteList.empty();
                         });
                         autocompleteList.append(listItem);
                     });

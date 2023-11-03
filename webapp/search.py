@@ -23,7 +23,7 @@ def search_hotel():
         exist_datas = list(copy.deepcopy(exist_data))
         list_num = len(exist_datas)
         if list_num > 0:
-            print('载入数据')
+            print('Load data')
             # print(exist_data[0])
             return render_template('search2.html', results=exist_datas)
 
