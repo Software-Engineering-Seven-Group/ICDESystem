@@ -131,18 +131,31 @@ We have extracted the following sub-requirements
 
 \subsubsection{\textbf{Review Work to be done}}
 
-As shown in Task
+Currently, our system infrastructure is completed. In the next scrum sprint cycle, we will focus on the incremental functions to boost user experience, such as updating user interfaces, and destination recommendations.
 
-
-\subsubsection{\textbf{Product Backlog}}
 
 \subsubsection{\textbf{Sprint Plan}}
 
+We have experienced two sprint cycles right now. We are designing the requirements for the next two sprint cycles(the 3rd and 4th sprint cycles).
 
+\begin{itemize}
+\item[*] The first sprint cycle: 30th September - 12th October
+\item[*] The second sprint cycle: 13th October - 28th October
+\item[*] The third sprint cycle: 28th October - 20th November
+\end{itemize}
 
-\subsubsection{\textbf{Sprint Backlog}}
+\subsubsection{\textbf{Product Backlog \& Sprint Backlog}}
+
+As shown in Figure \ref{dev_task_diagram}, the requirements shown in the table are the product backlogs. And the Sprint Backlogs in Sprint 1,2,3 are clear in this table.
 
 \subsubsection{\textbf{Sprint Process}}
+
+In the first sprint cycle, we have developed a ser
+ies of basic features with MUST priority, such as Home Page, Diagram Display, Crawler, etc. In this stage, we focus on the development work of basic infrastructure, such as the crawler, and database interface encapsulation. Based on the stable architecture, we have developed an initial version system and satisfied the requirements of the ICDE.
+
+In the second and third sprints, we increased the functions to boost the user experience. For example, users can edit their accounts in the second version. Meanwhile, users can search for hotels and tickets in the second system. Moreover, the data analyzer not only provides the analyzed results of the recommendation but also tells users why the recommendation is the best. At the same time, we have fixed a great number of bugs in our system.
+
+
 
 \textbf{}
 
@@ -239,7 +252,7 @@ A comprehensive discussion was held to design the database structure to support 
 Login and Registration Functionality
 
 Various methods were explored, and a final approach was determined to implement the login and registration functionalities.
-
++
 ICDE Intelligent Recommendation System
 
 It was decided to use survey questionnaires to implement the ICDE intelligent recommendation system.
@@ -458,7 +471,7 @@ In both diagrams, the transition of states is clear and systematically laid out,
 
 \subsection{\textbf{Task: Account Edit }}
 
-\subsubsection{\textbf{Task Conext }}
+\subsubsection{\textbf{Task context }}
 \textbf{ }
 
 The class diagram in the provided figure illustrates the relationships and interactions among various entities in a user profile management system, specifically focusing on the functionalities of editing personal information and changing passwords.
@@ -469,7 +482,7 @@ Collaborating closely with the ‘User’ class is the ‘Profile Manager’. Th
 The ‘MongoDB connector’ class is instrumental in interfacing with the database. It encapsulates basic database operations such as connect, find, insert, update, and delete, ensuring the application can interact seamlessly with the MongoDB database.
 This design promotes modularity and separation of concerns. The ‘User’ class focuses on user data, the ‘Profile Manager’ manages user interactions, and the ‘MongoDB connector’ deals with database communications. By having a dedicated class for MongoDB operations, the design ensures that changes in database technologies or schemas have minimal impact on the user management functionalities, thus enhancing maintainability and flexibility. It facilitates the easy adaptation of the system to meet evolving requirements or technologies, promoting robustness and reusability of the system components in managing user profiles effectively.
 
-\subsubsection{\textbf{Structural Conext }}
+\subsubsection{\textbf{Structural context }}
 \textbf{ }
 
 In the discussion here, we delve into the data flow processing depicted in the modified activity diagram for user account modification, encompassing both the changing of personal information and passwords.
@@ -488,7 +501,7 @@ Here, users can input new information, like updating addresses or contact detail
 In this structured context, each component (Modify Account, Change Password Page, and Edit Info Page) plays a pivotal role in orchestrating the flow of information, ensuring that user preferences are accurately captured, validated, and updated as per the user's inputs. The cohesive interaction between these components ensures a secure and user-friendly environment for account modification tasks, safeguarding user data while allowing flexibility for necessary updates and modifications.
 
 
-\subsubsection{\textbf{Interaction Conext }}
+\subsubsection{\textbf{Interaction context }}
 \textbf{ }
 
 \textbf{ Password Modification Process}:
@@ -511,7 +524,7 @@ Completion Confirmation: The result of the information editing process, either a
 
 This comprehensive interaction context illustrates a dual-functional process. It involves a password modification procedure followed by a user information editing activity, each with unique steps and interactions among various components like the user, webpage, profile manager, and MongoDB database.
 
-\subsubsection{\textbf{Behavior Conext }}
+\subsubsection{\textbf{Behavior context }}
 \textbf{ }
 
 \textbf{ Password Modification}
@@ -543,7 +556,7 @@ Each state transition is systematic and user-friendly, ensuring that the users f
 \subsection{\textbf{Task: Searching Data from Database }}
 
 
-\subsubsection{\textbf{Task Conext }}
+\subsubsection{\textbf{Task context }}
 
 \textbf{}
 
@@ -560,7 +573,7 @@ Above all, we have designed the context of the diagram display task.
 	\label{class1}
 \end{figure}
 
-\subsubsection{\textbf{Structural Conext }}
+\subsubsection{\textbf{Structural context }}
 
 \textbf{}
 
@@ -574,7 +587,7 @@ The user enters the keyword on the search page. Then the service combines the ke
 \end{figure}
 
 
-\subsubsection{\textbf{Interaction Conext }}
+\subsubsection{\textbf{Interaction context }}
 \textbf{}
 
 The sequence diagram in Figure \ref{sequence1} shows the interaction context of this task. 
@@ -588,7 +601,7 @@ In the end, the Searcher Object displays the data to the user.
 	\label{sequence1}
 \end{figure}
 
-\subsubsection{\textbf{Behavior Conext }}
+\subsubsection{\textbf{Behavior context }}
 
 \textbf{}
 
@@ -606,7 +619,7 @@ The user enters the search web page.  After inputting the keywords, the system s
 
 
 
-\subsubsection{\textbf{Task Conext }}
+\subsubsection{\textbf{Task context }}
 \textbf{}
 
 The class diagram in Figure \ref{crawlerclass1} shows the relationships among the searcher, crawler and database manager. 
@@ -622,7 +635,7 @@ The Crawler class is responsible for catching data from the internet. The Crawle
 	\label{crawlerclass1}
 \end{figure*}
 
-\subsubsection{\textbf{Structural Conext }}
+\subsubsection{\textbf{Structural context }}
 \textbf{}
 
 In this section, we discuss the data flow processing by Figure \ref{crawleractivity1}. Meanwhile, we show the roles these objects play in the data flow processing, which describes the structural context of the Crawler searching task.
@@ -635,7 +648,7 @@ The user enters the keyword on the search page. Then the service calls the Crawl
 \end{figure}
 
 
-\subsubsection{\textbf{Interaction Conext }}
+\subsubsection{\textbf{Interaction context }}
 \textbf{}
 
 The sequence diagram in Figure \ref{crawlersequence1} shows the interaction context of this task. 
@@ -650,7 +663,7 @@ In the end, the Searcher Object displays the data to the user.
 	\caption{Sequence diagram of Crawler searching }
 	\label{crawlersequence1}
 \end{figure}
-\subsubsection{\textbf{Behavior Conext }}
+\subsubsection{\textbf{Behavior context }}
 \textbf{}
 
 The state diagram in figure \ref{crawlerstatement1} shows the behavior context of this task. 
@@ -668,7 +681,7 @@ The user enters the search web page.  After inputting the keywords, the system w
 \subsection{\textbf{Task: The Analysis Diagram}}
 
 
-\subsubsection{\textbf{Task Conext }}
+\subsubsection{\textbf{Task context }}
 
 \textbf{}
 
@@ -696,7 +709,7 @@ Above all, we have designed the context of the diagram display task.
 \label{diagram_data_flow}
 \end{figure*}
 
-\subsubsection{\textbf{Structural Conext and Task Data Flow}}
+\subsubsection{\textbf{Structural context and Task Data Flow}}
 
 \textbf{}
 
@@ -711,7 +724,7 @@ The user fills out the questionnaire on the questionnaire web page with the help
 \label{diagram_interaction}
 \end{figure*}
 
-\subsubsection{\textbf{Interaction Conext }}
+\subsubsection{\textbf{Interaction context }}
 
 \textbf{}
 
@@ -729,7 +742,7 @@ Then the user clicks the 'recommend' button on the home page and calls the Enter
 \end{figure}
 
 
-\subsubsection{\textbf{Behavior Conext }}
+\subsubsection{\textbf{Behavior context }}
 
 \textbf{}
 
@@ -742,34 +755,41 @@ The user enters the questionnaire web page, the system enters into the Questionn
 \section{\textbf{Uncompleted Task Design }}
 
 
-\subsubsection{\textbf{Task Conext }}
+\subsubsection{\textbf{Task Context }}
+
+The class diagram illustrates the intricate relationships among various components, such as the destination data, recommendation system, and database manager (DBManger), focused on facilitating travel recommendations. For optimized performance and enhanced reusability, a meticulously designed interface layer has been integrated to manage database access, epitomized by the DBManger, encapsulating the database interfaces, specifically MongoDB.
+
+DBManger is a pivotal class, coordinating database interactions and ensuring smooth data transitions. It possesses essential attributes such as database name and set name and operational functionalities like reading data, represented by read datas(). It forms the backbone supporting the data-driven operations of the system. Destination data is a comprehensive component, embracing a wealth of information such as City, Travel spot, Transportation ticket, Hotel, Restaurant, and Comment. This aggregated information is instrumental in forming a robust foundation to enhance the recommendation accuracy and user experience. In tandem with the destination data, the Recommendation class emerges as a quintessential component, orchestrating the recommendation processes with functions like RecommendSpot(), RecommendTicket(), RecommendHotel(), and RecommendRestaurant(). The class is enriched with attributes such as Keywords and Date, which play a crucial role in customizing and optimizing the recommendations, making them more aligned with user preferences and current trends. Ensuring a seamless and dynamic interaction between these components, the Database (MongoDB) manifests as an essential entity, facilitating robust and efficient data storage and retrieval processes. It hosts vital elements such as client, DB, and user collection, underpinning the database operations and ensuring the system’s integrity and functional efficacy.
+
+In conclusion, the designed context of the class diagram illustrates a well-coordinated travel recommendation system, emphasizing modularity, efficient database management, and a user-centric recommendation approach. Through strategic class interactions and functionalities, the system is poised to deliver tailored travel recommendations, enhancing user experience and satisfaction.
 
 
-\subsubsection{\textbf{Structural Conext }}
+\subsubsection{\textbf{Structural context }}
+
+In the data flow processing depicted in the provided activity diagram, we delineate the functional engagement and sequence of operational activities to clarify the structural context of the task.
+
+Initially, users are introduced to the environment by entering the website, marking the commencement of their interaction. Following this entry point, users progress to execute a 'Search destination,' a function integral for navigating through the data or information within the system. Post navigation, there is an execution of 'search data.' This pivotal action is bifurcated into two possible outcomes: the system either finds or doesn't find the related data. A decision diamond illustrates this, symbolizing a decision point where the flow is directed based on the availability of the searched data. In the scenario where data is not found (no finding data), the flow advances towards 'Display related data,' an endpoint that signifies the conclusion of the search with no fruitful results. Conversely, when the searched data is located (find data), the flow navigates towards 'Recommend data.' This section is crucial as it is where data is curated and processed for user-friendly presentation. Finally, 'Display data' is the terminal function, culminating the process by showcasing the refined and recommended data. This presents the users with the output of their initial search and the system's subsequent recommendations, thus completing the structured flow of tasks within this activity diagram.
+
+In conclusion, the activity diagram exemplifies a meticulous order of operations, each functioning collaboratively to streamline the users' experience from entry to the execution of search and display of the correlated data or recommendations.
 
 
-\subsubsection{\textbf{Interaction Conext }}
+\subsubsection{\textbf{Interaction context }}
 
+The sequence diagram illustrates the workflow of a recommendation system. An actor, in this case, the user, interacts with the system to get personalized recommendations based on their preferences.
 
-\subsubsection{\textbf{Behavior Conext }}
+Initially, the actor initiates a search, interacting with the "Recommendation" component of the system. The actor inputs their search destination, and the system forwards this information to the "Search" component for processing. The "Search" component interacts with the "Database," fetching relevant data to cater to the actor's search request. The "Search" component handles the data, processing and filtering it based on specific algorithms or criteria, preparing it for recommendation. Once the data is processed and the most relevant information is selected, the "Search" component sends the recommended data back to the "Recommendation" component. The "Recommendation" component then displays this data to the actor, completing the recommendation process. Thus, the actor receives personalized recommendations, enhancing their user experience and providing the most relevant and valuable information based on their initial search destination.
 
+\subsubsection{\textbf{Behavior context }}
 
+The state diagram depicted represents the behavioral context of a data search and recommendation task on a website. The flow is streamlined and primarily focused on backend data processing that is not visible to the users. States are divided based on the functional aspects of the webpage.
+
+Initially, users enter the website, marking the commencement of the interaction. Following this, users input specific keywords that act as queries for the system to search relevant data. In the "Input keywords" state, users actively engage with the design, providing necessary information to facilitate data retrieval. Upon receiving the keywords, the system transitions into the "search data" state. Here, a systematic search is conducted in the background, striving to find the most relevant data corresponding to the input keywords. Depending on the availability of relevant data, two outcomes are possible. If pertinent data is found, it transitions to the "Display recommend data" state, where users are presented with specific data that the system believes to be the most relevant to the keywords inputted. Conversely, if the system fails to find relevant data, it transitions to the "Display related data" state. In this state, instead of showing recommended data, it provides data that might be closely related or similar to the queried keywords. Each state is crucial for ensuring that the user receives the best possible recommendations or related data based on their input, enhancing the overall user experience on the website. The simplicity of the state transitions also ensures that the process is user-friendly and easily navigable, promoting a seamless interaction between the user and the system.
 
 
 
 \section{\textbf{Progress Evaluation \& Analysis }}
 
-As shown in Figure \ref{dev_task_diagram}, we have experienced two sprint cycles right now. We are designing the requirements for the next two sprint cycles(the 3rd and 4th sprint cycles).
-
-\begin{itemize}
-\item[*] The first sprint cycle: 18th September - 16th October
-\item[*] The second sprint cycle: 17th October - 30th October
-\item[*] The third sprint cycle: 30th October - 20th November
-\end{itemize}
-
-In the first sprint cycle, we have developed a series of basic features with MUST priority, such as Home Page, Diagram Display, Crawler, etc. In this stage, we focus on the development work of basic infrastructure, such as the crawler, and database interface encapsulation. Based on the stable architecture, we have developed an initial version system and satisfied the requirements of the ICDE.
-
-In the second sprint, we increased the functions to boost the user experience. For example, users can edit their accounts in the second version. Meanwhile, users can search for hotels and tickets in the second system. Moreover, the data analyzer not only provides the analyzed results of the recommendation but also tells users why the recommendation is the best. At the same time, we have fixed a great number of bugs in our system.
+As shown in Figure \ref{dev_task_diagram}, the man/hour about each task is clear.
 
 We decided to develop the Search Destination requirement in Sprint Cycle 2. However, we face the difficulty of how to use the analyzed result to influence the search result. Hence, we modify this task to the Sprint Cycle 3. Meanwhile, we have a plan to optimize our system user interface. These works will be done in the next stage.
 
