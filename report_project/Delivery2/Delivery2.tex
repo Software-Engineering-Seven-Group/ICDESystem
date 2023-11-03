@@ -45,16 +45,39 @@ wangboyang0626@outlook.com}
 
 
 \begin{figure*}[htbp]
+\centerline{\includegraphics[width=1.0\textwidth]{dev_process.pdf}}
+\caption{The development process of our system.}
+\label{dev_task_diagram}
+\end{figure*}
+
+
+
+\begin{figure*}[htbp]
 \centerline{\includegraphics[width=0.9\textwidth]{Architecture.pdf}}
 \caption{The high-level architecture graph of Tripedia.}
 \label{high_level_arch}
 \end{figure*}
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.5\textwidth]{user_diagram_overall.pdf}}
+\caption{The overall level architecture graph of Tripedia.}
+\label{overall_level_user_case}
+\end{figure}
+
 
 \begin{figure*}[htbp]
 \centerline{\includegraphics[width=1.0\textwidth]{Architecture2.pdf}}
 \caption{The system-level architecture graph of Tripedia.}
 \label{system_level_arch}
 \end{figure*}
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.5\textwidth]{user_diagram_system.pdf}}
+\caption{The requirements level architecture graph of Tripedia.}
+\label{system_level_user_case}
+\end{figure}
+
+
 
 
 
@@ -107,6 +130,8 @@ We have extracted the following sub-requirements
 \subsection{\textbf{The Scrum Sprint Cycle}}
 
 \subsubsection{\textbf{Review Work to be done}}
+
+As shown in Task
 
 
 \subsubsection{\textbf{Product Backlog}}
@@ -246,8 +271,6 @@ Create the hotel search functionality, Responsible: Yuhang Chen, Due: [Oct.19.20
 \textbf{Meeting Adjourned:} [11:50]
 
 
-
-
 \subsection*{Sprint 3}
 
 \textbf{Meeting Minutes}: Scrum Sprint Cycle Review
@@ -329,6 +352,8 @@ In the client part, we implement Tripedia's client logic based on the web. The w
 
 On the server side, we will develop three modules to implement the backbone of the ICDE system: Data-processing Module, Data-analyzing Module, and Data Access Service. The Data Access Service, as the median layer for database access, provides a unified database interface (deletion, modification, query, etc) for the Data-processing Module and the Data-analyzing module. The Data-processing Module is responsible for the basic logic of the server, such as registration, login, search, data preprocessing, and other interaction logic with the client. The Data-analyzing Module accesses the data in the database through the Data Access Service to perform data analysis and returns the analysis results to the Data-processing Module.
 
+The Figure \ref{overall_level_user_case} shows the overall level user case. This figure shows the visible functions for users. As for the user, the services provided by the system are clear, such as account operation, search Operation, and Data Analysis.
+
 To sum up, Tripedia's architecture is a standard ICDE system. The Client part includes a Data Capture Service to collect user behavior and information and transmit relevant data to the server. The Data-processing Module in the Servers section is responsible for implementing the interactive logic of the server; the Data Access Service provides a unified data access interface; the Data-analyzing Module serves as the core of the ICDE system to analyze user data and feedback the analysis results to the user through the server to provide User Assistance Service.
 
 
@@ -341,6 +366,9 @@ The web client services contain a series of web pages, which provide operation i
 The data-processing module can be divided into two parts: Account and Search. The Account part focuses on the requirements of account operation. Meanwhile, the Search part is responsible for searching data from both networks and the database.
 
 The data-analyzing module is responsible for data analysis and diagram displaying, which play the role of data processing in the ICDE system.
+
+The Figure \ref{system_level_user_case} shows the requirements level user case. This figure shows the visible functions for users in detail. Furthermore, the user case of the system actor is shown in this figure, which is invisible to users. We also consider the relationships among these user cases.
+
 
 The MongoDB Manager is a database operation mediate layer, which increases the reusability of the database interface.
 
@@ -727,11 +755,6 @@ The user enters the questionnaire web page, the system enters into the Questionn
 
 
 
-\begin{figure*}[htbp]
-\centerline{\includegraphics[width=1.0\textwidth]{dev_process.pdf}}
-\caption{The development process of our system.}
-\label{dev_task_diagram}
-\end{figure*}
 
 
 \section{\textbf{Progress Evaluation \& Analysis }}
