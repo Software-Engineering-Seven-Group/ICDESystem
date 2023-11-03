@@ -18,18 +18,18 @@ app.register_blueprint(questionnaire_api)
 app.register_blueprint(search_api)
 app.register_blueprint(displayer_api)
 app.secret_key = 'your_secret_key'  # replace with your secret key
-"“首页，重定向”"
+"“Homepage, redirect”"
 @app.route('/')
 def home():
     return render_template("index.html")
 
-#用户登录表
+#Login Form
 class LoginForm(FlaskForm):
     username = StringField('Username', [DataRequired()])
     password = PasswordField('Password', [DataRequired()])
     captcha = StringField('Captcha', [DataRequired()])
     submit = SubmitField('Login')
-"插入信息（注册用户信息）"
+"User info for registration"
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
@@ -65,26 +65,26 @@ def login():
                 session['username'] = request.form['username']
                 return redirect(url_for("home"))
 
-        flash('.用户名或密码不正确！')
+        flash('.username or password is incorrect！')
     return render_template('login.html')
-#"登出"
+#"Logout"
 @app.route('/logout')
 def logout():
     session.pop('username', None)
     return redirect(url_for('index'))
-#"登录状态"
+#"Login State"
 @app.route('/')
 def index():
     is_logged_in = 'username' in session
     return render_template('index.html', is_logged_in=is_logged_in, username=session.get('username'))
 
-#编辑个人资料
+#Editing Personal Information
 @app.route('/edit_profile', methods=['GET', 'POST'])
 def edit_profile():
     print("DEBUG: session contents:", session)
     print("DEBUG: request.form contents:", request.form)
     if 'username' not in session:
-        flash('请先登录!')
+        flash('Please Login!')
         return redirect(url_for('login'))
 
     username = session['username']
@@ -103,7 +103,7 @@ def edit_profile():
 
     user_data = user_infor_manager.get_user_info(username)
     return render_template('edit_profile.html', user_data=user_data)
-#修改密码
+#Changing Password
 @app.route('/reset_password', methods=['GET', 'POST'])
 def reset_password():
     if request.method == 'POST':
@@ -113,23 +113,23 @@ def reset_password():
         confirm_password = request.form['confirm_password']
 
         if new_password != confirm_password:
-            flash('两次输入的密码不一致！')
+            flash('Inconsistency between the two input passwords！')
             return render_template('reset_password.html')
-        # 验证用户信息
+        # validate user info
         user_info = user_infor_manager.find_user_by_username(username)
         print(f"Queried user info for {username}: {user_info}")
         if not user_info:
-            flash(f'找不到用户名：{username}！')
+            flash(f'Cannot find username：{username}！')
             return render_template('reset_password.html')
         print(f"Database secret for {username}: {user_info.get('secret')}")
         print(f"Submitted secret: {secret_answer}")
         if user_info.get('secret') != secret_answer:
-            flash('密保问题不正确！')
+            flash('Security Question is not correct ！')
             return render_template('reset_password.html')
 
-        # 更新密码
+        # Update Password
         user_infor_manager.update_password(username, new_password)
-        flash('密码已更新成功！')
+        flash('Updating password successfully！')
         return redirect(url_for('login'))
 
     return render_template('reset_password.html')

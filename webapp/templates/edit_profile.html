@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>注册页面</title>
+    <title>Edit_profile</title>
     <link rel="stylesheet" href="html&css.css">
 </head>
 <body>
@@ -22,7 +22,6 @@ $(document).ready(function() {
         const wrapper = $(this).closest('.field-wrapper');
         let newValue = wrapper.find('.edit-input').val();
 
-        // 如果输入框为空，则保留原始值
         if(newValue === "") {
             newValue = wrapper.find('.display-value').text();
             wrapper.find('.edit-input').val(newValue);
