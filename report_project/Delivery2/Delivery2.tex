@@ -362,7 +362,11 @@ The 'UserDAO' class emerges as a vital intermediary, bridging the 'user' class a
 Lastly, the 'Database(MongoDB)' class is dedicated to direct interactions with the MongoDB database, ingrained with essential attributes and functionalities required for initiating and managing connections, emphasizing the robustness and reliability of the database operations.
 
 Together, these classes form a cohesive system aimed at simplifying the user login and registration process while prioritizing the integrity and security of user data. Through precise role allocations and harmonious class collaboration, the system is empowered to process user requests proficiently, ensuring a streamlined and secure user login and registration experience.
-
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=0.5\textwidth]{Diagram_of_Login_and_Register/Class_diagram_of_login_regist.pdf}}
+	\caption{Class diagram of Login and Register }
+	\label{Class_diagram_of_login_regist}
+\end{figure}
 \subsubsection{\textbf{Structural Context }}
 \textbf{}
 
@@ -373,6 +377,11 @@ If the user possesses an account, they navigate towards the login page. Here, th
 
 Throughout this process, each object and decision node plays a critical role in managing the data flow and ensuring secure and correct user authentication. The precise coordination and interaction among these objects and decision nodes are pivotal for a seamless and secure user experience accessing the system. The process guarantees that only registered and validated users gain access, preserving the integrity and security of the system and its data.
 
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=0.5\textwidth]{Diagram_of_Login_and_Register/Activity_diagram_of_login_regist.pdf}}
+	\caption{Activity diagram of Login and Register }
+	\label{Activity_diagram_of_login_regist}
+\end{figure}
 \subsubsection{\textbf{Interaction Context}}
 \textbf{}
 
@@ -385,6 +394,11 @@ The Register Page, upon receiving the user's information, communicates with the 
 The Server accesses the Database to validate the uniqueness of the username. It returns a Boolean value, indicating the existence or non-existence of the username.
 If the username is available, the Server saves the user's information into the Database. A confirmation message is returned to the Register Page, informing the user of the successful registration, and the user is redirected to the login page.
 
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=0.5\textwidth]{Diagram_of_Login_and_Register/Sequence_diagram_of_registration.pdf}}
+	\caption{Sequence diagram of registration }
+	\label{Sequence_diagram_of_registration}
+\end{figure}
 \textbf{Login Process}:
 
 For the login process, the actor enters their username and password on the Login Page.
@@ -395,7 +409,11 @@ The Server cross-references the provided username and password with the stored i
 Depending on the result, the Server informs the Login Page of the success or failure of the login attempt, and the corresponding message is displayed to the user. In case of successful login, the user gains access to their account.
 
 This context describes a two-part interaction where the user first registers by entering personal details, and the system validates the information. After successful registration, the user logs in with their credentials, which are verified by the system for authentication.
-
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=0.5\textwidth]{Diagram_of_Login_and_Register/Sequence_diagram_of_login.pdf}}
+	\caption{Sequence diagram of Login }
+	\label{Sequence_diagram_of_login}
+\end{figure}
 \subsubsection{\textbf{Behavior Context}}
 \textbf{}
 
@@ -412,7 +430,11 @@ Verify the Username Existence: The system then verifies whether the username alr
 Username Available: If the username does not exist in the system, it proceeds to register the user successfully.
 
 Username Existed: If the username is already taken, the registration process halts, indicating the unavailability of the chosen username.
-
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=0.5\textwidth]{Diagram_of_Login_and_Register/State_diagram_of_registration.pdf}}
+	\caption{State diagram of registration }
+	\label{State_diagram_of_registration}
+\end{figure}
 \textbf{Login}:
 
 Enter Username and Password: Users start by entering their username and password, initiating the login process.
@@ -427,7 +449,11 @@ Verify Failure: If there is a mismatch in the credentials, the verification fail
 
 In both diagrams, the transition of states is clear and systematically laid out, guiding users through each phase of registration and login, ensuring clarity and precision in navigating the website’s authentication processes.
 
-
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=0.5\textwidth]{Diagram_of_Login_and_Register/State_diagram_of_login.pdf}}
+	\caption{State diagram of Login }
+	\label{State_diagram_of_login}
+\end{figure}
 \subsection{\textbf{Task: Account Edit }}
 
 \subsubsection{\textbf{Task Conext }}
@@ -440,7 +466,11 @@ Collaborating closely with the ‘User’ class is the ‘Profile Manager’. Th
 
 The ‘MongoDB connector’ class is instrumental in interfacing with the database. It encapsulates basic database operations such as connect, find, insert, update, and delete, ensuring the application can interact seamlessly with the MongoDB database.
 This design promotes modularity and separation of concerns. The ‘User’ class focuses on user data, the ‘Profile Manager’ manages user interactions, and the ‘MongoDB connector’ deals with database communications. By having a dedicated class for MongoDB operations, the design ensures that changes in database technologies or schemas have minimal impact on the user management functionalities, thus enhancing maintainability and flexibility. It facilitates the easy adaptation of the system to meet evolving requirements or technologies, promoting robustness and reusability of the system components in managing user profiles effectively.
-
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=0.5\textwidth]{Diagram_of_Editing_Info_and_Password/Class_diagram_of_editing_and_Changing_psw.pdf}}
+	\caption{Class diagram of Account Edit }
+	\label{Class_diagram_of_editing_and_Changing_psw}
+\end{figure}
 \subsubsection{\textbf{Structural Conext }}
 \textbf{ }
 
@@ -458,7 +488,11 @@ Users who wish to modify their personal information are directed to the 'Edit In
 Here, users can input new information, like updating addresses or contact details, which the system captures and saves, ensuring the user's account information remains current and accurate.
 
 In this structured context, each component (Modify Account, Change Password Page, and Edit Info Page) plays a pivotal role in orchestrating the flow of information, ensuring that user preferences are accurately captured, validated, and updated as per the user's inputs. The cohesive interaction between these components ensures a secure and user-friendly environment for account modification tasks, safeguarding user data while allowing flexibility for necessary updates and modifications.
-
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=0.5\textwidth]{Diagram_of_Editing_Info_and_Password/activity_diagram_of editing_and_Changing_psw.pdf}}
+	\caption{Activity diagram of Account Edit }
+	\label{activity_diagram_of editing_and_Changing_psw}
+\end{figure}
 
 \subsubsection{\textbf{Interaction Conext }}
 \textbf{ }
@@ -470,7 +504,11 @@ User Interaction: The actor (user) initiates the password modification by enteri
 Verification and Validation: The webpage, upon capturing the user's details, interacts with the profile manager to verify the user's identity by matching the username and secret question with the records in the MongoDB database.
 
 Password Updating: If the verification is successful, the profile manager facilitates the updating of the password in the MongoDB database. A confirmation of this update, whether successful or failed, is communicated back to the user through the webpage.
-
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=0.5\textwidth]{Diagram_of_Editing_Info_and_Password/Sequence_diagram_of_Changing_psw.pdf}}
+	\caption{Squence diagram of Password Modification }
+	\label{Sequence_diagram_of_Changing_psw}
+\end{figure}
 \textbf{ User Information Editing Process}:
 
 Information Entry: The actor engages in editing their user information by inputting the necessary details on a specific webpage.
@@ -482,7 +520,11 @@ Database Interaction: The profile manager cooperates with MongoDB to secure the 
 Completion Confirmation: The result of the information editing process, either a success or failure, is communicated back to the actor through the webpage, concluding the interaction for editing user information.
 
 This comprehensive interaction context illustrates a dual-functional process. It involves a password modification procedure followed by a user information editing activity, each with unique steps and interactions among various components like the user, webpage, profile manager, and MongoDB database.
-
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=0.5\textwidth]{Diagram_of_Editing_Info_and_Password/Sequence_diagram_of_editing_info.pdf}}
+	\caption{Sequence diagram of User Information Editing }
+	\label{Sequence_diagram_of_editing_info}
+\end{figure}
 \subsubsection{\textbf{Behavior Conext }}
 \textbf{ }
 
@@ -496,6 +538,11 @@ Verification: The system then verifies the information. If the information is co
 
 Password Entry and Saving: Upon successful verification, the user can enter a new password. The system will then save this new password, completing the process.
 
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=0.5\textwidth]{Diagram_of_Editing_Info_and_Password/State_diagram_of_changing_psw.pdf}}
+	\caption{State diagram of Password Modification }
+	\label{State_diagram_of_changing_psw}
+\end{figure}
 \textbf{ User Profile Editing}
 
 Initialization: The process commences with the system ready to receive updated user information.
@@ -509,7 +556,11 @@ Database Interaction: After successful validation, the information is saved in t
 Completion: Finally, a success message is displayed to the user, indicating that the edits have been successfully made and saved.
 
 Each state transition is systematic and user-friendly, ensuring that the users find the process intuitive and straightforward. Both processes are designed to secure user data and ensure that changes are made correctly and effectively.
-
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=0.5\textwidth]{Diagram_of_Editing_Info_and_Password/State_diagram_of_editing_info.pdf}}
+	\caption{State diagram of  User Profile Editing}
+	\label{State_diagram_of_editing_info}
+\end{figure}
 
 
 \subsection{\textbf{Task: Searching Data from Database }}
