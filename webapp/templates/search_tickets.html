@@ -14,6 +14,24 @@
     .gray-text {
         color: #777;
     }
+    #loading-spinner {
+            display: none;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #007bff;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 2s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
 </style>
 </head>
 <body>
@@ -30,12 +48,12 @@
 
           <ul class="desktop__menu">
                <li><a href="../">Return</a></li>
-          <form method="post" action="/search_tickets">
-                From?: <input type="text" name="Departure" id="search-box1" required>
-                To?: <input type="text" name="Arrive" id="search-box2" required>
+          <form id='search-form' method="post" action="/search_tickets">
+                From?: <input type="text" name="Departure" id="search-box1" autocomplete="false" required>
+                To?: <input type="text" name="Arrive" id="search-box2" autocomplete="false" required>
                 Departure: <input type="date" name="Departure_date" required>
                 Return: <input type="date" name="Return_date" required>
-                <input type="submit" value="Search">
+                <input id="search-button1" type="submit" value="Search">
           </form>
           </ul>
 
@@ -45,11 +63,14 @@
   </div>
     <div id="autocomplete-list"></div>
     <div class="flightResults">
+
     {% if results=='ReCaptcha' %}
     <script>alert('Too many searches, please try again in 5 minutes.')</script>
     {% elif results==[] %}
     <h3>Sorry we do not have relate information</h3>
     {% else %}
+    <div id="loading-spinner"></div>
+    <div id="search-result">
     {% for result in results %}
         <div class="boards" onclick="window.open('{{ result['bookingurl'] }}')">
         {%  for leg in result['legs_list'] %}
@@ -59,28 +80,28 @@
             FLIGHT NO.
           </div>
           <div class="value">
-            {{ leg['flightNumber'] }}
+            {{ leg['legs'][0]['flightInfo']['flightNumber'] }}
           </div>
         </div>
         <div class="flightDisplay vcenter">
           <div class="location infoDiv">
             <div class="label">SOURCE</div>
-            <div class="value">{{ leg['departure']['airport']['code'] }}</div>
+            <div class="value">{{ leg['departureAirport']['code'] }}</div>
           </div>
           <div class="timeline">
-            <div class="symbol center"><img src="{{ leg['airline']['logoUrl'] }}" alt="airplane.png" border="0" /></div>
-            <div class="duration center">{{ leg['duration'] }}</div>
+            <div class="symbol center"><img src="{{ leg['legs'][0]['carriersData'][0]['logo'] }}" alt="airplane.png" border="0" /></div>
+            <div class="duration center">{{ leg['totalTime'] }}</div>
           </div>
           <div class="location infoDiv">
             <div class="label">DESTINATION</div>
-            <div class="value">{{ leg['arrival']['airport']['code'] }}</div>
+            <div class="value">{{ leg['arrivalAirport']['code'] }}</div>
           </div>
         </div>
         <div class="flightInfo infoDiv">
           <div class="label">FLIGHT TIME</div>
-           <div class="value">{{ leg['departure']['isoDateTimeLocal']}}</div>
+           <div class="value">{{ leg['departureTime']}}</div>
           <div class="label">SEAT CLASS</div>
-           <div class="value">{{ leg['cabinDisplay'] }}</div>
+           <div class="value">{{ leg['legs'][0]['cabinClass'] }}</div>
         </div>
         <div class="flightFare infoDiv">
           <div class="label">FLIGHT FARE</div>
@@ -91,9 +112,30 @@
     </div>
     {% endfor %}
     {% endif %}
+     </div>
     </div>
+
 </div>
 <!-- partial -->
+<script>
+        $(document).ready(function() {
+              $('#search-form').submit(function() {
+
+                var autocompleteList = $('#autocomplete-list');
+                var loadingSpinner = $('#loading-spinner');
+                var searchresult=$('#search-result')
+                autocompleteList.empty();
+                searchresult.css('display', 'none')
+                loadingSpinner.css('display', 'block');
+            });
+
+            window.onload = function() {
+                var loadingSpinner = $('#loading-spinner');
+                loadingSpinner.css('display', 'none');
+                searchresult.css('display', 'block')
+            };
+        });
+    </script>
 <script>
         $(document).ready(function() {
             $('#search-box1').on('input', function() {

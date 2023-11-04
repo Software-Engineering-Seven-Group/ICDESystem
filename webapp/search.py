@@ -3,7 +3,7 @@ from database_manager import user_preference_infor_manager
 from database_manager import MongoDBManager, UserInfoCollection, mongo_manager, user_infor_manager, user_preference_infor_manager
 import copy
 from crawler.Get_Hotel import Get_booking_hotel,get_imageing2
-from crawler.Get_Tickets import get_tickets_list,get_imageing
+from crawler.Get_Tickets import get_tickets_list,get_imageing,get_tickets_list2
 from flask_cors import CORS
 from datetime import datetime
 
@@ -59,7 +59,59 @@ def search_hotel():
         return render_template('search2.html', results=exist_datas)
         # jsonify(exist_datas)
     return render_template('search2.html')
-@search_api.route('/search_tickets', methods=['POST', 'GET'])  # Search
+# @search_api.route('/search_tickets', methods=['POST', 'GET'])  # Kayaka Ticket
+# def search_tickets():
+#     tickets = mongo_manager.get_collection("Tickets")
+#
+#     if request.method == 'POST':
+#         Departure = request.form['Departure']
+#         Arrive = request.form['Arrive']
+#         depart_date = request.form['Departure_date']
+#         return_date = request.form['Return_date']
+#
+#         exist_data = tickets.find(
+#             {"depart": {"$regex": Departure, "$options": 'i'}, "arrive": {"$regex": Arrive, "$options": 'i'},"depart_date": depart_date, "return_date": return_date}).limit(5)
+#         exist_datas = list(copy.deepcopy(exist_data))
+#         list_num = len(exist_datas)
+#         if list_num > 0:
+#             print('load data')
+#             # print(exist_data[0])
+#             return render_template('search_tickets.html', results=exist_datas)
+#         else:
+#             print(Departure,Arrive,depart_date,return_date)
+#             try:
+#                 result_list=get_tickets_list(Departure,Arrive,depart_date,return_date)
+#                 resultIds = result_list['resultIds']
+#                 for i in range(1, len(resultIds)):
+#                     try:
+#                         each = result_list['results'][resultIds[i]]
+#                         legs = each['legs']
+#                         legs_list = [i['segments'][0] for i in legs]
+#                         fees = each['optionsByFare']
+#                         bookingurl = 'https://www.ca.kayak.com' + fees[0]['options'][0]['url']
+#                         price = fees[0]['options'][0]['fees']['rawPrice']
+#                         result_dict = {
+#                             'depart': Departure,
+#                             'arrive': Arrive,
+#                             'depart_date': depart_date,
+#                             'return_date': return_date,
+#                             'price': price,
+#                             'bookingurl': bookingurl,
+#                             'legs_list': legs_list
+#                         }
+#                         print(result_dict)
+#                         tickets.insert_one(result_dict)
+#                     except:pass
+#                 exist_data = tickets.find(
+#                     {"depart": {"$regex": Departure, "$options": 'i'}, "arrive": {"$regex": Arrive, "$options": 'i'},"depart_date": depart_date, "return_date": return_date}).limit(5)
+#                 exist_datas = list(copy.deepcopy(exist_data))
+#                 print(exist_datas)
+#                 # exist_datas = copy.deepcopy(exist_data)
+#                 return render_template('search_tickets.html', results=exist_datas)
+#             except:
+#                 return render_template('search_tickets.html', results='ReCaptcha')
+#     return render_template('search_tickets.html')
+@search_api.route('/search_tickets', methods=['POST', 'GET'])  # Booking
 def search_tickets():
     tickets = mongo_manager.get_collection("Tickets")
 
@@ -74,34 +126,17 @@ def search_tickets():
         exist_datas = list(copy.deepcopy(exist_data))
         list_num = len(exist_datas)
         if list_num > 0:
-            print('载入数据')
+            print('load data')
             # print(exist_data[0])
             return render_template('search_tickets.html', results=exist_datas)
         else:
             print(Departure,Arrive,depart_date,return_date)
             try:
-                result_list=get_tickets_list(Departure,Arrive,depart_date,return_date)
-                resultIds = result_list['resultIds']
-                for i in range(1, len(resultIds)):
-                    try:
-                        each = result_list['results'][resultIds[i]]
-                        legs = each['legs']
-                        legs_list = [i['segments'][0] for i in legs]
-                        fees = each['optionsByFare']
-                        bookingurl = 'https://www.ca.kayak.com' + fees[0]['options'][0]['url']
-                        price = fees[0]['options'][0]['fees']['rawPrice']
-                        result_dict = {
-                            'depart': Departure,
-                            'arrive': Arrive,
-                            'depart_date': depart_date,
-                            'return_date': return_date,
-                            'price': price,
-                            'bookingurl': bookingurl,
-                            'legs_list': legs_list
-                        }
-                        print(result_dict)
-                        tickets.insert_one(result_dict)
-                    except:pass
+                result_list=get_tickets_list2(Departure,Arrive,depart_date,return_date)
+                for result_dict in result_list:
+                    result_dict['depart']=Departure
+                    result_dict['arrive']=Arrive
+                    tickets.insert_one(result_dict)
                 exist_data = tickets.find(
                     {"depart": {"$regex": Departure, "$options": 'i'}, "arrive": {"$regex": Arrive, "$options": 'i'},"depart_date": depart_date, "return_date": return_date}).limit(5)
                 exist_datas = list(copy.deepcopy(exist_data))
@@ -111,7 +146,6 @@ def search_tickets():
             except:
                 return render_template('search_tickets.html', results='ReCaptcha')
     return render_template('search_tickets.html')
-
 
 @search_api.route('/autocomplete', methods=['GET'])
 def autocomplete():

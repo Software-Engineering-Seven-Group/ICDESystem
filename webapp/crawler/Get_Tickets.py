@@ -93,10 +93,80 @@ def get_Ticket(searchId):
     json_ticket_data = re.findall(pattern2, json_data)[0]
     ticket_result=json.loads(json_ticket_data)
     return ticket_result
+def get_ticket2(depart,arrive,depart_date,return_date):  #Booking
+    headers = {
+    'authority': 'flights.booking.com',
+    'accept': '*/*',
+    'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,en-CN;q=0.7,en-US;q=0.6,en-CA;q=0.5',
+    # 'cookie': 'cors_js=1; bkng_sso_ses=e30; bkng_sso_session=e30; _pxvid=0b421438-6efb-11ee-a052-7388906e5dde; _gcl_au=1.1.1694537867.1697775512; _scid=8435e4aa-5977-49a7-b3d3-007afeb39849; FPID=FPID2.2.8kZExm2PpsjJxD0c94meBneQ27rhW3xxmG%2FHaSc894E%3D.1697773500; _pin_unauth=dWlkPU56azRZelV3T1RjdFlUSmxOQzAwWWpZeUxUa3hOVGN0TXpVM1l6aG1ZekF6WkdObA; g_state={"i_p":1697782811769,"i_l":1}; b=%7B%22countLang%22%3A4%7D; cto_bundle=k4dmKF9VQ29idEkyZzlnMEIyeTYzUWIxUHQyWiUyQmxiMVg2WkZmdFUwTmc3UzM2N3M3JTJCM2dHUVcwUzk1SDQ2Tk5pcHZ1UHptd0NOMjFrdG51YUd4TWZQODRBZUpqNEhqZTJtT3J2V2hGUVVwUmlCTlVHTzRxeVl1Nm9pSXYlMkZGMG1rNkpRa0JzRXdxMiUyQkx0QlpONldxUmV0MmQwRTlGRnp2dDVnbVZac05YZlo1VTRyNmdEbHk0UFlOT2JYZVVsQnRqMlBrVGVneTFJVmJOcmVaMGJFTklSOGNvYWcwRzJaZkElMkZvaTIyUkFocUxHYVlOYVdGUlVxRjM1QWZ4dVJwSHkzWThqRA; fsc=s%3A8d3c8e669cf637e38d789c2640be3f44.nH9zt6o9vomB3rNt7rKftWQBI1S%2BLgeLtiSaRHmKKwI; pcm_consent=consentedAt%3D2023-10-28T23%3A53%3A34.330Z%26countryCode%3DCA%26expiresAt%3D2024-04-25T23%3A53%3A34.330Z%26implicit%3Dfalse%26regionCode%3DQC%26regulation%3Dnone%26legacyRegulation%3Dnone%26consentId%3D94c410ff-a7de-416f-9366-1f926d46c0cd%26analytical%3Dtrue%26marketing%3Dtrue; pc_payer_id=66bd1aa9-9e5e-48e3-a7a5-69d284778e96; fsc=s%3A8d3c8e669cf637e38d789c2640be3f44.nH9zt6o9vomB3rNt7rKftWQBI1S%2BLgeLtiSaRHmKKwI; OptanonConsent=implicitConsentCountry=nonGDPR&implicitConsentDate=1697773499873; _sctr=1%7C1698465600000; px_init=1; _gac_UA-116109-18=1.1698683381.Cj0KCQjwqP2pBhDMARIsAJQ0CzoLhOoJ3Vh0iYufCKauO6BhCQb4oHs3kYYcAPyR45922qU36r1IS-YaAoNFEALw_wcB; _gcl_aw=GCL.1698683381.Cj0KCQjwqP2pBhDMARIsAJQ0CzoLhOoJ3Vh0iYufCKauO6BhCQb4oHs3kYYcAPyR45922qU36r1IS-YaAoNFEALw_wcB; bkng_sso_auth=CAIQsOnuTRpy1geofL5GeFwOTn49FbMOHjEkyU2Zr8UK+Mu8YemsK6LNBSN6o0RwR4pn3LphvcdW6+6ZTojfeCcKAmHyaBZQ/tm0FM71kCsZZlq90hicfHEfRgdy9k5Jd/Duo0SDjIx00mSHG0A64Q0prP4gY1nUDPdv; BJS=-; _gid=GA1.2.172711041.1699031482; _gat=1; __gads=ID=cdd1086050d34b5c:T=1697775510:RT=1699031481:S=ALNI_MZ9-p3lIQH4xLCsbUn0zWgNwxno2Q; __gpi=UID=00000d9b23cc8d39:T=1697775510:RT=1699031481:S=ALNI_MZBgDH0-GHAgQo_xmC5hp9Vr0FcCQ; pxcts=02e9c631-7a6c-11ee-8ee6-7dc3ea9b8ff0; bkng_prue=1; _ga=GA1.1.588184741.1697773500; _ga_FPD6YLJCJ7=GS1.1.1699031483.10.0.1699031483.60.0.0; _scid_r=8435e4aa-5977-49a7-b3d3-007afeb39849; _ga_A12345=GS1.1.1699031483.10.0.1699031483.0.0.0; FPLC=ywEQaT6ev95qpQA9OSzAStsQI49xKkLxguOEPR26ThMHkq1c8nbrRU0u3umCr0DEOCNN6C5F%2B34C2MQMPvA1p6wrMMczrGKafijf87aTDT7RLfwoL0Ill3hfVRVIiQ%3D%3D; _px3=8ae5da39abfd778c79b3262b4978c44775410b311da27e5286de99c0c0561214:4PmPved+w5kyGpl3PcbC2VwVl9IvNFM/HdaVO2j0z/mchulZa5cUShDsAZ0F+GfzkJ7IQ/lSVj3ZZDUWAdIedA==:1000:8glhYCuZ1Q7K2OdGIOf1eDjTur2vmvIzwHMJod/1B4fEvIC1aSYialcP4+8s+qYmX8vy5XulXqMftkh4x8o9jGSa5eRwEoCF9bXqJxr1NrAaiJ9yn9Iq6hjlGJsPEKS/dbQ0L031LamG7Z0F8oVncw8yKjVtFn18pGuyXFV03LHmrS/UMhWthP0IIKazzPWbQ+ubEpOUJ0c8a2Wb4TmkbkLuGQPspA61KR/ZaPsh9J0=; _pxde=e6ac48f06ea24df0e2bd22290da717a64249c7a69ddef59b299832516f750149:eyJ0aW1lc3RhbXAiOjE2OTkwMzE0ODI4MzMsImZfa2IiOjAsImlwY19pZCI6W119; _pxhd=87GlHkukrDGQ3oGoKcq1fko5Ofppl8GIifbGFRBMFDhIV1e1d-DRLaCcxcElsa6dFG5oofl-QjrZkjeKEZ9Jog%3D%3D%3A9zIC2HPC7MRn%2FIe2sFRBNwxy85i73gjhy1C8-iwn6HSbMkrr-DnqHgN8vRXFsqUJnlmUyHaZI-ADj9sqAumAH85n3S6hYhiuL-ii4EH7vGE%3D; fasc=11865d29-ab7a-4419-80ff-589622479500; lastSeen=1699031484456; _uetsid=03c040807a6c11ee9ab97d80235d4c0f; _uetvid=36977eb010fa11ee8fc803d00f40c325; bkng=11UmFuZG9tSVYkc2RlIyh9YSvtNSM2ADX0BnR0tqAEmju3Hqww3f4xH5QhNFzz98Twnj8%2Fk9G5AIoy1THTyCYvh%2FCYLJZ9AtpjpGfvsuPzhb7DNrIroP%2BqtZUGGMGLCaAcFjoZSBcZiVYtR9LViao0dTYHGlQ%2FsdbWjNVO%2Bz6qQ1aH1iUzdqPYTipuDUhFx2jM5y5Rgdzoiefu%2BmiNrUNIrw%3D%3D',
+    'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"Windows"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+    }
+
+    params = {
+        'type': 'ROUNDTRIP',
+        'adults': '1',
+        'cabinClass': 'ECONOMY',
+        'children': '',
+        'from': depart,
+        'to': arrive,
+        'fromCountry': 'CA',
+        'toCountry': 'CA',
+        'depart': depart_date,
+        'return': return_date,
+        'sort': 'BEST',
+        'travelPurpose': 'leisure',
+        'enableVI': '1',
+        'enableDiscounts': 'cug',
+    }
+
+    response = requests.get('https://flights.booking.com/api/flights/', params=params, headers=headers)
+    return response.json()
 def get_tickets_list(depart,arrive,depart_date,return_date):
     searchId = get_searchId(depart,arrive,depart_date,return_date)
     result = get_Ticket(searchId)
     return result
+
+
+def format_seconds(seconds):
+    hours = seconds // 3600
+    minutes = (seconds % 3600) // 60
+
+    formatted_time = f"{hours:2d}h {minutes:2d}m"
+    return formatted_time
+def get_tickets_list2(depart,arrive,depart_date,return_date):
+    result_list=get_ticket2(depart,arrive,depart_date,return_date)
+    resultIds = result_list['flightOffers']
+    result_list=[]
+    for i in range(len(resultIds)):
+        try:
+            each = resultIds[i]
+            legs_list = each['segments']
+            price = each['priceBreakdown']['totalRounded']['units']
+            bookingurl = 'https://flights.booking.com/checkout/ticket-type/' + each['token']
+            Depart_city = legs_list[0]['departureAirport']['cityName']
+            Arrive_city = legs_list[0]['arrivalAirport']['cityName']
+            for j,aa in enumerate(legs_list):
+                legs_list[j]['totalTime']=format_seconds(aa['totalTime'])
+            result_dict = {
+                'Depart_city': Depart_city,
+                'Arrive_city': Arrive_city,
+                'depart_date': depart_date,
+                'return_date': return_date,
+                'price': price,
+                'bookingurl': bookingurl,
+                'legs_list': legs_list
+            }
+            result_list.append(result_dict)
+            print(result_dict)
+        except:
+            pass
+    return result_list
 def get_imageing(keyword):
     headers = {
     'authority': 'www.ca.kayak.com',
@@ -132,27 +202,29 @@ def get_imageing(keyword):
     response3 = requests.post('https://www.ca.kayak.com/mvm/smartyv2/search', params=params, headers=headers)
     return response3.json()
 if __name__=='__main__':
-    searchId=get_searchId('YTO','YMQ','2023-10-29','2023-11-11')
-    result=get_Ticket(searchId)
-    resultIds=result['resultIds']
-    for i in range(1,len(resultIds)):
-        try:
-            each = result['results'][resultIds[i]]
-            legs = each['legs']
-            legs_list = [i['segments'][0] for i in legs]
-            fees = each['optionsByFare']
-            bookingurl = 'https://www.ca.kayak.com' + fees[0]['options'][0]['url']
-            price = fees[0]['options'][0]['fees']['rawPrice']
-            result_dict = {
-                'depart':'YTO',
-                'arrive':'YMQ',
-                'depart_date':'2023-11-27',
-                'return_date':'2023-11-30',
-                'price':price,
-                'bookingurl':bookingurl,
-                'legs_list':legs_list
-            }
-            print(result_dict)
-        except:pass
+    aa=get_tickets_list2('YTO','YMQ','2023-11-29','2023-12-11')
+    print(aa)
+    # searchId=get_searchId('YTO','YMQ','2023-10-29','2023-11-11')
+    # result=get_Ticket(searchId)
+    # resultIds=result['resultIds']
+    # for i in range(1,len(resultIds)):
+    #     try:
+    #         each = result['results'][resultIds[i]]
+    #         legs = each['legs']
+    #         legs_list = [i['segments'][0] for i in legs]
+    #         fees = each['optionsByFare']
+    #         bookingurl = 'https://www.ca.kayak.com' + fees[0]['options'][0]['url']
+    #         price = fees[0]['options'][0]['fees']['rawPrice']
+    #         result_dict = {
+    #             'depart':'YTO',
+    #             'arrive':'YMQ',
+    #             'depart_date':'2023-11-27',
+    #             'return_date':'2023-11-30',
+    #             'price':price,
+    #             'bookingurl':bookingurl,
+    #             'legs_list':legs_list
+    #         }
+    #         print(result_dict)
+    #     except:pass
 
 
