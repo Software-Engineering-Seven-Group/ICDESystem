@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Tripedia</title>
+
+    <link rel="stylesheet" href="../static/assets/css/TicketsStyle.css">
+    <link rel="stylesheet" href="../static/assets/css/destinationStyle.css">
+    <link rel="stylesheet" href="../static/assets/css/SearchHotelStyle.css">
+
+</head>
+<body>
+<div class="wrapper">
+    <section id="attractions">
+    <h2>Things to do</h2>
+        {% for location in results[2] %}
+            <div class="attraction">
+                <img src="{{ location['img_url'] }}">
+                <div class="attraction-details">
+                    <h3>{{ location['title'] }}</h3>
+                    <p>{{ location['address'] }}</p>
+                    <p>{{ location['tag'] }}</p>
+                    <p>{{ location['review_snipeet'] }}</p>
+                    <a href="{{ location['html_link'] }}" class="btn">Detail</a>
+                </div>
+            </div>
+         {% endfor %}
+    <!-- 添加更多景点信息，按照相同的模板 -->
+</section>
+
+    <h2>Hotel</h2>
+    <div class="cards">
+            {% for result in results[0] %}
+            <div class="card">
+              <div class="card__img">
+                  <picture>
+                    <img src="{{ result['Images']}}" width="300" height="200">
+                  </picture>
+              </div>
+              <div class="card__details">
+                <h3 for="cozyroom">{{result['Hotel_name']}}</h3>
+                <div class="address">{{ result['address']['address']}}</div>
+                <div class="price">
+                  <div class="star">
+                    <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
+                    <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
+                    <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
+                    <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
+                  </div>
+                  <div class="price__l">
+                    <span class="price__label">{{ result['Price']}} CAD</span>
+                    <span class="measure__label"> Total</span>
+                  </div>
+                </div>
+                <button ><a href="{{result['Linkss']}}">Detail</a></button>
+              </div>
+            </div>
+
+            {% endfor %}
+     </div>
+    </div>
+    <div class="container">
+        <h2>Tickets</h2>
+        <div class="section">
+            {% for result1 in results[1] %}
+                    <div class="boards" onclick="window.open('{{ result1['bookingurl'] }}')">
+                    {%  for leg in result1['legs_list'] %}
+                    <div class="flightResult vcenter">
+                    <div class="flightNo infoDiv">
+                      <div class="label">
+                        FLIGHT NO.
+                      </div>
+                      <div class="value">
+                        {{ leg['legs'][0]['flightInfo']['flightNumber'] }}
+                      </div>
+                    </div>
+                    <div class="flightDisplay vcenter">
+                      <div class="location infoDiv">
+                        <div class="label">SOURCE</div>
+                        <div class="value">{{ leg['departureAirport']['code'] }}</div>
+                      </div>
+                      <div class="timeline">
+                        <div class="symbol center"><img src="{{ leg['legs'][0]['carriersData'][0]['logo'] }}" alt="airplane.png" border="0" /></div>
+                        <div class="duration center">{{ leg['totalTime'] }}</div>
+                      </div>
+                      <div class="location infoDiv">
+                        <div class="label">DESTINATION</div>
+                        <div class="value">{{ leg['arrivalAirport']['code'] }}</div>
+                      </div>
+                    </div>
+                    <div class="flightInfo infoDiv">
+                      <div class="label">FLIGHT TIME</div>
+                       <div class="value">{{ leg['departureTime']}}</div>
+                      <div class="label">SEAT CLASS</div>
+                       <div class="value">{{ leg['legs'][0]['cabinClass'] }}</div>
+                    </div>
+                    <div class="flightFare infoDiv">
+                      <div class="label">FLIGHT FARE</div>
+                       <div class="value">{{ result1['price'] }}</div>
+                    </div>
+                  </div>
+                        {% endfor %}
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

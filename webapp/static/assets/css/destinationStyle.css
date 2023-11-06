@@ -1,0 +1,66 @@
+/* 添加到现有的 styles.css 文件中，或者创建新的 styles.css 文件 */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+.container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+}
+
+.section {
+    flex: 1;
+    width: 80%;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+
+    overflow-y: auto; /* 允许内容垂直滚动 */
+}
+.attraction {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.attraction img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.attraction-details {
+    flex: 1;
+}
+
+.attraction h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.attraction p {
+    margin: 0;
+}
+
+.btn {
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #555;
+}

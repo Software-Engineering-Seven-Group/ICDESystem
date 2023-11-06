@@ -5,15 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tripadvisor</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <link rel="stylesheet" href="../static/assets/css/SearchBox.css">
     <link rel="stylesheet" href="../static/assets/css/fonts.css" />
-    <link rel="stylesheet" href="../stacic/assets/css/reset.css" />
+    <link rel="stylesheet" href="../static/assets/css/reset.css" />
     <link rel="stylesheet" href="../static/assets/css/style.css" />
     <link rel="stylesheet" href="../static/assets/css/responsive.css" />
     <link rel="stylesheet" href="../static/assets/css/fontawesome.css" />
-    <script
-      src="https://kit.fontawesome.com/5e8b469dd2.js"
-      crossorigin="anonymous"
-    ></script>
+{#    <script#}
+{#      src="https://kit.fontawesome.com/5e8b469dd2.js"#}
+{#      crossorigin="anonymous"#}
+{#    ></script>#}
 
   </head>
   <body>
@@ -26,15 +28,18 @@
           <a href="#"><img src="../static/assets/img/icons/Tripedialogo.png"  alt="Tripedia" /></a>
         </div>
         <div class="search-group">
+            <form id='search-form' method="post" action="/search_destination">
           <input
+                  id="search-box1"
             type="text"
-            type="search"
+            name="destination"
             class="search"
             placeholder="Search something"
           />
           <i class="fas fa-search"></i>
-            <a href="/search_hotel" class="link blackbutton1">
-                    <span>SEARCH</span></a>
+            <input type="submit" class="link blackbutton1" value="SEARCH"></input>
+{#                    <span>SEARCH</span>#}
+                </form>
         </div>
 
             <div class="links">
@@ -59,8 +64,10 @@
             </div>
       </nav>
     </header>
+
     <main class="container">
       <section>
+          <div id="autocomplete-list"></div>
         <h1 class="title">
           <span>Tripedia</span><span class="black">Your travel expert</span>
         </h1>
@@ -140,8 +147,28 @@
       </div>
     </div>
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+{#    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>#}
     <script src="../static/assets/js/main.js"></script>
-                  </main>
+        <script>
+            jQuery.noConflict();
+            jQuery(document).ready(function() {
+                    jQuery('#search-box1').on('input', function() {
+                        var query = jQuery(this).val();
+                        jQuery.get('/autocomplete2?query=' + query, function(data) {
+                            var autocompleteList = jQuery('#autocomplete-list');
+                            autocompleteList.empty();
+                            data.forEach(function(option) {
+                                var listItem = jQuery('<li><span class="bold-text">'+option['displayname']+'</span> - <span class="gray-text">' + option['searchFormPrimary'] + '</span> </li>');
+                                listItem.click(function() {
+                                    jQuery('#search-box1').val(option['searchFormPrimary']);
+                                    autocompleteList.empty();
+                                });
+                                autocompleteList.append(listItem);
+                            });
+                        });
+                    });
+                });
+</script>
+  </main>
   </body>
 </html>
