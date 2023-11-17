@@ -81,7 +81,7 @@ section a:not(.btn):not(.plain):hover {
   line-height: 160%;
   min-width: 40px;
   display: inline-block;
-  height: 27px;
+  height: 55px;
   border-radius: 20px;
   transition: background-color 0.1s linear, border-color 0.1s linear;
 }
