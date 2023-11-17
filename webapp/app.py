@@ -5,7 +5,7 @@ from database_manager import MongoDBManager, UserInfoCollection, mongo_manager, 
 from app_instance import app
 from questionnaire import questionnaire_api, questionnaire
 from data_displayer import displayer_api, enter_analysis_page
-from flask import Flask, render_template, request, session, redirect, url_for, flash, make_response, jsonify, send_from_directory
+from flask import Flask, render_template, request, session, redirect, url_for, flash
 from wtforms import Form, StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired
 from flask_wtf import FlaskForm
