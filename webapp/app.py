@@ -1,24 +1,27 @@
 
 from crawler.Get_Hotel import Get_booking_hotel
-from database_manager import MongoDBManager, UserInfoCollection, mongo_manager, user_infor_manager, user_preference_infor_manager
+from database_manager import MongoDBManager, UserInfoCollection, mongo_manager, user_infor_manager, \
+    user_preference_infor_manager, Moments
 from app_instance import app
 from questionnaire import questionnaire_api, questionnaire
 from data_displayer import displayer_api, enter_analysis_page
-from flask import Flask, render_template, request, session, redirect, url_for, flash, make_response
+from flask import Flask, render_template, request, session, redirect, url_for, flash, make_response, jsonify, send_from_directory
 from wtforms import Form, StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired
-from captcha.image import ImageCaptcha
 from flask_wtf import FlaskForm
 from search import search_api
-import copy
-import random
-
+from werkzeug.utils import secure_filename
+import os
+from pymongo import MongoClient, DESCENDING
+from datetime import datetime
 #bind questionnaire api
 app.register_blueprint(questionnaire_api)
 app.register_blueprint(search_api)
 app.register_blueprint(displayer_api)
 app.secret_key = 'your_secret_key'  # replace with your secret key
 "“Homepage, redirect”"
+app.config['MAX_CONTENT_PATH'] = '16 * 1024 * 1024'
+moments = Moments()
 @app.route('/')
 def home():
     return render_template("index.html")
@@ -135,8 +138,47 @@ def reset_password():
     return render_template('reset_password.html')
 
 
+#database info
+app.config["MONGO_URI"] = "mongodb://localhost:27017/Tripedia"
+app.secret_key = "mysecretkey"
+app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
-
+mongo_client = MongoClient(app.config["MONGO_URI"])
+db = mongo_client.Tripedia
+moments_collection = db.moments
+#momentsData
+@app.route('/moments')
+def show_moments():
+    moments_data = moments_collection.find().sort("create_at", DESCENDING)
+    return render_template('moments.html', moments=moments_data)
+#moments_upload
+@app.route('/upload_moment', methods=['POST'])
+def upload_moment():
+    text = request.form['text']
+    if 'username' in session:
+        username = session['username']
+    else:
+        username = None
+    if 'image' in request.files:
+        image = request.files['image']
+        if image.filename != '':
+            filename = secure_filename(image.filename)
+            image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            image_url = f'uploads/{filename}'
+        else:
+            image_url = None
+    else:
+        image_url = None
+    create_at = datetime.now()
+    create_at = create_at.strftime("%Y-%m-%d %I:%M %p")
+    moment_data = {
+        'text': text,
+        'image_url': image_url,
+        'create_at': create_at,
+        'username': username
+    }
+    moments_collection.insert_one(moment_data)
+    return redirect(url_for('show_moments'))
 
 
 if __name__ == '__main__':

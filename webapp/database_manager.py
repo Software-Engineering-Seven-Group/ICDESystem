@@ -1,7 +1,7 @@
 from flask import request
 from flask_pymongo import PyMongo
 from app_instance import app
-
+mongo = PyMongo(app)
 #mongodb base class
 class MongoDBManager():
     def __init__(self, app_instance):
@@ -220,6 +220,19 @@ class PreferenceInforCollection():
 
 user_preference_infor_manager = PreferenceInforCollection()
 
+class Moments():
+    def __init__(self):
+        self.db = mongo.db
+        self.moments_collection = self.db.get_collection('moments')
+
+    def create_moment(self, moment_data):
+        return self.moments_collection.insert_one(moment_data).inserted_id
+
+    def get_all_moments(self):
+        return list(self.moments_collection.find({}, {'_id': 0}))
+
+# 现在 Moments 类使用了来自 database_instance.py 的 app 实例
+moments = Moments()
 
 if __name__ == '__main__':
     city_infor_manager_test_case()
