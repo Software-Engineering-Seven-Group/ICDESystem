@@ -119,39 +119,52 @@ def Get_booking_hotel(Keyword, checkin,checkout):
     response = requests.post('https://www.booking.com/dml/graphql', params=params, headers=headers, json=json_data)
     return response
 def get_imageing2(keyword):
+    # headers = {
+    #     'authority': 'www.ca.kayak.com',
+    #     'accept': '*/*',
+    #     'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,en-CN;q=0.7,en-US;q=0.6,en-CA;q=0.5',
+    #     # 'content-length': '0',
+    #     # 'cookie': 'Apache=TES6rw-AAABi3iO_jY-ca-HiYlgw; kanid=; kanlabel=; kayak=ZRgVLarPBu7BCsgZuvRY; csid=3a4d96a7-1087-4373-b4d2-77b8084517d5; kmkid=AzWZONFPPpczOfKT6SIXRdY; _gcl_au=1.1.977708422.1698534720; _fbp=fb.1.1698534720000.0.83877501037026; __gads=ID=73819b9a526939f8:T=1698530499:RT=1698540238:S=ALNI_MYPUp5g0Wv_u62onGeU-pOluWGERA; __gpi=UID=00000d9d43481b06:T=1698530499:RT=1698540238:S=ALNI_MYizyZ1B0zDAG-EfLJooBLy36TvpQ; cluster=4; p1.med.token=XlQJE6qKOgyb9yEee_SM2D; p1.med.sid=R-4vkuYPCqEg1MqMta_SYW5-R8vJdqYxl3Bl2DHw0jJdajgabF5VRfTa9Z6zp1e1K; _uetsid=6614126075e711ee80b143ab187e5dcf; _uetvid=c31415203bb311ee9d86293a66b74360; mst_ADIrkw=BHfzRwUtpK4O-a8jqKclhvw2aObLBMJHq_utDuzZkmHR_g6rdcAu-lFFqF29TWoIXnvTrZ8B1K5ER34yIh_LTg; kayak.mc=ASah5IW0BAccsSXgKMDuedcgVaRAZPmDT0Ri-jyIyrzUOQgtn67TWeNQIgbEGhigavY9IPuX6OrhdmGv5cj6B4dx1CElwcvxkRzXNpCUM-7qFBfTCavRZhSbAC8XMzXoFCiiqHD8V2oBPz8wlArd3nkxva9LhCWLf1Tor7Hri_NvKoNmb1WmtM-0cOX6a8nKs5qu60ygxKGQo5sqCDWHcl2UVfEuigGPlJzNA4-vjOOSFNwKFGe2juCsXuSkbr2KS_6U8vhBtwP-Q7knCr_yfca-vrSi4_zGidiwFLkwEHzNgvhp1-e8PuhVEeoh-UVHXGVtWcgPZHYY7O_xTyWgp6FwMkFp4bhJf3Mc2MSPvPrqAzWfCUkkidHTzxtO3LbelVMr8FEpklpMm9bod4G-0Qmwkz_zYoa03G9RLwgpzii9; mst_iBfK2g=ts-pUdsQFf95kQewhYhZFW7wqiZWA67vJpmOPbYBujaxa7uqVFV7ERLV41Rgq31DEShlfrGxRUQrha8Q6TbeRA',
+    #     'origin': 'https://www.ca.kayak.com',
+    #     'referer': 'https://www.ca.kayak.com/stays',
+    #     'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
+    #     'sec-ch-ua-mobile': '?0',
+    #     'sec-ch-ua-platform': '"Windows"',
+    #     'sec-fetch-dest': 'empty',
+    #     'sec-fetch-mode': 'cors',
+    #     'sec-fetch-site': 'same-origin',
+    #     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
+    #     'x-requested-with': 'XMLHttpRequest',
+    # }
+    #
+    # params = {
+    #     'f': 'j',
+    #     's': '50',
+    #     'where': keyword,
+    #     'lc_cc': 'CA',
+    #     'lc': 'en',
+    #     'sv': '5',
+    #     'cv': 'undefined',
+    #     'c': 'undefined',
+    #     'searchId': 'undefined',
+    #     'v': 'undefined',
+    # }
     headers = {
-        'authority': 'www.ca.kayak.com',
-        'accept': '*/*',
-        'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,en-CN;q=0.7,en-US;q=0.6,en-CA;q=0.5',
-        # 'content-length': '0',
-        # 'cookie': 'Apache=TES6rw-AAABi3iO_jY-ca-HiYlgw; kanid=; kanlabel=; kayak=ZRgVLarPBu7BCsgZuvRY; csid=3a4d96a7-1087-4373-b4d2-77b8084517d5; kmkid=AzWZONFPPpczOfKT6SIXRdY; _gcl_au=1.1.977708422.1698534720; _fbp=fb.1.1698534720000.0.83877501037026; __gads=ID=73819b9a526939f8:T=1698530499:RT=1698540238:S=ALNI_MYPUp5g0Wv_u62onGeU-pOluWGERA; __gpi=UID=00000d9d43481b06:T=1698530499:RT=1698540238:S=ALNI_MYizyZ1B0zDAG-EfLJooBLy36TvpQ; cluster=4; p1.med.token=XlQJE6qKOgyb9yEee_SM2D; p1.med.sid=R-4vkuYPCqEg1MqMta_SYW5-R8vJdqYxl3Bl2DHw0jJdajgabF5VRfTa9Z6zp1e1K; _uetsid=6614126075e711ee80b143ab187e5dcf; _uetvid=c31415203bb311ee9d86293a66b74360; mst_ADIrkw=BHfzRwUtpK4O-a8jqKclhvw2aObLBMJHq_utDuzZkmHR_g6rdcAu-lFFqF29TWoIXnvTrZ8B1K5ER34yIh_LTg; kayak.mc=ASah5IW0BAccsSXgKMDuedcgVaRAZPmDT0Ri-jyIyrzUOQgtn67TWeNQIgbEGhigavY9IPuX6OrhdmGv5cj6B4dx1CElwcvxkRzXNpCUM-7qFBfTCavRZhSbAC8XMzXoFCiiqHD8V2oBPz8wlArd3nkxva9LhCWLf1Tor7Hri_NvKoNmb1WmtM-0cOX6a8nKs5qu60ygxKGQo5sqCDWHcl2UVfEuigGPlJzNA4-vjOOSFNwKFGe2juCsXuSkbr2KS_6U8vhBtwP-Q7knCr_yfca-vrSi4_zGidiwFLkwEHzNgvhp1-e8PuhVEeoh-UVHXGVtWcgPZHYY7O_xTyWgp6FwMkFp4bhJf3Mc2MSPvPrqAzWfCUkkidHTzxtO3LbelVMr8FEpklpMm9bod4G-0Qmwkz_zYoa03G9RLwgpzii9; mst_iBfK2g=ts-pUdsQFf95kQewhYhZFW7wqiZWA67vJpmOPbYBujaxa7uqVFV7ERLV41Rgq31DEShlfrGxRUQrha8Q6TbeRA',
-        'origin': 'https://www.ca.kayak.com',
-        'referer': 'https://www.ca.kayak.com/stays',
-        'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
-        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
         'sec-ch-ua-platform': '"Windows"',
-        'sec-fetch-dest': 'empty',
-        'sec-fetch-mode': 'cors',
-        'sec-fetch-site': 'same-origin',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
-        'x-requested-with': 'XMLHttpRequest',
+        'Referer': 'https://www.booking.com/',
+        'sec-ch-ua-mobile': '?0',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+        'content-type': 'text/plain;charset=UTF-8',
     }
 
-    params = {
-        'f': 'j',
-        's': '50',
-        'where': keyword,
-        'lc_cc': 'CA',
-        'lc': 'en',
-        'sv': '5',
-        'cv': 'undefined',
-        'c': 'undefined',
-        'searchId': 'undefined',
-        'v': 'undefined',
-    }
+    data = '{"query":"'+keyword+'","pageview_id":"614010f5b5610020","aid":304142,"language":"en-gb","size":5}'
 
-    response = requests.post('https://www.ca.kayak.com/mvm/smartyv2/search', params=params, headers=headers)
-    return response.json()
+
+    response = requests.post('https://accommodations.booking.com/autocomplete.json', headers=headers, data=data)
+    print(response.text)
+    # response = requests.post('https://www.ca.kayak.com/mvm/smartyv2/search', params=params, headers=headers)
+    return response.json()['results']
 if __name__=='__main__':
     aa=Get_booking_hotel('NewYork','2023-10-15','2023-10-16').json()
     list_data=aa['data']['searchQueries']['search']['results']

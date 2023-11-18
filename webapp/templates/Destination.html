@@ -25,7 +25,6 @@
                 </div>
             </div>
          {% endfor %}
-    <!-- 添加更多景点信息，按照相同的模板 -->
 </section>
 
     <h2>Hotel</h2>
@@ -41,11 +40,12 @@
                 <h3 for="cozyroom">{{result['Hotel_name']}}</h3>
                 <div class="address">{{ result['address']['address']}}</div>
                 <div class="price">
-                  <div class="star">
-                    <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                    <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                    <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                    <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
+                  <div class="rating-content" data-rating="{{result['score']}}">
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
                   </div>
                   <div class="price__l">
                     <span class="price__label">{{ result['Price']}} CAD</span>

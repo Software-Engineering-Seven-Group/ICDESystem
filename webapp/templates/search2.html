@@ -48,12 +48,13 @@
         <h3 for="cozyroom">{{result['Hotel_name']}}</h3>
         <div class="address">{{ result['address']['address']}}</div>
         <div class="price">
-          <div class="star">
-            <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-            <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-            <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-            <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-          </div>
+          <div class="rating-content" data-rating="{{result['score']}}">
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                  </div>
           <div class="price__l">
             <span class="price__label">{{ result['Price']}} CAD</span>
             <span class="measure__label"> Total</span>
@@ -76,9 +77,9 @@
                     var autocompleteList = $('#autocomplete-list');
                     autocompleteList.empty();
                     data.forEach(function(option) {
-                        var listItem = $('<li><span class="bold-text">'+option['displayname']+'</span> - <span class="gray-text">' + option['searchFormPrimary'] + '</span> </li>');
+                        var listItem = $('<li><span class="bold-text">'+option['label1']+'</span> - <span class="gray-text">' + option['label2'] + '</span> </li>');
                         listItem.click(function() {
-                            $('#search-box1').val(option['searchFormPrimary']);
+                            $('#search-box1').val(option['label1']);
                             autocompleteList.empty();
                         });
                         autocompleteList.append(listItem);

@@ -1,3 +1,44 @@
+.rating-content {
+  color: #ffa100;
+}
+
+.rating-content span {
+  display: inline-block;
+  position: relative;
+}
+
+.rating-content[data-rating="0.5"] span:nth-child(n+1),
+.rating-content[data-rating="1.5"] span:nth-child(n+2),
+.rating-content[data-rating="2.5"] span:nth-child(n+3),
+.rating-content[data-rating="3.5"] span:nth-child(n+4),
+.rating-content[data-rating="4.5"] span:last-child{
+  color: #FFF;
+}
+
+.rating-content[data-rating="0.5"] span:nth-child(n+1):before,
+.rating-content[data-rating="1.5"] span:nth-child(n+2):before,
+.rating-content[data-rating="2.5"] span:nth-child(n+3):before,
+.rating-content[data-rating="3.5"] span:nth-child(n+4):before,
+.rating-content[data-rating="4.5"] span:last-child:before{
+  content: "\2605";
+  display: block;
+  position: absolute;
+  width: 50%;
+  pointer-events: none;
+  overflow: hidden;
+  color: #ffa100;
+}
+
+.rating-content[data-rating="0.5"] span:nth-child(n+2),
+.rating-content[data-rating="1.0"] span:nth-child(n+2),
+.rating-content[data-rating="1.5"] span:nth-child(n+3),
+.rating-content[data-rating="2.0"] span:nth-child(n+3),
+.rating-content[data-rating="2.5"] span:nth-child(n+4),
+.rating-content[data-rating="3.0"] span:nth-child(n+4),
+.rating-content[data-rating="3.5"] span:nth-child(n+5),
+.rating-content[data-rating="4.0"] span:nth-child(n+5){
+  display: none;
+}
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
 * {
   margin: 0;

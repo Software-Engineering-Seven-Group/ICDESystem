@@ -157,9 +157,9 @@
                             var autocompleteList = jQuery('#autocomplete-list');
                             autocompleteList.empty();
                             data.forEach(function(option) {
-                                var listItem = jQuery('<li><span class="bold-text">'+option['displayname']+'</span> - <span class="gray-text">' + option['searchFormPrimary'] + '</span> </li>');
+                                var listItem = jQuery('<li><span class="bold-text">'+option['label1']+'</span> - <span class="gray-text">' + option['label2'] + '</span> </li>');
                                 listItem.click(function() {
-                                    jQuery('#search-box1').val(option['searchFormPrimary']);
+                                    jQuery('#search-box1').val(option['label1']);
                                     autocompleteList.empty();
                                 });
                                 autocompleteList.append(listItem);

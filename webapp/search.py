@@ -26,7 +26,7 @@ def get_city_from_ip(ip):
 def search_hotel_funtion(Keyword,checkin,checkout):
     hotels = mongo_manager.get_collection("Hotels")
     exist_data = hotels.find(
-        {"Location": {"$regex": Keyword, "$options": 'i'}, "CheckIn": checkin, "CheckOut": checkout}).limit(6)
+        {"Location": {"$regex": Keyword.split(' ')[0], "$options": 'i'}, "CheckIn": checkin, "CheckOut": checkout}).limit(6)
     exist_datas = list(copy.deepcopy(exist_data))
     list_num = len(exist_datas)
     if list_num > 0:
@@ -48,7 +48,7 @@ def search_hotel_funtion(Keyword,checkin,checkout):
                 'Location': each_data['location']['displayLocation'],
                 'Images': 'https://cf.bstatic.com' +
                           each_data['basicPropertyData']['photos']['main']['highResJpegUrl']['relativeUrl'],
-                'score': each_data['basicPropertyData']['reviewScore']['score'],
+                'score': round(each_data['basicPropertyData']['reviewScore']['score'])/2,
                 'Price': each_data['blocks'][0]['finalPrice']['amount'],
                 'address': each_data['basicPropertyData']['location'],
                 'Linkss': 'https://www.booking.com/hotel/{}/{}.en-gb.html?all_sr_blocks={}_{}_0_2_0;checkin={};checkout={}'.format(
@@ -58,7 +58,7 @@ def search_hotel_funtion(Keyword,checkin,checkout):
             print(insert_data)
             hotels.insert_one(insert_data)
     exist_data = hotels.find(
-        {"Location": {"$regex": Keyword, "$options": 'i'}, "CheckIn": checkin, "CheckOut": checkout}).limit(6)
+        {"Location": {"$regex": Keyword.split(' ')[0], "$options": 'i'}, "CheckIn": checkin, "CheckOut": checkout}).limit(6)
     exist_datas = list(copy.deepcopy(exist_data))
     print(exist_datas)
     return exist_datas
@@ -124,7 +124,7 @@ def search_hotel():
                     'Location': each_data['location']['displayLocation'],
                     'Images': 'https://cf.bstatic.com' +
                               each_data['basicPropertyData']['photos']['main']['highResJpegUrl']['relativeUrl'],
-                    'score': each_data['basicPropertyData']['reviewScore']['score'],
+                    'score': round(each_data['basicPropertyData']['reviewScore']['score'])/2,
                     'Price': each_data['blocks'][0]['finalPrice']['amount'],
                     'address': each_data['basicPropertyData']['location'],
                     'Linkss':'https://www.booking.com/hotel/{}/{}.en-gb.html?all_sr_blocks={}_{}_0_2_0;checkin={};checkout={}'.format(countryCode,pagename,room_id,policyGroupId,checkin,checkout),
