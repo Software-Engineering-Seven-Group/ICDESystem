@@ -134,7 +134,7 @@ a.location {
 
 header {
   position: fixed;
-  top: 0;
+  top: 2%;
   left: 0;
   right: 0;
   background: white;
@@ -466,7 +466,7 @@ main .title span {
   left: 10px;
   bottom: 0;
   z-index: 1;
-  background: url("../img/trip.svg") #34e0a1;
+  background: url("../img/oldport.jpg") #34e0a1;
   background-repeat: no-repeat;
   border-top-left-radius: 40%;
   border-top-right-radius: 40%;
