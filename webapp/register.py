@@ -19,5 +19,5 @@ def register():
             session['username'] = request.form['username']
             return redirect(url_for('questionnaire_api.questionnaire'))
         flash('Username is existed！PlZ change another one!')
-        return redirect(url_for('register'))
+        return redirect(url_for('register_blueprint.register'))
     return render_template('register.html')
