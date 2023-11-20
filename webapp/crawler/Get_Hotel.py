@@ -162,7 +162,7 @@ def get_imageing2(keyword):
 
 
     response = requests.post('https://accommodations.booking.com/autocomplete.json', headers=headers, data=data)
-    print(response.text)
+    # print(response.text)
     # response = requests.post('https://www.ca.kayak.com/mvm/smartyv2/search', params=params, headers=headers)
     return response.json()['results']
 if __name__=='__main__':

@@ -19,6 +19,8 @@ def get_city_from_ip(ip):
         city = data.get("city", "Unknown")
         if city == "Unknown":
             city = "Montreal"
+        if city =='Montréal':
+            city ='Montreal'
         return city
 
     except Exception as e:
@@ -30,7 +32,7 @@ def search_hotel_funtion(Keyword,checkin,checkout):
     exist_datas = list(copy.deepcopy(exist_data))
     list_num = len(exist_datas)
     if list_num > 0:
-        print('Load data')
+        print('Load hotel')
         return  exist_datas
     search_data = Get_booking_hotel(Keyword, checkin, checkout)
     if search_data:
@@ -70,7 +72,7 @@ def search_ticket_function(Departure,Arrive,depart_date,return_date):
     exist_datas = list(copy.deepcopy(exist_data))
     list_num = len(exist_datas)
     if list_num > 0:
-        print('load data')
+        print('load ticket')
         # print(exist_data[0])
         return exist_datas
     else:
@@ -235,16 +237,17 @@ def search_destination():
     client_ip = request.remote_addr
     Departure=get_city_from_ip(client_ip)
     if request.method == 'POST':
-        destination=request.form['destination']
+        destination=request.form['destination'].split(' ')[0]
         hotel_result=search_hotel_funtion(destination, str(depart_date), str(return_date))
         ticket_result=search_ticket_function(Departure, destination, str(depart_date), str(return_date))
         exist_data = Destinations.find( \
             {"destination": {"$regex": destination, "$options": 'i'}}).limit(5)
         exist_datas = list(copy.deepcopy(exist_data))
         list_num = len(exist_datas)
+        trip_info=[Departure,destination,str(depart_date),str(return_date)]
         if list_num > 0:
-            print('load data')
-            return_result=(hotel_result,ticket_result,exist_datas)
+            print('load destination')
+            return_result=(hotel_result,ticket_result,exist_datas,trip_info)
             print(len(ticket_result))
             return render_template('Destination.html', results=return_result)
         else:
@@ -255,7 +258,7 @@ def search_destination():
                 {"destination": {"$regex": destination, "$options": 'i'}}).limit(5)
             exist_datas = list(copy.deepcopy(exist_data))
             print(exist_datas)
-            return_result = (hotel_result, ticket_result, exist_datas)
+            return_result = (hotel_result, ticket_result, exist_datas,trip_info)
             print(len(ticket_result))
             return render_template('Destination.html', results=return_result)
 

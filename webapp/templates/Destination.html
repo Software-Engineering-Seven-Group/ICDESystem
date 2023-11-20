@@ -9,7 +9,30 @@
     <link rel="stylesheet" href="../static/assets/css/SearchHotelStyle.css">
 
 </head>
+<style>
+    .header {
+  background-color: #3498db;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.header h1 {
+  margin-bottom: 10px;
+}
+
+.header p {
+  margin: 5px 0;
+}
+</style>
 <body>
+<div class="header">
+  <h1>Trip Information</h1>
+  <p>Departure: {{ results[3][0] }}</p>
+  <p>Destination: {{ results[3][1] }}</p>
+  <p>Departure Time: {{ results[3][2] }}</p>
+  <p>Return Time: {{ results[3][3] }}</p>
+</div>
 <div class="wrapper">
     <section id="attractions">
     <h2>Things to do</h2>

@@ -54,13 +54,44 @@
 
 .section {
     flex: 1;
-    width: 80%;
+    width: 60%;
     margin: 20px;
     padding: 20px;
     border-radius: 10px;
 
-    overflow-y: auto; /* 允许内容垂直滚动 */
-}
+    overflow-y: auto;
+    scrollbar-width: thin;
+      scrollbar-color: transparent transparent;
+      transition: scrollbar-color 0.5s ease;
+
+
+      &::-webkit-scrollbar {
+        width: 4px;
+        transition: width 0.5s ease;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+      }
+
+
+      &:hover {
+        scrollbar-color: #3498db #ecf0f1;
+        &::-webkit-scrollbar {
+          width: 8px;
+        }
+        &::-webkit-scrollbar-track {
+          background: #ecf0f1;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: #3498db;
+        }
+      }
+    }
 .attraction {
     display: flex;
     border: 1px solid #ccc;
