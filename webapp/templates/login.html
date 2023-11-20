@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
-
+    <title>Tripedia</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='new_icons.ico') }}">
 
     {% with messages = get_flashed_messages(with_categories=true) %}
   {% if messages %}
@@ -96,7 +96,7 @@
             </form>
             <div class="msg">
                 Forget Password?
-                <a href="{{ url_for('reset_password') }}">Reset Password</a>
+                <a href="{{ url_for('reset_password_blueprint.reset_password') }}">Reset Password</a>
             </div>
         </div>
     </div>

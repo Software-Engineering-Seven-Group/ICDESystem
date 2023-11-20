@@ -1,5 +1,7 @@
 from flask import request
 from flask_pymongo import PyMongo
+from pymongo import MongoClient, DESCENDING
+
 from app_instance import app
 mongo = PyMongo(app)
 #mongodb base class
@@ -74,7 +76,6 @@ class UserInfoCollection():
                 }
             }
         )
-
     def get_user_info(self, username):
         user_data = mongo_manager.get_collection(self.collection_name).find_one({"username": username})
         return user_data if user_data else None
@@ -221,18 +222,17 @@ class PreferenceInforCollection():
 user_preference_infor_manager = PreferenceInforCollection()
 
 class Moments():
-    def __init__(self):
-        self.db = mongo.db
-        self.moments_collection = self.db.get_collection('moments')
+    def __init__(self, uri):
+        self.mongo_client = MongoClient(uri)
+        self.db = self.mongo_client.Tripedia
+        self.moments_collection = self.db.moments
 
-    def create_moment(self, moment_data):
-        return self.moments_collection.insert_one(moment_data).inserted_id
+    def get_moments(self):
+        return self.moments_collection.find().sort("create_at", DESCENDING)
 
-    def get_all_moments(self):
-        return list(self.moments_collection.find({}, {'_id': 0}))
+    def insert_moment(self, moment_data):
+        self.moments_collection.insert_one(moment_data)
 
-# 现在 Moments 类使用了来自 database_instance.py 的 app 实例
-moments = Moments()
 
 if __name__ == '__main__':
     city_infor_manager_test_case()
