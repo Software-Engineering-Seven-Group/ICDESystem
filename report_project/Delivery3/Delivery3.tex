@@ -44,14 +44,17 @@ wangboyang0626@outlook.com}
 \maketitle
 
 
-
-
+\begin{figure*}[htbp]
+\centerline{\includegraphics[width=1.0\textwidth]{Architecture.pdf}}
+\caption{The Adoption of MVC Pattern in Tripedia.}
+\label{system_mvc}
+\end{figure*}
 
 
 \begin{figure*}[htbp]
 \centerline{\includegraphics[width=1.0\textwidth]{Architecture2.pdf}}
 \caption{The Adoption of Layered Architecture Pattern in Tripedia.}
-\label{system_architecture_layered}
+\label{system_layered}
 \end{figure*}
 
 \begin{table*}[htbp]
@@ -78,65 +81,111 @@ Questionnaire &  & Module & 1 \\
 \textbf{Question: Identify and articulate what are your architectural designs and the associated
 software engineering process.}
 
-Architectural designs serve as the blueprints for our software systems, shaping their form and defining the relationships among components. Our design choice comes with its own set of considerations and implications. In chapter, we will dissect the architectural design in Tripedia system.
+Architectural designs serve as the blueprints for our software systems, shaping their form and defining the relationships among components. Our design choice comes with its own set of considerations and implications. In this chapter, we will dissect the architectural design of the Tripedia system. 
 
 
 \subsection{\textbf{Architectural Design}}
 
+In our system, we adopted the \textbf{MVC Architectural Pattern}. At the same time, we have referred to the design philosophy of \textbf{Layered Architectural Pattern}. We try our best to decouple the logic by architectual design, and achieve a great results.
+
+The architectural design is shown in figure\ref{system_mvc}. Meanwhile, the detail is introducted in Chapter III: the adoption of MVC and Layered Architecture.
+
+
 \subsection{\textbf{Software Engineering Process}}
+
 
 
 \section{\textbf{Architecture Design Consideration}}
 
 \textbf{Question: Indicate if any revision to your architectural design is necessary. If the answer is Yes, please explain what revision, and the reason.}
 
-In this chapter, we will explore the senarios about our system. And we will give reasons about our descision about revision.
+In this chapter, we will explore the scenarios of our system. And we will give reasons for our decision about revision.
 
 \subsection{\textbf{Revision Consideration}}
 
-
-
+To be honest, we \textbf{did not do any revision} in our architectural design. 
 
 \subsection{\textbf{Reasons}}
 
-Adequate Initial Planning: The initial architectural design was thoroughly planned, considering all the key aspects of the project. This careful planning ensured that the architecture was well-suited to meet the project's requirements from the beginning.
+There are several reasons about why we did not change our architectural structure. 
 
-Flexibility and Scalability: The chosen architecture was flexible and scalable, capable of accommodating the evolving needs of the project without requiring fundamental changes. This adaptability helped in avoiding major architectural revisions.
+(1) We have adequate initial planning in our project. At the beginning of the development, we have carefully designed the development framework and possible future development plans. This careful planning ensured that the architecture was well-suited to meet the project's requirements.
 
-Proven Architectural Pattern: Employing a proven and tested architectural pattern (like MVC, for example) which is known for its reliability and efficiency in similar projects, reduced the need for changes.
+(2) Our architecture is flexibility and scalability. Our architecture is stable enough for us to expand functions. We did not meet any obstacles in our development. This adaptability helped in avoiding major architectural revisions.
 
-Consistent Project Requirements: There were no significant changes in the project requirements or scope that necessitated a revision of the architectural design. The consistency in requirements helped in maintaining the original architecture.
-Effective Risk Management: Potential risks and challenges were identified and mitigated early in the development process, which prevented any architectural disruptions.
+(3) Our system has great technological compatibility. The selected technology stack and tools were fully compatible with the chosen architecture, ensuring smooth development and operation processes.
 
-Regular Reviews and Feedback: Continuous monitoring and regular reviews of the architecture ensured that any minor issues were addressed promptly, eliminating the need for major revisions.
-
-Team Expertise and Experience: The experience and expertise of the development team in working with the chosen architecture led to efficient problem-solving and decision-making, keeping the architecture stable and effective.
-
-Technological Compatibility: The selected technology stack and tools were fully compatible with the chosen architecture, ensuring smooth development and operation processes.
-
-By providing these reasons, you're effectively communicating that the initial architectural choice was sound and remained relevant and effective throughout the development process.
-
+(4) Our project is a prototype, we have no need to concern the bussiness requirements. 
 
 
 \section{\textbf{The Adoption of MVC and Layered Architecture}}
 
-\textbf{Question: Further adopt MVC and Layered Architecture Pattern to your ICDE-App. Describe your design
-decisions, and discuss the pros and cons of the design.}
+\textbf{Question: Further adopt MVC and Layered Architecture Pattern to your ICDE-App. Describe your design decisions, and discuss the pros and cons of the design.}
 
-In this chapter, we discuss the adoption of MVC and Layered Architecture Patterns into Tripedia system. By embracing these architectural patterns, we aim to achieve a balance between flexibility, scalability, and maintainability. Finally, we explain the pros and cons of our system architecture.
+In this chapter, we discuss the adoption of MVC and Layered Architecture Patterns into the Tripedia system. By embracing these architectural patterns, we aim to achieve a balance between flexibility, scalability, and maintainability. Finally, we explain the pros and cons of our system architecture.
 
 
 \subsection{\textbf{The Adoption of MVC Architecture Pattern}}
 
+As shown in figure\ref{system_mvc}, our system mainly adopt the MVC Architecture Pattern. Our system can be divided into three parts: View, Controller and Model.
+
+In the View part, we implement multiple user interfaces based on the web pages, which is responsible for data presentation and the interaction with users. For example, the Data Analysis User Interface provides the questionnaire to capture user's preference data, and presents the analysis results with html diagram.
+
+The controller worked as the bridge between the View and the Mode. The controller gather the requests sent from the View and processes the request based on the Model services. For example, the diagram display controller gets the request of presenting the analysis result. The Diagram display controller manipulates the Data Analysis Model in Model part to gain the results. Finally, the results are returned to the View part by the Diagram Display Controller.
+
+The model focuses on the data processing. For example, the data analysis model provide the interfaces of data analzing for the controller. 
+
+Above all, our system adopted a standard MVC architecture in the development.
 
 \subsection{\textbf{The Adoption of Layered Architecture Pattern}}
+
+From layered architectural views, our system develops in a systematic way to organize and structure code. The layered architectural pattern divides the software application into distinct layers, each responsible for a specific set of functionalities. The layers are arranged hierarchically, with each layer interacting primarily with the layers immediately above and below it. 
+
+As shown in figure\ref{system_layered}, our system is designed in three layers: 
+
+\begin{itemize}
+    \item User Interface Layer: responsible for interacting with users and presenting information in a user-friendly manner.
+
+    \item Core Bussiness Logic Layer: responsible for implementing the core business rules, logic, and processes of the application.
+
+    \item Database Support Layer: responsible for supporting mongodb unique interfaces.
+\end{itemize}
+
+
+In user interface layer, we focus on the designing and development of web pages. In this part,  There are multi modules in our system, and each system needs a user-friendly interface. These web pages are interact with the Core Bussiness Logic Layer. For example, when users wanna to login to our system, they will interact with the login page of User Interface Layer. Furthermore, the operation of users sends to the Core Bussiness Logic Layer, and the module in Core Bussiness Logic Layer response for the requests.
+
+In Core Bussiness Logic Layer, we implement a series of server functions, which are the core functions of the system. The account module is responsible for the issues of account operations. The search module processes the search functions based on the crawling. The data analysis module provides a set of recommendation services based on user preference data. Finally, the moment module provides a platform for user to share their travel experience.
+
+In Database Support Layer, we designed and implemented different database interface for different data structure. The Database Support Layer provides unique database interfaces to support the processing of the Core Bussiness Logic Layer.
+
+Above all, we adopted the design philosophy of Layered Architecture into our system, which makes our development process more smooth.
 
 
 \subsection{\textbf{The Pros and Cons}}
 
+We try our best to combine the MVC and Layered Architecture patterns, which brings several advantages to our ICDE application. Meanwhile, the architecture also comes with potential drawbacks.
 
+The advantages of our system architecture are as follows:
 
+\begin{itemize}
+    \item Maintainability: By breaking the application down into modular components, it becomes easier to pinpoint and address issues, increasing the application's maintainability.
 
+    \item Scalability:  Both the MVC pattern and layered architecture pattern support building scalable applications. In our project, adding new features or modifying existing ones can be done without affecting other parts of the codebase.
+
+    \item Testability: The separation provided by these patterns makes unit testing and integration testing more straightforward, enhancing the application's quality.
+
+\end{itemize}
+
+On the other hand, our system also has some shortcomings.
+
+\begin{itemize}
+    \item Performance Overhead: Because of the transmission of information, our architecture may introduce performance overhead.
+
+    \item Complexity:  MVC and layered architecture patterns can introduce complexity to the application as you need to manage multiple components and their interactions.
+
+\end{itemize}
+
+In conclusion, applying MVC and layered architecture patterns to the ICDE application can enhance its maintainability, scalability, and testability but also requires a balance between complexity and performance considerations.
 
 
 \section{\textbf{Software Metrics and Granularity of Components}}
@@ -144,7 +193,7 @@ In this chapter, we discuss the adoption of MVC and Layered Architecture Pattern
 \textbf{Question: Please make a statistical count of software metrics from all your tasks implemented so far and
 form a table given the template below. }
 
-
+Our development statistics is shown in table\ref{tab1}. 
 
 
 
