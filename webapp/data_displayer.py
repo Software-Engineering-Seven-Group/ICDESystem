@@ -35,6 +35,12 @@ def generate_introduce_of_the_popular_city(city_name):
     generate_introduce = 'In this season, the most popular city is ' + city_name + '. '
     return generate_introduce
 
+def recommend_the_best_city():
+    if session['username'] is not '':
+        analyzer = KNNDataAnalayzer()
+        recommend_cities_name_list, recommend_cities_priority_list = analyzer.recommend_cities(session['username'])
+        return recommend_cities_name_list[4]
+    return 'Montreal'
 
 # preprocess of data before enter analysis page
 def enter_analysis_page():
