@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 from flask_cors import CORS
 from crawler.Get_Destination import get_destination_result
 import requests
+from data_displayer import recommend_the_best_city
 
 search_api = Blueprint('search_api', __name__)
 
@@ -94,6 +95,31 @@ def search_ticket_function(Departure,Arrive,depart_date,return_date):
             return exist_datas
         except:
             return ''
+def get_destination1(Departure,destination,depart_date,return_date):
+    Destinations = mongo_manager.get_collection("Destination")
+    hotel_result = search_hotel_funtion(destination, str(depart_date), str(return_date))
+    ticket_result = search_ticket_function(Departure, destination, str(depart_date), str(return_date))
+    exist_data = Destinations.find( \
+        {"destination": {"$regex": destination, "$options": 'i'}}).limit(5)
+    exist_datas = list(copy.deepcopy(exist_data))
+    list_num = len(exist_datas)
+    trip_info = [Departure, destination, str(depart_date), str(return_date)]
+    if list_num > 0:
+        print('load destination')
+        return_result = [hotel_result, ticket_result, exist_datas, trip_info]
+        print(len(ticket_result))
+        return return_result
+    else:
+        result_list = get_destination_result(destination)
+        for result_dict in result_list:
+            Destinations.insert_one(result_dict)
+        exist_data = Destinations.find( \
+            {"destination": {"$regex": destination, "$options": 'i'}}).limit(5)
+        exist_datas = list(copy.deepcopy(exist_data))
+        print(exist_datas)
+        return_result = [hotel_result, ticket_result, exist_datas, trip_info]
+        print(len(ticket_result))
+        return return_result
 @search_api.route('/search_hotel', methods=['POST', 'GET'])  # Search
 def search_hotel():
     hotels = mongo_manager.get_collection("Hotels")
@@ -142,58 +168,6 @@ def search_hotel():
         return render_template('search2.html', results=exist_datas)
         # jsonify(exist_datas)
     return render_template('search2.html')
-# @search_api.route('/search_tickets', methods=['POST', 'GET'])  # Kayaka Ticket
-# def search_tickets():
-#     tickets = mongo_manager.get_collection("Tickets")
-#
-#     if request.method == 'POST':
-#         Departure = request.form['Departure']
-#         Arrive = request.form['Arrive']
-#         depart_date = request.form['Departure_date']
-#         return_date = request.form['Return_date']
-#
-#         exist_data = tickets.find(
-#             {"depart": {"$regex": Departure, "$options": 'i'}, "arrive": {"$regex": Arrive, "$options": 'i'},"depart_date": depart_date, "return_date": return_date}).limit(5)
-#         exist_datas = list(copy.deepcopy(exist_data))
-#         list_num = len(exist_datas)
-#         if list_num > 0:
-#             print('load data')
-#             # print(exist_data[0])
-#             return render_template('search_tickets.html', results=exist_datas)
-#         else:
-#             print(Departure,Arrive,depart_date,return_date)
-#             try:
-#                 result_list=get_tickets_list(Departure,Arrive,depart_date,return_date)
-#                 resultIds = result_list['resultIds']
-#                 for i in range(1, len(resultIds)):
-#                     try:
-#                         each = result_list['results'][resultIds[i]]
-#                         legs = each['legs']
-#                         legs_list = [i['segments'][0] for i in legs]
-#                         fees = each['optionsByFare']
-#                         bookingurl = 'https://www.ca.kayak.com' + fees[0]['options'][0]['url']
-#                         price = fees[0]['options'][0]['fees']['rawPrice']
-#                         result_dict = {
-#                             'depart': Departure,
-#                             'arrive': Arrive,
-#                             'depart_date': depart_date,
-#                             'return_date': return_date,
-#                             'price': price,
-#                             'bookingurl': bookingurl,
-#                             'legs_list': legs_list
-#                         }
-#                         print(result_dict)
-#                         tickets.insert_one(result_dict)
-#                     except:pass
-#                 exist_data = tickets.find(
-#                     {"depart": {"$regex": Departure, "$options": 'i'}, "arrive": {"$regex": Arrive, "$options": 'i'},"depart_date": depart_date, "return_date": return_date}).limit(5)
-#                 exist_datas = list(copy.deepcopy(exist_data))
-#                 print(exist_datas)
-#                 # exist_datas = copy.deepcopy(exist_data)
-#                 return render_template('search_tickets.html', results=exist_datas)
-#             except:
-#                 return render_template('search_tickets.html', results='ReCaptcha')
-#     return render_template('search_tickets.html')
 @search_api.route('/search_tickets', methods=['POST', 'GET'])  # Booking
 def search_tickets():
     tickets = mongo_manager.get_collection("Tickets")
@@ -229,38 +203,26 @@ def search_tickets():
             except:
                 return render_template('search_tickets.html', results='ReCaptcha')
     return render_template('search_tickets.html')
+@search_api.route('/recommend_destination', methods=['POST', 'GET'])
+def recmmend_destination():
+    depart_date = datetime.now().date() + timedelta(days=3)
+    return_date = depart_date + timedelta(days=5)
+    client_ip = request.remote_addr
+    Departure = get_city_from_ip(client_ip)
+    destination=recommend_the_best_city()
+    return_result = get_destination1(Departure, destination, depart_date, return_date)
+    return_result.append('recommendation')
+    return render_template('Destination.html', results=return_result)
 @search_api.route('/search_destination', methods=['POST', 'GET'])
 def search_destination():
-    Destinations = mongo_manager.get_collection("Destination")
     depart_date = datetime.now().date()+ timedelta(days=3)
     return_date = depart_date + timedelta(days=5)
     client_ip = request.remote_addr
     Departure=get_city_from_ip(client_ip)
     if request.method == 'POST':
         destination=request.form['destination'].split(' ')[0]
-        hotel_result=search_hotel_funtion(destination, str(depart_date), str(return_date))
-        ticket_result=search_ticket_function(Departure, destination, str(depart_date), str(return_date))
-        exist_data = Destinations.find( \
-            {"destination": {"$regex": destination, "$options": 'i'}}).limit(5)
-        exist_datas = list(copy.deepcopy(exist_data))
-        list_num = len(exist_datas)
-        trip_info=[Departure,destination,str(depart_date),str(return_date)]
-        if list_num > 0:
-            print('load destination')
-            return_result=(hotel_result,ticket_result,exist_datas,trip_info)
-            print(len(ticket_result))
-            return render_template('Destination.html', results=return_result)
-        else:
-            result_list=get_destination_result(destination)
-            for result_dict in result_list:
-                Destinations.insert_one(result_dict)
-            exist_data = Destinations.find( \
-                {"destination": {"$regex": destination, "$options": 'i'}}).limit(5)
-            exist_datas = list(copy.deepcopy(exist_data))
-            print(exist_datas)
-            return_result = (hotel_result, ticket_result, exist_datas,trip_info)
-            print(len(ticket_result))
-            return render_template('Destination.html', results=return_result)
+        return_result=get_destination1(Departure, destination,depart_date,return_date)
+        return render_template('Destination.html', results=return_result)
 
 @search_api.route('/autocomplete', methods=['GET'])
 def autocomplete():

@@ -27,6 +27,9 @@
 </style>
 <body>
 <div class="header">
+    {% if results | length ==5 %}
+    <h1> Suitable for you:</h1>
+    {% endif %}
   <h1>Trip Information</h1>
   <p>Departure: {{ results[3][0] }}</p>
   <p>Destination: {{ results[3][1] }}</p>
@@ -41,9 +44,9 @@
                 <img src="{{ location['img_url'] }}">
                 <div class="attraction-details">
                     <h3>{{ location['title'] }}</h3>
-                    <p>{{ location['address'] }}</p>
-                    <p>{{ location['tag'] }}</p>
-                    <p>{{ location['review_snipeet'] }}</p>
+                    <p>Adrees: {{ location['address'] }}</p>
+                    <p>TAG: {{ location['tag'] }}</p>
+                    <p>Feedback: {{ location['review_snipeet'] }}</p>
                     <a href="{{ location['html_link'] }}" class="btn">Detail</a>
                 </div>
             </div>
