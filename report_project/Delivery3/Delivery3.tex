@@ -86,12 +86,20 @@ Architectural designs serve as the blueprints for our software systems, shaping 
 
 \subsection{\textbf{Architectural Design}}
 
-In our system, we adopted the \textbf{MVC Architectural Pattern}. At the same time, we have referred to the design philosophy of \textbf{Layered Architectural Pattern}. We try our best to decouple the logic by architectual design, and achieve a great results.
+In our system, we adopted the \textbf{MVC Architectural Pattern}. At the same time, we have referred to the design philosophy of \textbf{Layered Architectural Pattern}. We try our best to decouple the logic by architectural design and achieve great results.
 
-The architectural design is shown in figure\ref{system_mvc}. Meanwhile, the detail is introducted in Chapter III: the adoption of MVC and Layered Architecture.
+The architectural design is shown in figure\ref{system_mvc}. Meanwhile, the detail is introduced in Chapter III: the adoption of MVC and Layered Architecture.
 
 
 \subsection{\textbf{Software Engineering Process}}
+
+Beginning in the Specification phase, our vision was to construct a dynamic and feature-rich tourist website. In this stage, we chose the MVC architecture as our application architecture. This structure is ideally suited to the website we envisioned containing multiple ways of viewing and interacting with data.
+
+During the design phase, we looked to the MVC framework to help us choose the right technologies. After careful consideration, we opted for Flask, a technology renowned for its strong MVC support. This decision laid a solid foundation for the subsequent stages of development.
+
+As we forged ahead into the development phase, we decided to adopt a decentralized control strategy that distributes control among components. For example, in the searching function, I created a lot of searching APIs, which can call different crawlers to get information from the internet. Each of these interfaces can operate independently of each other. which Greatly increases the stability and maintainability of the system.
+
+Once we entered the Validation phase, our MVC architecture proved its worth. The isolation of the model, view, and controller components allowed us to perform targeted testing and debugging very effectively.
 
 
 
