@@ -5,7 +5,7 @@ from data_displayer import enter_analysis_page
 questionnaire_api = Blueprint('questionnaire_api', __name__)
 
 #pre-process of questionnaire data
-def prcess_questionnaire_data(workload, area, history, people, alone, hum, sports, water):
+def prcess_questionnaire_data(workload, area, history, people, alone, hum, sports, water, username):
     preference_data = {
         "daily_workload":0,
         "address_urbanization":0,
@@ -18,7 +18,7 @@ def prcess_questionnaire_data(workload, area, history, people, alone, hum, sport
         "prefer_nature": 0
     }
 
-    preference_data['username'] = session['username']
+    preference_data['username'] = username
     preference_data['daily_workload'] = workload * 20
     preference_data['address_urbanization'] = area * 20
     preference_data['quiet_chara'] = alone * 20
@@ -46,8 +46,19 @@ def questionnaire():
                 int(request.form['hum']),
                 int(request.form['sports']),
                 int(request.form['water']),
+                session['username'],
             )
             user_preference_infor_manager.insert_one_user_preference_data_item(processed_data)
             return redirect(url_for('home'))
     return render_template('questionnaire.html')
+
+
+#the test case of KNN data analyser
+def questionnaire_test_case():
+    analyzer_instance = prcess_questionnaire_data(5, 4, 3, 2, 1, 2, 3, 4, 'zhangyulin')
+    print(analyzer_instance)
+
+if __name__ == '__main__':
+    questionnaire_test_case()
+
 

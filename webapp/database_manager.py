@@ -221,6 +221,17 @@ class PreferenceInforCollection():
 
 user_preference_infor_manager = PreferenceInforCollection()
 
+
+def user_preference_test_case():
+    preference_data = user_preference_infor_manager.get_user_all_preference_data('zhangyulin')
+    print('user workload preference:', preference_data['daily_workload'])
+    print('user history preference:', preference_data['prefer_history'])
+    print('user nature preference:', preference_data['prefer_nature'])
+    print('user noisy preference:', preference_data['noisy_chara'])
+    print('user quite preference:', preference_data['quiet_chara'])
+    print('user sports preference:', preference_data['sports'])
+
+
 class Moments():
     def __init__(self, uri):
         self.mongo_client = MongoClient(uri)
@@ -236,4 +247,5 @@ class Moments():
 
 if __name__ == '__main__':
     city_infor_manager_test_case()
+    user_preference_test_case()
 

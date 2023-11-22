@@ -36,7 +36,7 @@ def generate_introduce_of_the_popular_city(city_name):
     return generate_introduce
 
 def recommend_the_best_city():
-    if session['username'] is not '':
+    if session['username'] != '':
         analyzer = KNNDataAnalayzer()
         recommend_cities_name_list, recommend_cities_priority_list = analyzer.recommend_cities(session['username'])
         return recommend_cities_name_list[4]
@@ -76,3 +76,22 @@ def enter_analysis_page():
 @displayer_api.route('/analysis')
 def analysis():
     return enter_analysis_page()
+
+#the test case for recommend city introduction
+def generate_preference_introduction_test_case():
+    analyzer = KNNDataAnalayzer()
+    recommend_cities_name_list, recommend_cities_priority_list = analyzer.recommend_cities('zhangyulin')
+    introduction = generate_introduce_of_the_recommend_city(recommend_cities_name_list[0], 'zhangyulin')
+    print(introduction)
+
+#the test case for popular city introduction
+def generate_popular_introduce_test_case():
+    analyzer = KNNDataAnalayzer()
+    popular_cities_name_list, popular_cities_priority_list = analyzer.popular_cities()
+    popular_introduction = generate_introduce_of_the_popular_city(popular_cities_name_list[0])
+    print(popular_introduction)
+
+
+if __name__ == '__main__':
+    generate_preference_introduction_test_case()
+    generate_popular_introduce_test_case()
