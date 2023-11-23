@@ -51,28 +51,6 @@ wangboyang0626@outlook.com}
 \end{figure*}
 
 
-\begin{figure*}[htbp]
-\centerline{\includegraphics[width=1.0\textwidth]{Architecture2.pdf}}
-\caption{The Adoption of Layered Architecture Pattern in Tripedia.}
-\label{system_layered}
-\end{figure*}
-
-\begin{table*}[htbp]
-\caption{The software metrics and granularity of components.}
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{Task Name} & \textbf{\textit{LOC}}& \textbf{\textit{Component Granularity Level}}& \textbf{\textit{Numbers of Units}} \\
-\hline
-Account Login and Password Validation &  & Module & 1 \\
-Data Displayer &   & Python Class & 1 \\
-Data Analyzer &  & Python Class &  1 \\
-Questionnaire &  & Module & 1 \\
-\hline
-\end{tabular}
-\label{tab1}
-\end{center}
-\end{table*}
 
 
 
@@ -126,6 +104,7 @@ There are several reasons about why we did not change our architectural structur
 (4) Our project is a prototype, we have no need to concern the bussiness requirements. 
 
 
+
 \section{\textbf{The Adoption of MVC and Layered Architecture}}
 
 \textbf{Question: Further adopt MVC and Layered Architecture Pattern to your ICDE-App. Describe your design decisions, and discuss the pros and cons of the design.}
@@ -144,6 +123,13 @@ The controller worked as the bridge between the View and the Mode. The controlle
 The model focuses on the data processing. For example, the data analysis model provide the interfaces of data analzing for the controller. 
 
 Above all, our system adopted a standard MVC architecture in the development.
+
+\begin{figure*}[htbp]
+\centerline{\includegraphics[width=1.0\textwidth]{Architecture2.pdf}}
+\caption{The Adoption of Layered Architecture Pattern in Tripedia.}
+\label{system_layered}
+\end{figure*}
+
 
 \subsection{\textbf{The Adoption of Layered Architecture Pattern}}
 
@@ -169,6 +155,31 @@ In Database Support Layer, we designed and implemented different database interf
 Above all, we adopted the design philosophy of Layered Architecture into our system, which makes our development process more smooth.
 
 
+
+\begin{table*}[htbp]
+\caption{The software metrics and granularity of components.}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Task Name} & \textbf{\textit{LOC}}& \textbf{\textit{Component Granularity Level}}& \textbf{\textit{Numbers of Units}} \\
+\hline
+Account Login and Password Validation &  & packages & 1 \\
+Data Displayer & 274  & packages & 1 \\
+KNNDataAnalayzer & 106 & Python Class &  6 \\
+Questionnaire & 169 & packages & 1 \\
+MongoDBManager & 35 & Python Class & 2 \\
+UserInfoCollection & 40 & Python Class & 2 \\
+CitiesInfoCollection & 66 & Python Class & 2 \\
+
+
+Flask & NA & Framework & 1 \\
+MongoDB & NA & Framework & 1 \\
+
+\hline
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table*}
 \subsection{\textbf{The Pros and Cons}}
 
 We try our best to combine the MVC and Layered Architecture patterns, which brings several advantages to our ICDE application. Meanwhile, the architecture also comes with potential drawbacks.
@@ -202,6 +213,245 @@ In conclusion, applying MVC and layered architecture patterns to the ICDE applic
 form a table given the template below. }
 
 Our development statistics is shown in table\ref{tab1}. 
+
+
+\section{ \textbf{ Unitest Case in White-box Testing}}
+
+The white-box testing in our project is to ensure the correctness of the internal logic, uncover any code-based errors, and verify the completeness of the codebase. On the other hand, white-box testing will also cover critical components of the codebase where precision and accuracy are paramount. Hence, we did some white-box tests based on the Data Analyzing Module.
+
+
+\subsection{ \textbf{ Unitest Case: KNN Analyzer }}
+
+KNN Analyzer is the most essential part in our ICDE system. The correctness of the data calculation is important.
+The unitest case is implemented in the KNNDataAnalayzer\_test\_case() function.
+
+ \textbf{ Input: }
+
+1. The user name 'zhangyulin'.
+
+
+ \textbf{ Tests: }
+
+1. Create an instance of KNN Analyzer.
+
+2. Find the preference data of 'zhangyulin', and further analyze the recommended cities data.
+
+3. Print the recommended cities' names and recommend cities' scores.
+
+ \textbf{ Output: }
+
+1. The first line of the output should be as follows:
+
+['Calgary', 'Halifax', 'Yukon', 'QuebecCity', 'Fredericton']
+
+2. The second line of the output should be as follows:
+
+[101.9, 118.9, 127.3, 128.4, 169.6]
+
+
+
+\subsection{ \textbf{ Unitest Case: Introduction Generator }}
+
+In the data display module, our system transferred the analyzed data in a visible format. In this part, we test the correctness of the calculation in function generate\_preference\_introduction\_test\_case() and generate\_popular\_introduce\_test\_case().
+
+ \textbf{ Input: }
+
+1. The user name 'zhangyulin'.
+
+
+ \textbf{ Tests: }
+
+1. Create an instance of KNN Analyzer.
+
+2. Generate the auto introduction based on the preference data.
+
+3. Generate the auto introduction based on the popular cities' data.
+
+4. Print the recommended introduction and the popular cities' introduction.
+
+ \textbf{ Output: }
+
+1. The first line of the output should be as follows, which is the auto introduction to the recommended data.
+
+Bonjour! According to the psychological testing, the best tourist destination for your is Calgary. Calgary has awsome natural environment (the natural rate is 97), you can release your workload and enjoy yourself. Calgary is also a famous historical city (the historical rate is 45), you can find a great number of interesting history stories here. Calgary is well-known because of her culture (the historical rate is 80), you can meet interesting people here. 
+
+
+2. The second line of the output should be as follows:
+
+In this season, the most popular city is Toronto. 
+
+
+\subsection{ \textbf{ Unitest Case: Unique Database Interface }}
+
+
+In the database interface module, our system provides a series of stable interfaces for the other modules. In this part, we test the correctness of the data access services in function city\_infor\_manager\_test\_case() and user\_preference\_test\_case().
+
+
+ \textbf{ Input: }
+
+1. The city name 'Calgary'.
+
+2. The username 'zhangyulin'.
+
+ \textbf{ Tests: }
+
+1. Access the city's properties based on the city name 'Calgary'.
+
+2. Access the preference data based on the user name 'zhangyulin'.
+
+3. Print the accessed data.
+
+ \textbf{ Output: }
+
+1. The first part of the output is related to the city data, which is shown as follows:
+
+city population: 1988
+
+city metropolis: 34
+
+city mountain: 1
+
+city historical: 45
+
+city humanistic: 80
+
+city natural: 97
+
+
+2. The second part of the output is related to the reference data, which is shown as follows:
+
+user workload preference: 80
+
+user history preference: 80
+
+user nature preference: 100
+
+user noisy preference: 20
+
+user quite preference: 80
+
+user sports preference: 1
+
+
+\section{ \textbf{ Unitest Case in Black-box Testing}}
+
+
+Black-box testing is a software testing method where the internal workings or logic of the system being tested are not known to the tester. Our primary objective of black-box testing in our project is to ensure that the software functions according to its specified requirements and meets the expectations of end-users. So, in this chapter, we discussed some black-box tests in our project.
+
+
+
+\subsection{ \textbf{ Account Module Testing}}
+
+\textbf{ Objective: }
+
+Verify that the user account functionality in our system works as expected.
+
+\textbf{Test Steps: }
+
+Navigate to the Login Page:
+
+(1) Navigate to the login page.
+
+(2) Enter a valid username and password.
+
+(3) Click the "Login" button.
+
+(4) Verify Successful Login.
+
+(5) Ensure that the user is redirected to the home page. Confirm that the user's name is displayed indicating a successful login.
+
+Enter Invalid Credentials:
+
+(1) Enter an invalid username or password.
+
+(2) Click the "Login" button.
+
+(3) Verify Error Message:
+
+(4)Confirm that an appropriate error message is displayed. Ensure the user is not logged in with invalid credentials.
+
+\textbf{Expected Results: }
+
+For valid inputs, the user should be successfully logged in. For invalid inputs, an appropriate error message should be displayed, and the user should not be logged in.
+
+\subsection{ \textbf{ Search Module Testing}}
+
+\textbf{ Objective: }
+
+Verify the correctness and efficiency of the search algorithm in our system.
+
+\textbf{Test Steps: }
+
+(1) Navigate to the Search Hotels page.
+
+(2) Enter the target destination and the check-in/check-out dates.
+
+(3) Click the "Search" button.
+
+(4) Ensure that the hotels' information is the same as the results expected.
+
+\textbf{Expected Results: }
+
+The search algorithm should return accurate results based on the search query. Meanwhile, the search should be performed efficiently under different conditions.
+
+
+
+\subsection{ \textbf{ Data Analyzer Testing}}
+
+\textbf{ Objective: }
+
+Verify the correctness and efficiency of the data analyzing algorithm in our system.
+
+\textbf{Test Steps: }
+
+(1) Navigate to the Questionnaire page.
+
+(2) Enter the preference data according to the questions.
+
+(3) Click the "Submit" button.
+
+(4) Navigate to the Recommendation page.
+
+(4) Ensure that the analyzed data is the same as the results expected.
+
+\textbf{Expected Results: }
+
+The analyzing algorithm should return accurate results based on the user's preference data. Meanwhile, the diagram and introduction should explain the results clearly and directly.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
