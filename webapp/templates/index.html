@@ -79,7 +79,7 @@
             <div>Hotels🏨</div>
             <i class="fas fa-hotel"></i>
           </a>
-          <a id="Tourist_Destinations" href="/recommend_destination" class="activity">
+          <a id="Tourist_Destinations" href="/recommend_destination" class="activity" onclick="return checkUsername();">
             <div>Tourist Destinations📍</div>
             <i class="fas fa-hiking"></i>
           </a>
@@ -166,6 +166,15 @@
                         });
                     });
                 });
+            function checkUsername() {
+                var username = "{{ session.get('username') }}";
+                if (username=== "None") {
+                  alert('Please Login!');
+                  return false;
+                }
+
+                return true;
+              }
 </script>
   </main>
   </body>
