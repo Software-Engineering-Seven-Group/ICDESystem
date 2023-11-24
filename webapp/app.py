@@ -1,8 +1,5 @@
 from app_instance import app
-from register import register_blueprint
-from login import login_blueprint
-from edit_profile import edit_profile_blueprint
-from reset_password import reset_password_blueprint
+from account_module import login_blueprint
 from moments import moments_blueprint
 from questionnaire import questionnaire_api
 from data_displayer import displayer_api
@@ -14,9 +11,6 @@ app.register_blueprint(search_api)
 app.register_blueprint(displayer_api)
 app.register_blueprint(moments_blueprint)
 app.register_blueprint(login_blueprint)
-app.register_blueprint(register_blueprint)
-app.register_blueprint(edit_profile_blueprint)
-app.register_blueprint(reset_password_blueprint)
 app.secret_key = 'your_secret_key'
 "“Homepage, redirect”"
 app.config['MAX_CONTENT_PATH'] = '16 * 1024 * 1024'
